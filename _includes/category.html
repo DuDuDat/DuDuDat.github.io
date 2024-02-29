@@ -2,7 +2,11 @@
 
 	{%- for collection in site.collections -%}
 	<header class="post-header home" id="category-title-{{ collection.label }}">
-		<div class="post-title"><span id='category-name-{{ collection.label }}'>{{ collection.label }}</span></div>
+		<div class="post-title">
+			<span id='category-name-{{ collection.label }}'>
+			{{ collection.label | slice: 0, 1 | upcase }}{{ collection.label | slice: 1, collection.label.size }}
+			</span>
+		</div>
 	</header>
 	<div class="post-content" id="post-content-{{ collection.label }}">
 		<ul id="show-{{ collection.label }}" class="post-list">
@@ -26,7 +30,7 @@
 		if (window.location.hash) {
 			let hash = window.location.hash.substring(1);
 			
-			let titles = $(`.post-header`).each((i, e) => {
+			let titles = $(`.fixed-navbar`).each((i, e) => {
 				if (e.id == `category-title-${hash}`){
 					$(e).show();	
 				}else{

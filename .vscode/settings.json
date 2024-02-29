@@ -9,7 +9,7 @@
       "404.html": true,
       ".gitignore": true,
       "index.md": true,
-      "**/public": true,
+      
     }
   }
   
