@@ -1,0 +1,15 @@
+{
+    "files.exclude": {
+      "**/.idea": true,
+      "**/_site": true,
+      "**/.jekyll-cache": true,
+      "category.md": true,
+      "Gemfile": true,
+      "Gemfile.lock": true,
+      "404.html": true,
+      ".gitignore": true,
+      "index.md": true,
+      "**/public": true,
+    }
+  }
+  

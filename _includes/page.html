@@ -1,0 +1,21 @@
+<!-- 인덱스 홈 페이지 -->
+<article class="post">
+	page.html<br />
+	{% for collection in site.collections %}
+	{{collection.label}} <br />
+	{% for item in collection.docs %}
+	{{item.url}}<br />
+	{{item.category}}<br />
+	{{item.date}}<br />
+	{% endfor %}
+	{% endfor %}
+	<header class="post-header home">
+		<div class="post-title"> 
+			{{ page.title | escape }}
+		</div>
+	</header>
+
+	<div class="post-content">
+		{{ content }}
+	</div>
+</article>
