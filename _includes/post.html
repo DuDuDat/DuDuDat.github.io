@@ -1,43 +1,33 @@
 <!-- 포스트 제목 -->
 <article class="post">
 	<header class="post-header">
-		<div class="post-title"> 
-			{{ page.title | escape }}
-		</div>
+		<div class="post-title">{{ page.title | escape }}</div>
 		<time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
 			{%- assign date_format = site.date_forma | default: "%Y/%m/%d %H:%M" -%}
 			{{ page.date | date: date_format }}
-		</time>		
-		
+		</time>
 	</header>
-
 	<div class="flex-container">
-		<div class="post-content">
-			{{ content }}
-		</div>
+		<div class="post-content">{{ content }}</div>
 		<div class="post-nav">
-			<div class="fixed-nav">
-				{% include post-navbar.html %}
-			</div>
+			<div class="fixed-nav">{% include post-navbar.html %}</div>
 		</div>
 	</div>
 </article>
 
 <script>
-  
+
 	window.addEventListener('load', adjustFixedNavHeight);
 	window.addEventListener('resize', adjustFixedNavHeight);
 
 	function adjustFixedNavHeight() {
 		let postNav = document.querySelector('.post-nav');
-	  let fixedNav = document.querySelector('.fixed-nav');
-	  let viewportHeight = window.innerHeight;
-	  let fixedNavTop = fixedNav.getBoundingClientRect().top;
-  
-	  // 뷰포트 높이에서 fixed-nav의 상단 위치를 빼서 높이를 계산합니다.
-	  let newHeight = viewportHeight - fixedNavTop - 80;
-	  fixedNav.style.height = newHeight + 'px';
-	  fixedNav.style.width = postNav.offsetWidth + 'px'
+		let fixedNav = document.querySelector('.fixed-nav');
+		let viewportHeight = window.innerHeight;
+		let fixedNavTop = fixedNav.getBoundingClientRect().top;
+		let newHeight = viewportHeight - fixedNavTop - 80;
+
+		fixedNav.style.height = newHeight + 'px';
+		fixedNav.style.width = postNav.offsetWidth + 'px'
 	}
 </script>
-  

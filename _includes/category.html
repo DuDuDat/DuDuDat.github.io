@@ -1,60 +1,49 @@
 <article class="post">
-
 	{%- for collection in site.collections -%}
-	<header class="post-header home" id="category-title-{{ collection.label }}">
-		<div class="post-title">
-			<span id='category-name-{{ collection.label }}'>
-			{{ collection.label | slice: 0, 1 | upcase }}{{ collection.label | slice: 1, collection.label.size }}
-			</span>
-		</div>
-	</header>
-	<div class="post-content" id="post-content-{{ collection.label }}">
+	<div class="post-info" id="category-title-{{ collection.label }}">
+		<header class="post-header home">
+			<div class="post-title">
+				<span id='category-name-{{ collection.label }}'>
+					{{ collection.label | slice: 0, 1 | upcase }}{{ collection.label | slice: 1, collection.label.size
+					}}
+				</span>
+			</div>
+		</header>
 		<ul id="show-{{ collection.label }}" class="post-list">
 			{%- for post in collection.docs -%}
 			<li class="post-list-item post-category-{{ collection.label }}">
 				{%- assign date_format = "%Y/%m/%d" -%}
 				<span class="post-date">{{ post.date | date: date_format }}</span>
-				<a class="post-link" href="{{ post.url | relative_url }}">	
+				<a class="post-link" href="{{ post.url | relative_url }}">
 					{{ post.title | escape }}
-				</a>								
+				</a>
 			</li>
-		  	{%- endfor -%}
+			{%- endfor -%}
 		</ul>
 	</div>
-	{%- endfor -%}
+	{%- endfor -%}	
 </article>
 
 <script src="/public/js/jquery-3.4.1.slim.min.js"></script>
 <script>
-	function removeCategory() {
-		if (window.location.hash) {
-			let hash = window.location.hash.substring(1);
-			
-			let titles = $(`.fixed-navbar`).each((i, e) => {
-				if (e.id == `category-title-${hash}`){
-					$(e).show();	
-				}else{
-					$(e).hide();
-				}			
-			})
-			let items = $('.post-content').each((i, e) => {
-				if (e.id == `post-content-${hash}`) {
-					$(e).show();
-				} else {					
-					$(e).hide();
-				}
-			});			
-
-		}
-		else{ // Categories
-			
-		}
-	}
 	$(window).on('hashchange', () => {
 		removeCategory();
 	});
 	$(document).ready(() => {
-		removeCategory();	
+		removeCategory();
 	})
-	
+
+	function removeCategory() {
+		if (window.location.hash) {
+			let hash = window.location.hash.substring(1);
+
+			let titles = $(`.post-info`).each((i, e) => {
+				if (e.id == `category-title-${hash}`) {
+					$(e).show();
+				} else {
+					$(e).hide();
+				}
+			})
+		}
+	}
 </script>

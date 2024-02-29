@@ -22,9 +22,7 @@
 	    {% if node.title != null %}
 	      {% if node.layout == "page" %}
 	        <li>
-	        	<a class="nav-item" href="{{ node.url }}">
-	            	{{ node.title }}
-	            </a>
+	        	<a class="nav-item" href="{{ node.url }}">{{ node.title }}</a>
 	        </li>
 	      {% endif %}
 	    {% endif %}
@@ -35,9 +33,7 @@
 <div class="sidebar-item sidebar-nav">
   	<ul class="nav">
 			<li class="nav-title">		
-				<a href="{{root_url}}/category">
-					Categories
-				</a>
+				<a href="{{root_url}}/category">Categories</a>
 			</li>
 		{% for collection in site.collections %}	    
 	    <li>
