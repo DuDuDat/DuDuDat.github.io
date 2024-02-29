@@ -1,11 +1,10 @@
 <article class="post">
-	<header class="post-header home">
-		<div class="post-title"><span id='category-name'></span></div>
+
+	{%- for collection in site.collections -%}
+	<header class="post-header home" id="category-title-{{ collection.label }}">
+		<div class="post-title"><span id='category-name-{{ collection.label }}'>{{ collection.label }}</span></div>
 	</header>
-	
-	<div class="post-content">
-		
-		{%- for collection in site.collections -%}
+	<div class="post-content" id="post-content-{{ collection.label }}">
 		<ul id="show-{{ collection.label }}" class="post-list">
 			{%- for post in collection.docs -%}
 			<li class="post-list-item post-category-{{ collection.label }}">
@@ -17,10 +16,8 @@
 			</li>
 		  	{%- endfor -%}
 		</ul>
-
-		{%- endfor -%}
-
 	</div>
+	{%- endfor -%}
 </article>
 
 <script src="/public/js/jquery-3.4.1.slim.min.js"></script>
@@ -28,17 +25,25 @@
 	function removeCategory() {
 		if (window.location.hash) {
 			let hash = window.location.hash.substring(1);
-			// <input type="hide" id="{{ collection.label }}" class="collection-label" />
-
-			$('#category-name').text(hash.substring(0, 1).toUpperCase() + hash.substring(1));
-			let category_class = '.post-category-' + hash;
-			let items = $('.post-list-item').each((i, e) => {
-				if (!$(e).hasClass('post-category-' + hash)) {
+			
+			let titles = $(`.post-header`).each((i, e) => {
+				if (e.id == `category-title-${hash}`){
+					$(e).show();	
+				}else{
 					$(e).hide();
-				} else {
+				}			
+			})
+			let items = $('.post-content').each((i, e) => {
+				if (e.id == `post-content-${hash}`) {
 					$(e).show();
+				} else {					
+					$(e).hide();
 				}
-			});
+			});			
+
+		}
+		else{ // Categories
+			
 		}
 	}
 	$(window).on('hashchange', () => {
