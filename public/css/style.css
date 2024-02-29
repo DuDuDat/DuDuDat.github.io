@@ -348,10 +348,6 @@ footer {
 		display: none;
 	}
 
-	/*  추가  */
-	.post-nav {
-		display: none;
-	}
 }
 
 /*  추가  */
@@ -374,7 +370,8 @@ footer {
 	position: fixed;
 	top: 28%;
 	overflow-y: auto;
-	padding: 20px;
+	padding-left: 10px;
+	padding-right: 3px;
 }
 
 .fixed-nav::-webkit-scrollbar {
@@ -393,3 +390,9 @@ footer {
 	background: #888; /* 스크롤바 썸에 마우스를 올렸을 때의 배경색 */
   }
   
+
+  @media (max-width: 1200px) {
+	.post-nav {
+		display: none;
+	}
+  }
