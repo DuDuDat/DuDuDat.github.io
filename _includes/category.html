@@ -28,7 +28,7 @@
 							<textarea id="desc-hidden-{{id}}" class="post-desc" readonly>{{ post.content }}</textarea>							
 						</div>
 						{%- assign date_format = "%Y/%m/%d" -%}
-						<div class="post-date">{{ post.date | date: daㄴte_format }}</div>    				
+						<div class="post-date">{{ post.date | date: date_format }}</div>    				
   					</li>
 					  <div class="flex-margin"> </div>
 			{%- assign id = id | plus: 1 -%}
