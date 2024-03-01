@@ -218,7 +218,6 @@ article .share .gplus:hover {
 article {
 	padding: 0 5% 0;
 	font-size: 17px;
-	margin-bottom: 100px;
 	line-height: 1.9;
 }
 
@@ -273,7 +272,7 @@ header.home {
 	text-align: left;
 }
 
-.post-title {
+.category-title {
 	font-size: 1.5em;
 	color: #111;
 	font-weight: bold;
@@ -281,7 +280,7 @@ header.home {
 
 .post-date {
 	text-transform: uppercase;
-	color: #555;
+	color: #707070;
 	letter-spacing: 1px;
 	font-size: 0.8em;
 	display: inline-block;
@@ -350,15 +349,35 @@ footer {
 
 }
 
-/*  추가  */
-
 .flex-container {
 	display: flex;
 }
 
-.post-content{
+.post-contents {
 	flex: 4;
 	padding-right: 3%;
+}
+
+.post-title, .category-content {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 1200px;
+}
+
+.post-title {
+	position: relative;
+	color:#292929;
+	font-size: 1.2em;
+}
+
+.post-list-item:hover .post-title {
+	text-decoration: underline;
+	color: #007bff;
+}  
+
+.category-content {
+	color:#555
 }
 
 .post-nav {
@@ -389,10 +408,74 @@ footer {
   .fixed-nav::-webkit-scrollbar-thumb:hover {
 	background: #888; /* 스크롤바 썸에 마우스를 올렸을 때의 배경색 */
   }
-  
+
+  .post-list {
+	list-style-type: none;
+  }
+
+  .post-list-item {
+	margin-bottom: 1.7em;
+	cursor: pointer;
+  } 
 
   @media (max-width: 1200px) {
 	.post-nav {
 		display: none;
 	}
   }
+
+  /*  추가  */
+@media (min-width: 1050px) {
+	.post-list {
+		display: flex;
+	}
+	
+	.flex-margin {
+		flex: 1;
+		background: white;
+	}
+
+	.post-list-item, .post-list-item-none {
+		flex: 15;
+		margin-bottom: 30px;
+		padding: 20px 6px;		
+	}
+
+	.post-list-item:first-child {
+		margin-left: 0;
+	}
+
+	.category-content {
+		display: -webkit-box;
+		margin: 10px 0 3px;
+		white-space: normal;
+		-webkit-line-clamp: 5;
+  		-webkit-box-orient: vertical;  
+		line-height: 1.9em;
+		height: 7.6em;
+	}
+}
+
+.post-navigation {
+	display: flex;
+}
+
+.pre-post, .next-post {
+	flex: 1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.next-post {
+	text-align: right;
+}
+
+.pre-post a, .next-post a {
+	color:rgba(90, 90, 90, 1);
+	font-weight: bold;
+}
+
+.post-content {
+	margin-bottom: 50px;
+}

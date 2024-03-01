@@ -1,14 +1,33 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
 <!-- 포스트 제목 -->
 <article class="post">
 	<header class="post-header">
-		<div class="post-title">{{ page.title | escape }}</div>
+		<div class="category-title">{{ page.title | escape }}</div>
 		<time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
 			{%- assign date_format = site.date_forma | default: "%Y/%m/%d %H:%M" -%}
 			{{ page.date | date: date_format }}
 		</time>
 	</header>
 	<div class="flex-container">
-		<div class="post-content">{{ content }}</div>
+		<div class="post-contents">
+			<div class="post-content">
+				{{ content }}
+			</div>
+			<div class="post-navigation">
+				{% if page.previous %}
+				<div class="pre-post">
+					<a href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title | escape }}"><i class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp; {{ page.previous.title | escape }}</a>
+				</div>				
+				{% endif %}				
+
+				{% if page.next %}
+				<div class="next-post">
+					<a href="{{ page.next.url | relative_url }}" title="{{ page.next.title | escape }}">{{ page.next.title | escape }}&nbsp;&nbsp; <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				{% endif %}
+			</div>
+		</div>
 		<div class="post-nav">
 			<div class="fixed-nav">{% include post-navbar.html %}</div>
 		</div>
@@ -16,7 +35,6 @@
 </article>
 
 <script>
-
 	window.addEventListener('load', adjustFixedNavHeight);
 	window.addEventListener('resize', adjustFixedNavHeight);
 
