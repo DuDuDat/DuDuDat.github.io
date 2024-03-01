@@ -368,7 +368,7 @@ footer {
 .post-title {
 	position: relative;
 	color:#292929;
-	font-size: 1.2em;
+	font-weight: bold;
 }
 
 .post-list-item:hover .post-title {
@@ -478,4 +478,8 @@ footer {
 
 .post-content {
 	margin-bottom: 50px;
+}
+
+.post-desc {
+	display: none;
 }

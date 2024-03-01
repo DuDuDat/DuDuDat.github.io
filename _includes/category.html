@@ -24,9 +24,11 @@
   					<li id="post-list-{{ id }}" class="post-list-item">    								
 						<!-- {{ post.url | relative_url }} -->
 						<div class="post-title">{{ post.title }}</div>
-						<div class="category-content">내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내내용내용내용내용내용내용내</div>
+						<div id="post-desc-{{id}}" class="category-content">
+							<textarea id="desc-hidden-{{id}}" class="post-desc" readonly>{{ post.content }}</textarea>							
+						</div>
 						{%- assign date_format = "%Y/%m/%d" -%}
-						<div class="post-date">{{ post.date | date: date_format }}</div>    				
+						<div class="post-date">{{ post.date | date: daㄴte_format }}</div>    				
   					</li>
 					  <div class="flex-margin"> </div>
 			{%- assign id = id | plus: 1 -%}
@@ -52,12 +54,13 @@
 	});
 	$(document).ready(() => {
 		removeCategory();
+		postContent()
 
 		$('.post-list-item').click(function() {
 			let no = this.id.split('-')[2]
 			let url_id = `url-${no}`
 			window.location.href = $(`#${url_id}`).val()
-		})
+		})		
 	})
 
 	function removeCategory() {
@@ -72,5 +75,14 @@
 				}
 			})
 		}
+	}
+
+	function postContent() {
+		$('.post-desc').each((i, e) => {
+			let no = e.id.split('-')[2]
+			let htmlContent = $(`#desc-hidden-${no}`).val();	
+			let textContent = $('<div>').html(htmlContent).text();
+			$(`#post-desc-${no}`).html(textContent)
+		})		
 	}
 </script>
