@@ -56,7 +56,8 @@ livereload: true
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-
+kramdown:
+  auto_ids: true
 
 collections:
   newone:

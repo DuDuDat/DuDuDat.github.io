@@ -17,7 +17,7 @@
       "**/public/js":true,
       "**/public/img":true,
       "**/public/css/syntax":true,
-      "_includes/default.html":true,
+      
     }
   }
   

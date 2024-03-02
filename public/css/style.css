@@ -97,10 +97,8 @@ code {
 	flex-flow: row nowrap;
 }
 
-.content {
-	/*margin-left: 180px;*/
+.content {	  
 	flex: 1 1 auto;
-	padding: 0px 30px;
 }
 
 .sidebar {
@@ -216,7 +214,7 @@ article .share .gplus:hover {
 }
 
 article {
-	padding: 0 5% 0;
+	padding: 0 6% 0;
 	font-size: 17px;
 	line-height: 1.9;
 }
@@ -309,15 +307,12 @@ footer {
 }
 
 
-@media (max-width: 576px) {
+@media (max-width: 950px) {
 	article {
 		font-size: 0.9em;
 		line-height: 1.5;
 	}
 
-	.content {
-		padding: 0px;
-	}
 	.container {
 	    flex-direction: column;
 	}
@@ -345,7 +340,7 @@ footer {
 		flex: 0 0 0px;
 		visibility: hidden;
 		display: none;
-	}
+	}	
 
 }
 
@@ -353,9 +348,21 @@ footer {
 	display: flex;
 }
 
+.post-left-margin, .post-nav {
+	position: relative;
+	width: 10%;
+}
+
+.custom-post-header {
+	width: 80%;
+	margin: 0 auto;
+}
+
 .post-contents {
-	flex: 4;
-	padding-right: 3%;
+	width: 80%;
+	word-wrap: break-word; /* 오래된 브라우저 호환성을 위해 */
+  	overflow-wrap: break-word; /* 표준 속성 */
+	padding-bottom: 30px;
 }
 
 .post-title, .category-content {
@@ -380,17 +387,10 @@ footer {
 	color:#555
 }
 
-.post-nav {
-	position: relative;
-	flex: 1;
-}
-
 .fixed-nav{
 	position: fixed;
 	top: 28%;
 	overflow-y: auto;
-	padding-left: 10px;
-	padding-right: 3px;
 }
 
 .fixed-nav::-webkit-scrollbar {
@@ -425,29 +425,21 @@ footer {
   }
 
   /*  추가  */
-@media (min-width: 1050px) {
-	.post-list {
+@media (min-width: 1100px) {
+	.post-list {		
 		display: flex;
-	}
-	
-	.flex-margin {
-		flex: 1;
-		background: white;
+		
 	}
 
 	.post-list-item, .post-list-item-none {
-		flex: 15;
+		width: 25%;
 		margin-bottom: 30px;
-		padding: 20px 6px;		
-	}
-
-	.post-list-item:first-child {
-		margin-left: 0;
+		padding: 20px 2em;		
 	}
 
 	.category-content {
 		display: -webkit-box;
-		margin: 10px 0 3px;
+		margin: 1.2em 0 1.1em;
 		white-space: normal;
 		-webkit-line-clamp: 5;
   		-webkit-box-orient: vertical;  
@@ -482,4 +474,28 @@ footer {
 
 .post-desc {
 	display: none;
+}
+
+#post-nav-container {
+	width: 100%;
+}
+
+.post-nav-item {
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;	
+	text-overflow: ellipsis;
+	padding-left: 2em;
+}
+
+.post-nav-item:hover {
+	cursor: pointer;
+	text-decoration: underline;
+	color: #007bff
+}
+.post-nav-item-2 {
+	padding-left: 2.8em;
+}
+.post-nav-item-3 {
+	padding-left: 3.6em;
 }

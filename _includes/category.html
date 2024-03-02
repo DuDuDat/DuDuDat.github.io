@@ -19,8 +19,7 @@
     			{%- if count > 0 -%}</ul>{%- endif -%}
     			<ul id="show-{{ collection.label }}-{{ count | divided_by: 3 }}" class="post-list">
   			{%- endif -%}			  
-					<input type="hidden" value="{{ post.url | relative_url }}" id="url-{{ id }}" class="post-url" />
-					<div class="flex-margin"> </div>
+					<input type="hidden" value="{{ post.url | relative_url }}" id="url-{{ id }}" class="post-url" />					
   					<li id="post-list-{{ id }}" class="post-list-item">    								
 						<!-- {{ post.url | relative_url }} -->
 						<div class="post-title">{{ post.title }}</div>
@@ -29,15 +28,14 @@
 						</div>
 						{%- assign date_format = "%Y/%m/%d" -%}
 						<div class="post-date">{{ post.date | date: date_format }}</div>    				
-  					</li>
-					  <div class="flex-margin"> </div>
+  					</li>					  
 			{%- assign id = id | plus: 1 -%}
   			{%- assign count = count | plus: 1 -%}
   			{%- if forloop.last -%}			
 			  	{%- if count | modulo: 4 != 0 -%}	
 				  {%- assign last = count | modulo: 4 -%}
 				  {%- for i in (last..3) -%}
-				  <div class="flex-margin"></div><li class="post-list-item-none"> </li><div class="flex-margin"> </div>
+				  <li class="post-list-item-none"></li>
 				  {%- endfor -%}		
 				{%- endif -%}	
 				</ul>
@@ -47,7 +45,6 @@
 	{%- endfor -%}	
 </article>
 
-<script src="/public/js/jquery-3.4.1.slim.min.js"></script>
 <script>
 	$(window).on('hashchange', () => {
 		removeCategory();

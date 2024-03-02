@@ -3,8 +3,24 @@
   {%- include head.html -%}
   <style>@import url(/public/css/syntax/{{ site.highlighter-theme }}.css);</style>
   <title>{{ site.title }}</title>
-  <!-- <link href="/public/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+	$(document).ready(setContentWidth)
+	$(window).resize(setContentWidth)
+	function setContentWidth() {
+		let sidebarWidth = $('.sidebar').outerWidth(true);
 
+		if (sidebarWidth == 220) {
+			let contentWidth = $(window).innerWidth() - sidebarWidth - 17 // 17 : 세로 스크롤바 너비
+			$('.content').css('width', contentWidth + 'px');
+		}else {
+			let contentWidth = $(window).innerWidth() - 17 // 17 : 세로 스크롤바 너비
+			$('.content').css('width', contentWidth + 'px');
+		}
+		
+	}
+</script>
   <link href="{{root_url}}/public/css/style.css" rel="stylesheet">
   <body>
   	<div class="container"> 
@@ -13,7 +29,7 @@
 		</div>
 		<div class="content">
 			{{ content }}
-		</div>
+		</div>	
 	</div>
   </body>
 </html>

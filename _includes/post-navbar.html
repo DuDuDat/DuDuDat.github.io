@@ -1,1 +1,24 @@
-꺄아아아아아아아아아아아아아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />꺄아아아아<br />
+<div id="post-nav-container"></div>
+
+<script>  
+        $(document).ready(function () {
+            $('h1, h2, h3').each(function (index) {
+                let headerId = `header-${index}`                
+                $(this).attr('id', 'header-' + index);
+
+                let indentCount = this.tagName.replace('H', '')
+                
+                let navItem = $('<span></span>').addClass('post-nav-item').addClass(`post-nav-item-${indentCount}`).html($(this).text())
+
+                navItem.css('width', ($('.post-nav').width()) + 'px')
+
+                navItem.on('click', function(e) {                    
+                    $('html, body').animate({
+                        scrollTop: $(`#${headerId}`).offset().top - 10
+                    }, 500)
+                })
+                
+                $('#post-nav-container').append(navItem).append('<br />')
+            });          
+        });
+</script>
