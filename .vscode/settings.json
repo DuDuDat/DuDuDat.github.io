@@ -1,7 +1,7 @@
 {
     "files.exclude": {
       "**/.idea": true,
-      
+      "**/_site": true,
       "**/.jekyll-cache": true,
       "category.md": true,
       "Gemfile": true,
@@ -16,6 +16,7 @@
       "_includes/social.html":true,
       "**/public/js":true,
       "**/public/img":true,
+      "**/public/css/syntax":true,
       "**/_layouts": true
     }
   }
