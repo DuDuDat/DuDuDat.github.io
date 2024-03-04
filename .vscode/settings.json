@@ -4,7 +4,7 @@
       "**/_site": true,
       "**/.jekyll-cache": true,
       "category.md": true,
-    
+      "Gemfile": true,
       "Gemfile.lock": true,
       "404.html": true,
       ".gitignore": true,
@@ -16,7 +16,6 @@
       "_includes/social.html":true,
       "**/public/js":true,
       "**/public/img":true,
-      "**/public/css/syntax":true,
       "**/_layouts": true
     }
   }
