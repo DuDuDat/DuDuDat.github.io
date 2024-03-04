@@ -1,7 +1,7 @@
 {
     "files.exclude": {
       "**/.idea": true,
-      "**/_site": true,
+      
       "**/.jekyll-cache": true,
       "category.md": true,
       "Gemfile": true,
