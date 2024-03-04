@@ -60,9 +60,6 @@ kramdown:
   auto_ids: true
 
 collections:
-  newone:
+  project:
     output: true
-    permalink: /newone/:path/
-  korean:
-    output: true
-    permalink: /korean/:path/
+    permalink: /project/:path/

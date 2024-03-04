@@ -6,8 +6,7 @@
                 let headerId = `header-${index}`                
                 $(this).attr('id', 'header-' + index);
 
-                let indentCount = this.tagName.replace('H', '')
-                
+                let indentCount = this.tagName.replace('H', '')                
                 let navItem = $('<span></span>').addClass('post-nav-item').addClass(`post-nav-item-${indentCount}`).html($(this).text())
 
                 navItem.css('width', ($('.post-nav').width()) + 'px')

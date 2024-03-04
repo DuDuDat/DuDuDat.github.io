@@ -1,6 +1,7 @@
 <article class="post">
 	{%- assign id = 0 -%}
 	{%- for collection in site.collections -%}
+	{% if collection.label == 'posts' %}{% continue %}{% endif %}
 	<div class="post-info" id="category-title-{{ collection.label }}">
 		<header class="post-header home">
 			<div class="category-title">

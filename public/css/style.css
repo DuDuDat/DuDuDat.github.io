@@ -79,8 +79,8 @@ pre {
 	display: block;
 	overflow: auto;
 	margin-bottom: 15px;
-	padding-bottom: 10px;
-	padding: 5px;
+	padding: 5px 13px;
+	padding-bottom: 20px;
 	line-height: 1.2;
 }
 
@@ -262,7 +262,6 @@ article.home h4 a:hover {
 
 header.post-header {
 	padding: 50px 0px 10px 0px;
-	margin-bottom: 30px;
 	border-bottom: 1px solid #ccc;
 }
 
@@ -307,7 +306,7 @@ footer {
 }
 
 
-@media (max-width: 950px) {
+@media (max-width: 800px) {
 	article {
 		font-size: 0.9em;
 		line-height: 1.5;
@@ -359,10 +358,43 @@ footer {
 }
 
 .post-contents {
+	line-height: 1;
 	width: 80%;
 	word-wrap: break-word; /* 오래된 브라우저 호환성을 위해 */
   	overflow-wrap: break-word; /* 표준 속성 */
+	white-space: pre-wrap;
 	padding-bottom: 30px;
+	font-size: 1.1em;
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 1em;		
+		padding-left: 1em;
+		margin: 0;		
+
+		li {
+			white-space: normal;
+			line-height: 1.2;
+		}
+
+		.sub-block { 
+			padding: 1em;	
+			border-radius: 0.3em;
+			background-color: rgba(150, 150, 150, 0.05);
+			border: 1px solid rgba(150, 150, 150, 1);
+		}		
+	}
+
+	ul > li {
+		line-height: 3;
+	}
+
+	enter {
+		height: 1em;
+		display: block;
+	}
 }
 
 .post-title, .category-content {
@@ -427,8 +459,7 @@ footer {
   /*  추가  */
 @media (min-width: 1100px) {
 	.post-list {		
-		display: flex;
-		
+		display: flex;		
 	}
 
 	.post-list-item, .post-list-item-none {
@@ -485,17 +516,18 @@ footer {
 	overflow: hidden;
 	white-space: nowrap;	
 	text-overflow: ellipsis;
-	padding-left: 2em;
+	padding-left: 1em;
+	text-decoration: underline;
+	color: #808080;
 }
 
 .post-nav-item:hover {
 	cursor: pointer;
-	text-decoration: underline;
 	color: #007bff
 }
 .post-nav-item-2 {
-	padding-left: 2.8em;
+	padding-left: 1.4em;
 }
 .post-nav-item-3 {
-	padding-left: 3.6em;
+	padding-left: 1.8em;
 }

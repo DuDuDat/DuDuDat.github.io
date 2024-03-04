@@ -36,6 +36,7 @@
 				<a href="{{root_url}}/category">Categories</a>
 			</li>
 		{% for collection in site.collections %}	    
+		{% if collection.label == 'posts' %}{% continue %}{% endif %}
 	    <li>
 			<a class="nav-item" href="{{ root_url }}/{{ site.category_dir }}#{{ collection.label }}">
 				<span class="name">{{ collection.label }}</span>					
