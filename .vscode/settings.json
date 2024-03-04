@@ -4,7 +4,7 @@
       "**/_site": true,
       "**/.jekyll-cache": true,
       "category.md": true,
-      "Gemfile": true,
+    
       "Gemfile.lock": true,
       "404.html": true,
       ".gitignore": true,
