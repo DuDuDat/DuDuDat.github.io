@@ -19,7 +19,9 @@ date: 2024-03-04 15:13:23 +0900
   - **Serp API - Google Shopping API**
     - [https://app.valueserp.com/playground](https://app.valueserp.com/playground)
     - 이메일 인증 가입 (처음 100회 요청에 대한 무료 체험을 제공, 신용카드 정보가 필요없고 언제든 취소 가능)
-    - 한 번 요청할 때 5 페이지까지 가능(5 페이지당 84 ~ 100개)
+    - 한 번 요청할 때 5 페이지까지 가능 대량의 데이터를 가져오기에 용이함(5 페이지당 84 ~ 100개)
+    - 브랜드는 제품명에 포함되어 있기는 하나 데이터 처리가 까다로울 것으로 예상
+    - 스펙을 일률적으로 가져오지 못함
     - 실제 요청한 제품 데이터 예시<enter><enter/>
     ```shell
     {
@@ -59,6 +61,8 @@ date: 2024-03-04 15:13:23 +0900
     - [https://rapidapi.com/letscrape-6bRBa3QguO5/api/real-time-product-search/pricing](https://rapidapi.com/letscrape-6bRBa3QguO5/api/real-time-product-search/pricing)
     - 페이지 당 29개
     - 스펙과 리뷰는 제품 하나씩 따로 요청이 필요
+    - 스펙 정보가 일률적 다만 대량의 데이터를 가져오기 위해선 결제 필요(가성비는 Amazon이 더 좋은 거 같습니다.)
+    - 별점, 리뷰수, 상세 스펙이 포함되어 있으며 스펙 항목이 나뉘어져 있어 데이터 처리가 용이할 것으로 보입니다.
     - 기본 100번 Hard Limit
     - 페이지 당 가져오는 제품 데이터 예시 <enter><enter/>
     ```shell
@@ -83,6 +87,9 @@ date: 2024-03-04 15:13:23 +0900
     - [https://rapidapi.com/opus-serve-opus-serve-default/api/amazon-product-data6/pricing](https://rapidapi.com/opus-serve-opus-serve-default/api/amazon-product-data6/pricing)
     - 페이지 당 15개? 추가 요금 가능성 있음 기본 20번
     - 스펙과 리뷰는 제품 하나씩 따로 요청이 필요 
+    - 스펙 정보가 일률적 다만 대량의 데이터를 가져오기 위해선 결제 필요
+    - 상세 스펙이 나뉘어져 있으며 Real-Time Product Search보다 더 세세한 항목이 많음
+    - 리뷰는 별개 요청 필요
     - 페이지 당 가져오는 제품 데이터 예시 <enter><enter/>
     ```shell
     {
