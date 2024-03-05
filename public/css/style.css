@@ -262,7 +262,6 @@ article.home h4 a:hover {
 
 header.post-header {
 	padding: 50px 0px 10px 0px;
-	border-bottom: 1px solid #ccc;
 }
 
 header.home {
@@ -273,14 +272,16 @@ header.home {
 	font-size: 1.5em;
 	color: #111;
 	font-weight: bold;
+	border-bottom: 1px solid #ccc;
 }
 
 .post-date {
 	text-transform: uppercase;
 	color: #707070;
 	letter-spacing: 1px;
-	font-size: 0.8em;
+	font-size: 0.55em;
 	display: inline-block;
+	font-weight: normal;
 }
 
 .author .author-image {
@@ -499,22 +500,33 @@ footer {
 
 .post-navigation {
 	display: flex;
-}
 
-.pre-post, .next-post {
-	flex: 1;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
+	.pre-post, .next-post {
+		display: flex;
+		width: 50%;
+	}
 
-.next-post {
-	text-align: right;
-}
+	.pre-post a, .next-post a {
+		color:rgba(90, 90, 90, 1);
+		font-weight: bold;
+		display: flex;
+		width: 100%;
+	}
 
-.pre-post a, .next-post a {
-	color:rgba(90, 90, 90, 1);
-	font-weight: bold;
+	.post-pagination {
+		display: inline-block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		flex: 1;
+	}
+
+	.next-post {
+		text-align: right;
+	}
+	i {
+		display: inline-block;
+	}
 }
 
 .post-content {
@@ -548,4 +560,19 @@ footer {
 }
 .post-nav-item-3 {
 	padding-left: 1.8em;
+}
+
+.custom-post-title, .post-date {
+	line-height: 0.6em;
+}
+.custom-post-title {
+	padding: 1.2em 0 0;
+}
+
+.custom-category-header {
+	margin-bottom: 1em;
+}
+
+.invisible {
+	visibility: hidden;
 }

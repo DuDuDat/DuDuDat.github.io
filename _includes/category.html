@@ -3,7 +3,7 @@
 	{%- for collection in site.collections -%}
 	{% if collection.label == 'posts' %}{% continue %}{% endif %}
 	<div class="post-info" id="category-title-{{ collection.label }}">
-		<header class="post-header home">
+		<header class="post-header home custom-category-header">
 			<div class="category-title">
 				<span id='category-name-{{ collection.label }}'>
 					{{ collection.label | slice: 0, 1 | upcase }}{{ collection.label | slice: 1, collection.label.size }}

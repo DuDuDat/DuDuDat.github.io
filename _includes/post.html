@@ -43,28 +43,31 @@
 </script>
 <article class="post">
 	<header class="post-header custom-post-header">
-		<div class="category-title">{{ page.title | escape }}</div>
-		<time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-			{%- assign date_format = site.date_forma | default: "%Y/%m/%d %H:%M" -%}
-			{{ page.date | date: date_format }}
-		</time>
+		<div class="category-title">
+			<div class="custom-post-title">{{ page.title | escape }}</div>
+			<time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+				{%- assign date_format = site.date_forma | default: "%Y/%m/%d %H:%M" -%}
+				{{ page.date | date: date_format }}
+			</time>
+		</div>
 	</header>
 	<div class="flex-container">
 		<div class="post-left-margin"></div>
 		<div class="post-contents">
 			<div class="post-content">{{ content }}</div>
 			<div class="post-navigation">
-				{% if page.previous %}
-				<div class="pre-post">
-					<a href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title | escape }}"><i class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp; {{ page.previous.title | escape }}</a>
-				</div>				
-				{% endif %}				
-
-				{% if page.next %}
-				<div class="next-post">
-					<a href="{{ page.next.url | relative_url }}" title="{{ page.next.title | escape }}">{{ page.next.title | escape }}&nbsp;&nbsp; <i class="fa-solid fa-arrow-right"></i></a>
+				{% assign previous = '' %}
+				{% if page.previous == nil %}{% assign previous = 'invisible' %}{% endif %}
+				<div class="pre-post {{ previous }}">
+					<a href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title | escape }}"><i class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp; <span class="post-pagination">{{ page.previous.title | escape }}</span></a>
 				</div>
-				{% endif %}
+
+				{% assign next = '' %}
+				{% if page.next == nil %}{% assign next = 'invisible' %}{% endif %}
+				<div class="next-post {{ next }}">
+					<a href="{{ page.next.url | relative_url }}" title="{{ page.next.title | escape }}"><span class="post-pagination">{{ page.next.title | escape }}</span>&nbsp;&nbsp; <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+
 			</div>
 		</div>
 		<div class="post-nav">
@@ -72,14 +75,3 @@
 		</div>
 	</div>
 </article>
-
-<script>
-// $(document).ready(() => {	
-	
-// 	$('.post-content').each(function() {
-// 		var text = $(this).html(); // 현재 요소의 텍스트를 가져옵니다.
-//     var updatedText = text.replace(/\n\n/g, "<br />"); // \n을 "카아"로 대체합니다.
-//     $(this).html(updatedText); // 변경된 텍스트를 현재 요소에 설정합니다.	
-// 	})
-// })
-</script>
