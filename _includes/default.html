@@ -9,13 +9,17 @@
 	$(document).ready(setContentWidth)
 	$(window).resize(setContentWidth)
 	function setContentWidth() {
+		let scrollbarWidth = 17
+		if ($(window).width() <= 800){
+			scrollbarWidth = 0
+		}
 		let sidebarWidth = $('.sidebar').outerWidth(true);
 
 		if (sidebarWidth == 220) {
-			let contentWidth = $(window).innerWidth() - sidebarWidth - 17 // 17 : 세로 스크롤바 너비
+			let contentWidth = $(window).innerWidth() - sidebarWidth - scrollbarWidth
 			$('.content').css('width', contentWidth + 'px');
 		}else {
-			let contentWidth = $(window).innerWidth() - 17 // 17 : 세로 스크롤바 너비
+			let contentWidth = $(window).innerWidth() - scrollbarWidth
 			$('.content').css('width', contentWidth + 'px');
 		}
 		

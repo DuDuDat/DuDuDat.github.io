@@ -304,7 +304,14 @@ footer {
 .sidebar-footer a {
 	color: #ccc;
 }
-
+@media(min-width: 800px) {
+	.post-contents {
+		width: 80%;
+	}
+	.custom-post-header {
+		width: 80%;
+	}
+}
 
 @media (max-width: 800px) {
 	article {
@@ -341,6 +348,18 @@ footer {
 		display: none;
 	}	
 
+	.post-left-margin, .post-nav {
+		display: none;
+	}
+
+	.post-contents {
+		width: 100%;
+	}
+
+	.custom-post-header {
+		width: 100%;	
+	}
+
 }
 
 .flex-container {
@@ -353,13 +372,11 @@ footer {
 }
 
 .custom-post-header {
-	width: 80%;
 	margin: 0 auto;
 }
 
 .post-contents {
 	line-height: 1;
-	width: 80%;
 	word-wrap: break-word; /* 오래된 브라우저 호환성을 위해 */
   	overflow-wrap: break-word; /* 표준 속성 */
 	white-space: pre-wrap;

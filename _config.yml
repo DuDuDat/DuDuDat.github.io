@@ -45,10 +45,10 @@ livereload: true
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - .idea/
 #   - Gemfile
 #   - Gemfile.lock
 #   - node_modules/
@@ -63,3 +63,6 @@ collections:
   project:
     output: true
     permalink: /project/:path/
+  ML:
+      output: true
+      permalink: /ML/:path/

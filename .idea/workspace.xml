@@ -5,9 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3413ce07-cedf-4e11-8b2c-a9493e9348cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/_includes/right-sidbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/2024-02-29-newone.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/캬아아악.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/_ML/2024-03-05-day1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b98db2879a8651d1a2aa7072e1903fc1cf0d474" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b98db2879a8651d1a2aa7072e1903fc1cf0d474" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/8/6811a288122b95b2a124d96cd80c63b74c201795" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/e/7e0825589e846e24bcfacb33702843e6df40c2cd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/3/b32f163ecbc8883290a3567ca9a6f78f6ce011d1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/4/b49f9cb9e10be36b25107d75b1e5202317072891" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/b/bb1c7d9d5af0fcd1d6c3fc8b4dccb484ded74bbc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dccc294c54a477173e910939040357a4c21019b9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/7/f78466aee03e7c05d9281adf4bc627ff0ae20013" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/8/6811a288122b95b2a124d96cd80c63b74c201795" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/e/7e0825589e846e24bcfacb33702843e6df40c2cd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/3/b32f163ecbc8883290a3567ca9a6f78f6ce011d1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/4/b49f9cb9e10be36b25107d75b1e5202317072891" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/b/bb1c7d9d5af0fcd1d6c3fc8b4dccb484ded74bbc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/c/dccc294c54a477173e910939040357a4c21019b9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/7/f78466aee03e7c05d9281adf4bc627ff0ae20013" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +57,15 @@
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
         <option name="accountId" value="f67bfa27-6fb4-43b3-8f57-5965be84b6da" />
-        <option name="url" value="https://DuDuDat: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@github.com/DuDuDat/dududat.github.io.git" />
+        <option name="url" value="https://DuDuDa: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@github.com/DuDuDat/dududat.github.io.git" />
       </UrlAndAccount>
     </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="NamedScopeManager">
+    <scope name="Post" pattern="!file[dududat.github.io]:_layouts//*&amp;&amp;!file[dududat.github.io]:.vscode//*&amp;&amp;!file[dududat.github.io]:.jekyll-cache//*&amp;&amp;!file[dududat.github.io]:.idea//*&amp;&amp;!file[dududat.github.io]:public/img//*&amp;&amp;!file[dududat.github.io]:public/js//*&amp;&amp;!file[dududat.github.io]:public/css/syntax//*&amp;&amp;!file:.gitignore&amp;&amp;!file:404.html&amp;&amp;!file:_includes/footer.html&amp;&amp;!file:_includes/google-analytics.html&amp;&amp;!file:_includes/head.html&amp;&amp;!file:_includes/header.html&amp;&amp;!file:Gemfile.lock&amp;&amp;!file:index.md&amp;&amp;!file:category.md&amp;&amp;!file:README.md&amp;&amp;!file[dududat.github.io]:_site//*&amp;&amp;!file:Gemfile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -52,22 +75,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kjm17/Documents/dududat.github.io&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ruby.structure.view.model.defaults.configured&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/kjm17/Documents/dududat.github.io",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ruby.structure.view.model.defaults.configured": "true",
+    "settings.editor.selected.configurable": "project.scopes",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -78,6 +102,8 @@
       <updated>1709135706707</updated>
       <workItem from="1709135708031" duration="3662000" />
       <workItem from="1709140672610" duration="82000" />
+      <workItem from="1709629329984" duration="1743000" />
+      <workItem from="1709631081752" duration="3801000" />
     </task>
     <servers />
   </component>
