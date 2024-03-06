@@ -97,7 +97,7 @@ code {
 	flex-flow: row nowrap;
 }
 
-.content {	  
+.content {
 	flex: 1 1 auto;
 }
 
@@ -273,13 +273,18 @@ header.home {
 	color: #111;
 	font-weight: bold;
 	border-bottom: 1px solid #ccc;
+
+	.post-date {
+		font-weight: normal;
+		font-size: 0.55em;
+	}
 }
 
 .post-date {
 	text-transform: uppercase;
 	color: #707070;
 	letter-spacing: 1px;
-	font-size: 0.55em;
+	font-size: 0.8em;
 	display: inline-block;
 	font-weight: normal;
 }
@@ -389,7 +394,22 @@ footer {
 		border-radius: 0.3em;
 		background-color: rgba(150, 150, 150, 0.05);
 		border: 1px solid rgba(150, 150, 150, 1);
-	}	
+		white-space: pre-wrap;
+	}
+
+	table {
+		display: flex;
+		line-height: 1.9;
+
+		td:first-child {
+			white-space: nowrap;
+			vertical-align: top;
+		}
+	}
+
+	.color-point {
+		color: #000080;
+	}
 
 	ul {
 		display: flex;
@@ -575,4 +595,7 @@ footer {
 
 .invisible {
 	visibility: hidden;
+}
+blockquote {
+	white-space: pre-line;
 }

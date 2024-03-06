@@ -1,7 +1,7 @@
 <article class="post">
 	{%- assign id = 0 -%}
 	{%- for collection in site.collections -%}
-	{% if collection.label == 'posts' %}{% continue %}{% endif %}
+	{% unless collection.label == 'posts' %}
 	<div class="post-info" id="category-title-{{ collection.label }}">
 		<header class="post-header home custom-category-header">
 			<div class="category-title">
@@ -33,16 +33,17 @@
 			{%- assign id = id | plus: 1 -%}
   			{%- assign count = count | plus: 1 -%}
   			{%- if forloop.last -%}			
-			  	{%- if count | modulo: 4 != 0 -%}	
+			  	{%- unless count | modulo: 4 = 0 -%}
 				  {%- assign last = count | modulo: 4 -%}
 				  {%- for i in (last..3) -%}
 				  <li class="post-list-item-none"></li>
 				  {%- endfor -%}		
-				{%- endif -%}	
+				{%- endunless -%}
 				</ul>
 			{%- endif -%}
 		{%- endfor -%}			
 	</div>
+	{%- endunless -%}
 	{%- endfor -%}	
 </article>
 

@@ -66,3 +66,6 @@ collections:
   ML:
       output: true
       permalink: /ML/:path/
+  SQL:
+    output: true
+    permalink: /SQL/:path/
