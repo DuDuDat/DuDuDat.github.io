@@ -6,8 +6,6 @@
     	$('.post-content').html(function(i, oldHtml) {
 			return oldHtml.replace(/(\n\n\n)+/g, function(match) { return match.slice(1) });
 		});
-
-		setDynamicLineHeight()
 	})
 
 	$(window).resize(() => {
@@ -27,18 +25,6 @@
 
 	const fixedNavResize = () => {
 		$('.post-nav-item').css('width', ($('.post-nav').width()) + 'px')
-	}
-
-	function setDynamicLineHeight() {
-		$('.post-contents p, .post-contents ul ul li').each(function () {
-			var lineHeight = parseFloat($(this).css('line-height'));
-			var height = $(this).height();				
-			if (height > lineHeight) {				
-				$(this).css('line-height', '1.9');
-			} else {				
-				$(this).css('line-height', '1.2');
-			}
-		});
 	}
 </script>
 <article class="post">
