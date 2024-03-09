@@ -4,20 +4,20 @@ title: 머신러닝의 정의와 종류
 date: 2024-03-05 18:37:23 +0900
 ---
 <enter></enter>
-## 머신러닝이란? <enter></enter>
+### 머신러닝이란? <enter></enter>
 > 명시적인 프로그래밍 없이 데이터로부터 학습하고, 학습된 지식을 바탕으로 새로운 데이터에 대한 예측이나 결정을 자동으로 수행할 수 있는 인공지능의 한 분야로, 머신러닝의 학습 방법은 크게 지도, 비지도 그리고 강화학습으로 나뉩니다. 
 
 
-- ###  지도학습(Supervised Learning)
+- ####  지도학습(Supervised Learning)
   <p class="sub">학습 데이터가 입력값(input)과 출력값(output)으로 쌍으로 구성되어 있을 때 사용하는 방법으로 출력값을 label 이라고도 합니다. 지도학습의 목표는 (입력값, 출력값) 매핑을 학습하여 입력에 대한 출력값을 예측하는 것입니다.
 
   지도학습은 크게 회귀(Regression), 분류(Classification) 문제로 나눌 수 있으며, 회귀는 연속적인 값(ex: 가격)을 예측하는 반면, 분류는 이산적인 클래스(ex: 스팸 메일 여부)에 데이터를 할당하는 문제입니다.
   </p>
 
-- ### 비지도학습(Unsupervised Learning)
+- #### 비지도학습(Unsupervised Learning)
   <p class="sub">학습 데이터에 입력값만 주어지는 경우 사용하는 방법으로 어떤 출력값을 가져야 하는지에 대한 정보없이 데이터 내의 패턴과 구조, 분포 등을 스스로 찾아내는 방법입니다. 이는 데이터 내의 숨겨진 특징이나 구조를 발견하기 위해 사용되며, 대표적인 비지도학습의 방법으로는 군집화(Clustering), 차원축소(Dimensionality Reduction), 연관 규칙 학습(Association Rule Learning) 등이 있습니다.  
   </p>
 
-- ### 강화학습(Reinforcement Learning, RL)
+- #### 강화학습(Reinforcement Learning, RL)
   <p class="sub">주어진 환경에서 에이전트가 어떻게 행동해야 최대의 보상을 얻을 수 있는지를 학습하는 방법으로, 시행착오를 통해 어떤 상태(state)일 때 어떤 행동(action)을 해야 하는지를 결정합니다.
   </p>
