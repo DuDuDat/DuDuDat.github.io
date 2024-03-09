@@ -1,9 +1,8 @@
 ---
 layout: post
-title: ML에서 고려해야 할 문제들 
+title: 과적합(Overfitting) 
 date: 2024-03-06 01:10:23 +0900
 ---
-### 과적합(Overfitting)
 - 정의
   <p class="sub">모델이 학습용 데이터를 지나치게 학습하여 새로운 데이터에 대해 일반화하는 능력이 떨어지는 현상
   </p>
