@@ -690,3 +690,15 @@ blockquote {
 		padding-bottom: 0 !important;
 	}
 }
+
+.letex {
+	color: rgba(30, 30, 30, 0.8) !important;
+}
+
+.letex-desc {
+	font-size: 0.9em;
+	padding: 0.3em 1em;
+	border-radius: 0.3em;
+	width: fit-content;
+	background: rgba(173, 216, 230, 0.2);
+}
