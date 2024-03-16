@@ -394,6 +394,7 @@ footer {
 
 	ul ul li {
 		line-height: 1.2;
+		list-style-type: circle;
 	}
 
 	.sub, table {

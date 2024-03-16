@@ -69,3 +69,9 @@ collections:
   SQL:
     output: true
     permalink: /SQL/:path/
+  EDA:
+    output: true
+    permalink: /EDA/:path/
+  Python:
+    output: true
+    permalink: /Python/:path/
