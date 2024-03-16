@@ -492,8 +492,9 @@ footer {
 
 .post-title {
 	position: relative;
-	color:#292929;
-	font-weight: bold;
+	color: #000033;
+	font-weight: 800;
+	font-size: 1.2em;
 }
 
 .post-list-item:hover .post-title {
@@ -646,6 +647,7 @@ footer {
 }
 .custom-post-title {
 	padding: 1.2em 0 0;
+	font-size: 1.1em;
 }
 
 .custom-category-header {
@@ -702,4 +704,8 @@ blockquote {
 	border-radius: 0.3em;
 	width: fit-content;
 	background: rgba(173, 216, 230, 0.2);
+}
+
+[id^="category-name-"] {
+	font-size: 1.25em;
 }
