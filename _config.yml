@@ -75,3 +75,6 @@ collections:
   Python:
     output: true
     permalink: /Python/:path/
+  Stastistics:
+    output: true
+    permalink: /Statistics/:path/
