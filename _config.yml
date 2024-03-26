@@ -78,3 +78,6 @@ collections:
   Stastistics:
     output: true
     permalink: /Statistics/:path/
+  Math:
+    output: true
+    permalink: /Math/:path/
