@@ -713,3 +713,9 @@ blockquote {
 ul > li > ul > li {
 	line-height: 2.2em !important;
 }
+
+.emoji {
+	width: 1.3em;
+	height: 1.3em;
+	vertical-align: text-bottom;
+}
