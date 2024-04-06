@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-  {%- include head.html -%}
-  <style>@import url(/public/css/syntax/{{ site.highlighter-theme }}.css);</style>
-  <title>{{ site.title }}</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{%- include head.html -%}
+<style>@import url(/public/css/syntax/{{ site.highlighter-theme }}.css);</style>
+<title>{{ site.title }}</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     window.MathJax = {
         tex: {
@@ -19,35 +19,36 @@
     };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-svg.min.js" async></script>
-  <script>
-	$(document).ready(setContentWidth)
-	$(window).resize(setContentWidth)
-	function setContentWidth() {
-		let scrollbarWidth = 17
-		if ($(window).width() <= 800){
-			scrollbarWidth = 0
-		}
-		let sidebarWidth = $('.sidebar').outerWidth(true);
+<!--  <script>-->
+<!--	$(document).ready(setContentWidth)-->
+<!--	$(window).resize(setContentWidth)-->
+<!--	function setContentWidth() {-->
+<!--		let scrollbarWidth = 17-->
+<!--		if ($(window).width() <= 800){-->
+<!--			scrollbarWidth = 0-->
+<!--		}-->
+<!--		let sidebarWidth = $('.sidebar').outerWidth(true);-->
 
-		if (sidebarWidth == 220) {
-			let contentWidth = $(window).innerWidth() - sidebarWidth - scrollbarWidth
-			$('.content').css('width', contentWidth + 'px');
-		}else {
-			let contentWidth = $(window).innerWidth() - scrollbarWidth
-			$('.content').css('width', contentWidth + 'px');
-		}
+<!--		if (sidebarWidth == 220) {-->
+<!--			let contentWidth = $(window).innerWidth() - sidebarWidth - scrollbarWidth-->
+<!--			$('.content').css('width', contentWidth + 'px');-->
+<!--		}else {-->
+<!--			let contentWidth = $(window).innerWidth() - scrollbarWidth-->
+<!--			$('.content').css('width', contentWidth + 'px');-->
+<!--		}-->
 
-	}
-</script>
-  <link href="{{root_url}}/public/css/style.css" rel="stylesheet">
-  <body>
-  	<div class="container"> 
-		<div class="sidebar">
-			{% include sidebar.html %}
-		</div>
-		<div class="content">
-			{{ content }}
-		</div>	
-	</div>
-  </body>
+<!--	}-->
+<!--</script>-->
+<link href="{{root_url}}/public/css/style.css" rel="stylesheet">
+<body>
+<div class="container">
+    <div class="sidebar">
+        {% include sidebar.html %}
+    </div>
+    <div class="empty-sidebar"></div>
+    <div class="content">
+        {{ content }}
+    </div>
+</div>
+</body>
 </html>

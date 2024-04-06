@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: 프로젝트
+permalink: /project/
 ---
 
 <!--

@@ -18,10 +18,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Test
+title: Develop Dairy
 email: kjm1709@naver.com
 description: >- # this means to ignore newlines until "baseurl:"
-  테스트용 블로그
+  개발용 블로그 일지
 # baseurl: "/" # the subpath of your site, e.g. /blog
 # url: "http://ejjoo.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: ejjoo
@@ -64,9 +64,11 @@ collections:
   project:
     output: true
     permalink: /project/:path/
+    name: 프로젝트
   ML:
-      output: true
-      permalink: /ML/:path/
+    output: true
+    permalink: /ML/:path/
+    name: 머신러닝
   SQL:
     output: true
     permalink: /SQL/:path/
@@ -76,9 +78,12 @@ collections:
   Python:
     output: true
     permalink: /Python/:path/
+    name: 파이썬
   Stastistics:
     output: true
     permalink: /Statistics/:path/
+    name: 통계학
   Math:
     output: true
     permalink: /Math/:path/
+    name: 수학
