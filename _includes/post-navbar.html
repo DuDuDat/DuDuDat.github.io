@@ -1,23 +1,23 @@
-<div id="post-nav-container"></div>
+<!--<div id="post-nav-container"></div>-->
 
-<script>  
-        $(document).ready(function () {
-            $('h3, h4, h5').each(function (index) {
-                let headerId = `header-${index}`                
-                $(this).attr('id', 'header-' + index);
+<!--<script>  -->
+<!--        $(document).ready(function () {-->
+<!--            $('h3, h4, h5').each(function (index) {-->
+<!--                let headerId = `header-${index}`                -->
+<!--                $(this).attr('id', 'header-' + index);-->
 
-                let indentCount = this.tagName.replace('H', '') - 2
-                let navItem = $('<span></span>').addClass('post-nav-item').addClass(`post-nav-item-${indentCount}`).html($(this).text()).attr('title', $(this).text())
+<!--                let indentCount = this.tagName.replace('H', '') - 2-->
+<!--                let navItem = $('<span></span>').addClass('post-nav-item').addClass(`post-nav-item-${indentCount}`).html($(this).text()).attr('title', $(this).text())-->
 
-                navItem.css('width', ($('.post-nav').width()) + 'px')
+<!--                navItem.css('width', ($('.post-nav').width()) + 'px')-->
 
-                navItem.on('click', function(e) {                    
-                    $('html, body').animate({
-                        scrollTop: $(`#${headerId}`).offset().top - 10
-                    }, 500)
-                })
-                
-                $('#post-nav-container').append(navItem).append('<br />')
-            });          
-        });
-</script>
+<!--                navItem.on('click', function(e) {                    -->
+<!--                    $('html, body').animate({-->
+<!--                        scrollTop: $(`#${headerId}`).offset().top - 10-->
+<!--                    }, 500)-->
+<!--                })-->
+<!--                -->
+<!--                $('#post-nav-container').append(navItem).append('<br />')-->
+<!--            });          -->
+<!--        });-->
+<!--</script>-->

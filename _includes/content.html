@@ -1,0 +1,63 @@
+<!--<script>-->
+<!--	$(document).ready(function() {-->
+<!--    	adjustFixedNavHeight();-->
+<!--    	fixedNavResize();-->
+
+<!--    	$('.post-content').html(function(i, oldHtml) {-->
+<!--			return oldHtml.replace(/(\n\n\n)+/g, function(match) { return match.slice(1) });-->
+<!--		});-->
+<!--	})-->
+
+<!--	$(window).resize(() => {-->
+<!--		adjustFixedNavHeight()-->
+<!--		fixedNavResize()-->
+<!--	})-->
+
+<!--	function adjustFixedNavHeight() {-->
+<!--		var postNav = $('.post-nav');-->
+<!--		var fixedNav = $('.fixed-nav');-->
+
+<!--		var navHeight = $(window).innerHeight() - fixedNav.offset().top - 80;-->
+<!--		var navWidth = postNav.outerWidth() - ($('article').css('padding-left') * 2)-->
+<!--		fixedNav.css('height', navHeight + 'px');-->
+<!--		fixedNav.css('width', postNav.outerWidth() + 'px');-->
+<!--	}-->
+
+<!--	const fixedNavResize = () => {-->
+<!--		$('.post-nav-item').css('width', ($('.post-nav').width()) + 'px')-->
+<!--	}-->
+<!--</script>-->
+<!--<article class="post">-->
+<!--	<header class="post-header custom-post-header">-->
+<!--		<div class="category-title">-->
+<!--			<div class="custom-post-title">{{ page.title | escape }}</div>-->
+<!--			<time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">-->
+<!--				{%- assign date_format = site.date_forma | default: "%Y/%m/%d %H:%M" -%}-->
+<!--				{{ page.date | date: date_format }}-->
+<!--			</time>-->
+<!--		</div>-->
+<!--	</header>-->
+<!--	<div class="flex-container">-->
+<!--		<div class="post-left-margin"></div>-->
+<!--		<div class="post-contents">-->
+<!--			<div class="post-content">{{ content }}</div>-->
+<!--			<div class="post-navigation">-->
+<!--				{% assign previous = '' %}-->
+<!--				{% if page.previous == nil %}{% assign previous = 'invisible' %}{% endif %}-->
+<!--				<div class="pre-post {{ previous }}">-->
+<!--					<a href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title | escape }}"><i class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp; <span class="post-pagination">{{ page.previous.title | escape }}</span></a>-->
+<!--				</div>-->
+
+<!--				{% assign next = '' %}-->
+<!--				{% if page.next == nil %}{% assign next = 'invisible' %}{% endif %}-->
+<!--				<div class="next-post {{ next }}">-->
+<!--					<a href="{{ page.next.url | relative_url }}" title="{{ page.next.title | escape }}"><span class="post-pagination">{{ page.next.title | escape }}</span>&nbsp;&nbsp; <i class="fa-solid fa-arrow-right"></i></a>-->
+<!--				</div>-->
+
+<!--			</div>-->
+<!--		</div>-->
+<!--		<div class="post-nav">-->
+<!--			<div class="fixed-nav">{% include post-navbar.html %}</div>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--</article>-->
