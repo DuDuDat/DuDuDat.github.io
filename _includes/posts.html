@@ -1,0 +1,107 @@
+<div class="posts-image"></div>
+<div class="posts-row row">
+    {% assign sorted_collections = site.collections | sort: 'order' %}
+    {% for collection in sorted_collections %}
+    {% if collection.label != 'posts' and collection.label != 'project' %}
+    <div class="col-lg-3 col-md-6 col-12 posts-item">
+        <div class="posts-inner-item">
+            <a href="/collection/{{ collection.label }}" class="posts-select-btn">
+                {{collection.emoji}} &nbsp;
+                {% if collection.name %}
+                {{collection.name}}
+                {% else %}
+                {{collection.label}}
+                {% endif %}
+            </a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+<!--<article class="post">-->
+<!--	{%- assign id = 0 -%}-->
+<!--	{%- for collection in site.collections -%}-->
+<!--	{% unless collection.label == 'posts' %}-->
+<!--	<div class="post-info" id="category-title-{{ collection.label }}">-->
+<!--		<header class="post-header home custom-category-header">-->
+<!--			<div class="category-title">-->
+<!--				<span id='category-name-{{ collection.label }}'>-->
+<!--					{{ collection.label | slice: 0, 1 | upcase }}{{ collection.label | slice: 1, collection.label.size }}-->
+<!--				</span>-->
+<!--			</div>-->
+<!--		</header>-->
+<!--		-->
+<!--		{%- assign docs = collection.docs -%}-->
+<!--		{%- assign count = 0 -%}-->
+
+<!--		{%- for post in docs -%}-->
+<!--  			{%- assign mod = count | modulo:4 -%}-->
+<!--  			{%- if mod == 0 -%}-->
+<!--    			{%- if count > 0 -%}</ul>{%- endif -%}-->
+<!--    			<ul id="show-{{ collection.label }}-{{ count | divided_by: 3 }}" class="post-list">-->
+<!--  			{%- endif -%}			  -->
+<!--					<input type="hidden" value="{{ post.url | relative_url }}" id="url-{{ id }}" class="post-url" />					-->
+<!--  					<li id="post-list-{{ id }}" class="post-list-item">    								-->
+<!--						&lt;!&ndash; {{ post.url | relative_url }} &ndash;&gt;-->
+<!--						<div class="post-title">{{ post.title }}</div>-->
+<!--						<div id="post-desc-{{id}}" class="category-content">-->
+<!--							<textarea id="desc-hidden-{{id}}" class="post-desc" readonly>{{ post.content }}</textarea>							-->
+<!--						</div>-->
+<!--						{%- assign date_format = "%Y/%m/%d" -%}-->
+<!--						<div class="post-date">{{ post.date | date: date_format }}</div>    				-->
+<!--  					</li>					  -->
+<!--			{%- assign id = id | plus: 1 -%}-->
+<!--  			{%- assign count = count | plus: 1 -%}-->
+<!--  			{%- if forloop.last -%}			-->
+<!--			  	{%- unless count | modulo: 4 = 0 -%}-->
+<!--				  {%- assign last = count | modulo: 4 -%}-->
+<!--				  {%- for i in (last..3) -%}-->
+<!--				  <li class="post-list-item-none"></li>-->
+<!--				  {%- endfor -%}		-->
+<!--				{%- endunless -%}-->
+<!--				</ul>-->
+<!--			{%- endif -%}-->
+<!--		{%- endfor -%}			-->
+<!--	</div>-->
+<!--	{%- endunless -%}-->
+<!--	{%- endfor -%}	-->
+<!--</article>-->
+
+<!--<script>-->
+<!--	$(window).on('hashchange', () => {-->
+<!--		removeCategory();-->
+<!--	});-->
+<!--	$(document).ready(() => {-->
+<!--		removeCategory();-->
+<!--		postContent()-->
+
+<!--		$('.post-list-item').click(function() {-->
+<!--			let no = this.id.split('-')[2]-->
+<!--			let url_id = `url-${no}`-->
+<!--			window.location.href = $(`#${url_id}`).val()-->
+<!--		})		-->
+<!--	})-->
+
+<!--	function removeCategory() {-->
+<!--		if (window.location.hash) {-->
+<!--			let hash = window.location.hash.substring(1);-->
+
+<!--			let titles = $(`.post-info`).each((i, e) => {-->
+<!--				if (e.id == `category-title-${hash}`) {-->
+<!--					$(e).show();-->
+<!--				} else {-->
+<!--					$(e).hide();-->
+<!--				}-->
+<!--			})-->
+<!--		}-->
+<!--	}-->
+
+<!--	function postContent() {-->
+<!--		$('.post-desc').each((i, e) => {-->
+<!--			let no = e.id.split('-')[2]-->
+<!--			let htmlContent = $(`#desc-hidden-${no}`).val();	-->
+<!--			let textContent = $('<div>').html(htmlContent).text();-->
+<!--			$(`#post-desc-${no}`).html(textContent)-->
+<!--		})		-->
+<!--	}-->
+<!--</script>-->
