@@ -24,7 +24,6 @@ exclude:
 
 include:
   - _pages
-  - "netlify.toml"
 
 kramdown:
   auto_ids: true
@@ -39,32 +38,38 @@ collections:
     permalink: /Python/:path/
     name: 파이썬
     emoji: ":snake:"
+    img: "파이썬.jpg"
     order: 1
   EDA:
     output: true
     permalink: /EDA/:path/
     emoji: ":mag:"
+    img: "EDA.png"
     order: 2
   SQL:
     output: true
     permalink: /SQL/:path/
     emoji: ":floppy_disk:"
+    img: "SQL.jpg"
     order: 3
   Math:
     output: true
     permalink: /Math/:path/
     name: 수학
     emoji: ":heavy_division_sign:"
+    img: "수학.jpg"
     order: 4
   Stastistics:
     output: true
     permalink: /Statistics/:path/
     name: 통계학
     emoji: ":bar_chart:"
+    img: "통계학.jpg"
     order: 5
   ML:
     output: true
     permalink: /ML/:path/
     name: 머신러닝
     emoji: ":robot:"
+    img: "머신러닝.jpg"
     order: 6

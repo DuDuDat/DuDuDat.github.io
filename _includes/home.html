@@ -1,0 +1,55 @@
+<img src="{{root_url}}/public/img/home.jpg" alt="{{ site.title }}" />
+<div class="home-container">
+
+    <div class="home-nick">DuDuDat</div>
+    <div class="home-motto">좋아보이는 거 다 해보기</div>
+
+    <div class="home-profile">🎥 Profile</div>
+    <a href="/about" class="home-about">🔥 About me</a>
+    <a href="/portfolio" class="home-portfolio">📹 Portfolio</a>
+
+<!--    <table class="table home-learning-board">-->
+<!--        <thead><tr>-->
+<!--            <th>표</th>-->
+<!--            <th> 보드</th>-->
+<!--            <th> 타임라인</th>-->
+<!--        </tr></thead>-->
+<!--        <tbody><tr>-->
+<!--            <td colspan="3">-->
+<!--                <a class="home-learning-log">📝 학습기록</a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td colspan="3">-->
+<!--                여기다가 표기할 거임-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+
+    <div class="home-projects">📽 Projects</div>
+
+    <div class="home-posts">👩‍💻 Posts</div>
+    <div class="home-post row">
+        {% assign sorted_collections = site.collections | sort: 'order' %}
+        {% for collection in sorted_collections %}
+        {% if collection.label != 'posts' and collection.label != 'project' %}
+        <div class="col-4 home-post-outer-item">
+            <div class="home-post-inner-item" onclick="window.location.href='/posts/#{{collection.label}}'">
+                <div class="home-post-img">
+                    <img src="{{root_url}}/public/img/{{collection.img}}" />
+                </div>
+                <div class="home-post-name">
+                {% if collection.name %}
+                {{collection.name}}
+                {% else %}
+                {{collection.label}}
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+</div>

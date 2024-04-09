@@ -1,4 +1,0 @@
-[[redirect]]
-    from = "/collection/*"
-    to = "/"
-    status = 200
