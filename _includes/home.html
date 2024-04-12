@@ -8,26 +8,23 @@
     <a href="/about" class="home-about">🔥 About me</a>
     <a href="/portfolio" class="home-portfolio">📹 Portfolio</a>
 
-<!--    <table class="table home-learning-board">-->
-<!--        <thead><tr>-->
-<!--            <th>표</th>-->
-<!--            <th> 보드</th>-->
-<!--            <th> 타임라인</th>-->
-<!--        </tr></thead>-->
-<!--        <tbody><tr>-->
-<!--            <td colspan="3">-->
-<!--                <a class="home-learning-log">📝 학습기록</a>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td colspan="3">-->
-<!--                여기다가 표기할 거임-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-
-    <div class="home-projects">📽 Projects</div>
+    <div class="home-projects">💻 Projects</div>
+    <div class="home-project row">
+        {% assign project = site.collections | where: "label", "project" | first %}
+        {% assign docs = project.docs %}
+        {% for doc in docs %}
+        <div class="col-4 home-project-outer-item">
+            <div class="home-project-inner-item" onclick="window.location.href='{{doc.url}}'">
+                <div class="home-project-img">
+                    <img src="{{root_url}}/public/img/{{doc.img}}" />
+                </div>
+                <div class="home-project-title">
+                    {{doc.title}}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
     <div class="home-posts">👩‍💻 Posts</div>
     <div class="home-post row">
