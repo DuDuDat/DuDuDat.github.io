@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: portfolio
 title: 프로젝트
-permalink: /project/
+permalink: /portfolio/
 ---

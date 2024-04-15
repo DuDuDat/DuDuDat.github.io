@@ -9,7 +9,7 @@ highlighter: rouge
 svg:
   optimize: true
 highlighter-theme: monokai
-date_format: "%Y-%M-%D"
+#date_format: "%Y-%m-%d"
 plugins:
   - jekyll-feed
   - jemoji
@@ -22,11 +22,8 @@ exclude:
   - .jekyll-cache/
   - .idea/
 
-include:
-  - _pages
-
 kramdown:
-  auto_ids: true
+  input: GFM  # GitHub Flavored Markdown을 사용하도록 설정
 
 collections:
   project:

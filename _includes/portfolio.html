@@ -1,0 +1,18 @@
+
+<div class="post-container">
+    <div class="post-side"></div>
+    <div class="post-content">
+        {% assign portfolio = site.posts.first %}
+        {{ portfolio.content | markdownify }}
+    </div>
+    <div class="post-side"></div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.header-path').html(`
+            <span class="material-symbols-outlined">chevron_right</span>
+            포트폴리오
+        `)
+    })
+</script>

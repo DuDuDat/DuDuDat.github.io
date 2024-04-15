@@ -51,9 +51,17 @@
 
 /*------------------ 소괄호 ------------------*/
 .parentheses {
-	font-weight: 100;
-	font-size: 1rem;
+	font-weight: 100 !important;
+	font-size: 1rem !important;
 }
+
+/*------------------ 포스트 내용 이미지 ------------------*/
+/*.post-img {*/
+/*	object-fit: cover;*/
+/*	width: auto;*/
+/*	margin-top: 1rem;*/
+/*	display: inline-block;*/
+/*}*/
 
 /*------------------ 기본 설정 ------------------*/
 * {
@@ -65,22 +73,35 @@
 	color: #333333;
 }
 blockquote {
-	display: block;
+	display: flex;
 	font-size: 1.1rem;
 	background: #f5f5f5;
-	padding: 2rem;
-	border-radius: 2rem;
+	padding: 1rem 1rem 1rem 0.7rem;
+	border-radius: 0.5rem;
 	margin: 1rem 0;
 	font-weight: 500;
+
+	&:before {
+		content: "💡";
+		margin-right: 0.5rem;
+	}
 }
 p {
 	margin: 0;
 	padding: 0;
 }
 h1, h2, h3, h4, h5, h6 {
+	display: flex;
 	font-weight: 700;
 	padding: 0.5rem 0;
 	margin: 0;
+
+	&:before {
+		display: inline-flex;
+		margin-right: 0.3rem; /* 오른쪽 여백 추가 */
+		align-items: center;
+		justify-content: center;
+	}
 }
 h3 {
 	font-size: 1.4rem;
@@ -88,23 +109,22 @@ h3 {
 	margin-top: 4rem;
 
 	&:before {
-		content: '📘';
-		margin-right: 8px; /* 오른쪽 여백 추가 */
+		content: '🐬';
 	}
 	&:first-child {
 		margin-top: 0;
 	}
 }
 h4 {
-	font-size: 1.2rem;
+	width: max-content;
+	font-size: 1.1rem;
+	background: rgba(224, 224, 224, 0.6);
 	padding-left: 0.1rem;
+	padding-right: 0.6rem;
+	margin-top: 1.5rem;
 
 	&:before {
-		content: '✒️';
-		margin-right: 8px; /* 오른쪽 여백 추가 */
-	}
-	&:first-of-type {
-		margin-top: 1rem;
+		content: '🧊️';
 	}
 }
 h5 {
@@ -129,39 +149,43 @@ img {
 
 ul {
 	list-style: none;
-	padding: 0 0 0 0.5rem;
+	padding: 0;
 	margin: 0;
 
 	li {
 		position: relative;
 		margin: 1rem 0;
 		font-size: 1.1rem;
-		padding-left: 1.7rem;
+		padding-left: 1.5rem;
 		line-height: 1.5rem;
 
 		&:before {
 			position: absolute;
 			left: 0.1rem;
-			content: '✔️';
+			content: '🔹';
 			font-size: 0.9rem;
 			height: 1.5rem;
 			display: inline-flex;
 			align-items: center;
 			justify-items: center;
 		}
+		&:last-of-type {
+			margin-bottom: 0;
+		}
 	}
 }
 table {
 	margin: 0.5rem 0;
 
-	& li {
-		margin: 0 0 1rem 0.7rem !important;
-	}
 	&:last-of-type {
 		margin-bottom: 0;
 	}
 	& th {
 		border-bottom: 1px solid #dee2e6;
+	}
+	& th, td {
+		padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+		min-width: 15rem;
 	}
 	& tr {
 		border-bottom: 1px solid #dee2e6;
@@ -172,8 +196,6 @@ table {
 	}
 	& td {
 		border-left: 1px solid #dee2e6;
-		padding: 0.5rem 0 0.5rem 0.8rem;
-		min-width: 10rem;
 
 		&:first-of-type {
 			border-left: 0;
@@ -356,6 +378,7 @@ img.posts-header-img, img.post-header-img {
 
 	background: #f9f9f9;
 	position: fixed;
+	z-index: 99;
 	top: var(--header-height);
 	left: calc(-1 * var(--post-side-menu-width));
 	bottom: 0;
@@ -417,8 +440,15 @@ img.posts-header-img, img.post-header-img {
 	display: flex;
 
 	.post-content {
-		padding: 3rem 0;
+		padding: 4rem 0;
 		flex: 1;
+
+		img {
+			object-fit: cover;
+			width: auto;
+			margin: 0.5rem;
+			display: inline-block;
+		}
 	}
 
 	.post-side {

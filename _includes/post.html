@@ -112,13 +112,3 @@
             });
         });
 </script>
-
-<!-- () 안 font 설정 -->
-<script>
-    $(document).ready(function () {
-        $('li').each(function() {
-            const updatedText = $(this).text().replace(/\(([^)]+)\)/g, '(<span class="parentheses">$1</span>)');
-            $(this).html(updatedText)
-        })
-    })
-</script>
