@@ -30,9 +30,24 @@
 </head>
 <body>
 <div class="container">
-    <div class="content">
-        {{ content }}
-    </div>
+    {% if page.url != "/" %}
+    <header class="fixed-header">
+        <span class="header-side-menu-btn-group"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/">HOME</a>
+        <span class="header-path"></span>
+    </header>
+    <div class="fixed-header-background "></div>
+    {% endif %}
+    {{content}}
 </div>
+<!-- () 안 font 설정 -->
+<script>
+    $(document).ready(function () {
+        $('li, p, td').each(function() {
+            const updatedText = $(this).html().replace(/\(([^)]+)\)/g, '(<span class="parentheses">$1</span>)');
+            $(this).html(updatedText)
+        })
+    })
+</script>
 </body>
 </html>

@@ -1,16 +1,8 @@
-<header>
-    <a href="/">home</a>
-    <span class="material-symbols-outlined">chevron_right</span>
-    <span class="posts-label"></span>
-
-</header>
 <img class="posts-header-img" src="{{root_url}}/public/img/free_keyboard.jpg" alt="{{ site.title }}" />
 <div class="posts-header-background"></div>
 <div class="posts-header-title"></div>
 
-<div class="posts-container">
-    <div class="row"></div>
-</div>
+<div class="row posts-row"></div>
 
 <script id="collection" type="application/json">
     {
@@ -45,7 +37,10 @@
     const data = jsonString[label]
 
     $('.posts-header-title').html(`${data['name']}`)
-    $('.posts-label').html(`${data['name']}`)
+    $('.header-path').html(`
+        <span class="material-symbols-outlined">chevron_right</span>
+        <span class="posts-label">${data['name']}</span>
+    `)
     $('.posts-header-img').attr('src', `{{root_url}}/public/img/${data['img']}`)
     console.log(data['img'])
     // $('.collection-emoji').html(`${data['emoji']} &nbsp; ${data['name']}`)
@@ -55,14 +50,16 @@
     }
 
     const html = data['docs'].map(doc => {
-        return `<div class="col-lg-4 col-md-6 col-12 posts-outer-item">
+        return `<div class="col-4 posts-outer-item">
                     <div onclick="clickPost('${doc.url}')" class="posts-inner-item">
-                        <div class="posts-doc-img">이미지가 들어갈 곳</div>
+                        <div class="posts-doc-img">
+                            <img src="{{root_url}}/public/img/free_keyboard.jpg" />
+                        </div>
                         <div class="posts-doc-title">${doc.title}</div>
                     </div>
                 </div>`
     }).join('');
-    $('.posts-container .row').append(html)
+    $('.posts-row').append(html)
 
 
 </script>

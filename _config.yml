@@ -9,7 +9,7 @@ highlighter: rouge
 svg:
   optimize: true
 highlighter-theme: monokai
-date_format: "%Y-%M-%D"
+#date_format: "%Y-%m-%d"
 plugins:
   - jekyll-feed
   - jemoji
@@ -22,16 +22,13 @@ exclude:
   - .jekyll-cache/
   - .idea/
 
-include:
-  - _pages
-
 kramdown:
-  auto_ids: true
+  input: GFM  # GitHub Flavored Markdown을 사용하도록 설정
 
 collections:
   project:
     output: true
-    permalink: /Project/:path/
+    permalink: /project/:path/
     name: 프로젝트
   Python:
     output: true
@@ -59,7 +56,7 @@ collections:
     emoji: ":heavy_division_sign:"
     img: "수학.jpg"
     order: 4
-  Stastistics:
+  Statistics:
     output: true
     permalink: /Statistics/:path/
     name: 통계학
