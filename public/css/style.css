@@ -185,7 +185,7 @@ table {
 	}
 	& th, td {
 		padding: 0.5rem 0.8rem 0.5rem 0.8rem;
-		min-width: 15rem;
+		min-width: 10rem;
 	}
 	& tr {
 		border-bottom: 1px solid #dee2e6;
