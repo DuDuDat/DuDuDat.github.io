@@ -105,7 +105,7 @@
                 navItem.on('click', function(e) {
                     $('html, body').animate({
                         scrollTop: $(`#${headerId}`).offset().top - $('.fixed-header').outerHeight()
-                    }, 500)
+                    }, 100)
                 })
                 $('.post-side-fixed').css('display', 'block')
                 $('.post-nav').append(navItem)
