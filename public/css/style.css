@@ -185,7 +185,6 @@ table {
 	}
 	& th, td {
 		padding: 0.5rem 0.8rem 0.5rem 0.8rem;
-		min-width: 10rem;
 	}
 	& tr {
 		border-bottom: 1px solid #dee2e6;
@@ -445,7 +444,7 @@ img.posts-header-img, img.post-header-img {
 
 		img {
 			object-fit: cover;
-			width: auto;
+			height: auto;
 			margin: 0.5rem;
 			display: inline-block;
 		}
