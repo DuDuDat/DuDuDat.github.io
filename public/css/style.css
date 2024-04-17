@@ -223,7 +223,7 @@ header {
 
 	height: var(--header-height);
 	display: flex;
-	padding: 0 1.5rem;
+	padding: 0 1rem;
 	align-items: center;
 	border-bottom: 1px solid #dee2e6;
 	font-weight: 500;
@@ -239,6 +239,19 @@ header {
 	a {
 		font-size: 0.9rem;
 	}
+
+	.header-path {
+		display: flex;
+		width: 100%;
+
+		.header-recent-file-path {
+			display: inline-block;
+			flex: 1;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+	}
 }
 .fixed-header {
 	position: fixed;
@@ -247,6 +260,7 @@ header {
 	right: 0;
 	z-index: 100;
 	height: var(--header-height);
+	width: 100%;
 }
 .fixed-header-background {
 	height: var(--header-height);
