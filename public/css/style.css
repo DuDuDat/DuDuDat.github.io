@@ -54,14 +54,19 @@
 	font-weight: 100 !important;
 	font-size: 1rem !important;
 }
+a {
+	color: #333333;
+	text-decoration: none;
 
-/*------------------ 포스트 내용 이미지 ------------------*/
-/*.post-img {*/
-/*	object-fit: cover;*/
-/*	width: auto;*/
-/*	margin-top: 1rem;*/
-/*	display: inline-block;*/
-/*}*/
+	&:hover {
+		color: #004080;
+	}
+}
+
+.row {
+	margin: 0 auto;
+	width: 95%;
+}
 
 /*------------------ 기본 설정 ------------------*/
 * {
@@ -116,7 +121,7 @@ h3 {
 	}
 }
 h4 {
-	width: max-content;
+	width: fit-content;
 	font-size: 1.1rem;
 	background: rgba(224, 224, 224, 0.6);
 	padding-left: 0.1rem;
@@ -224,6 +229,7 @@ header {
 	font-weight: 500;
 	font-size: 0.9rem;
 	background: white;
+	width: 100%;
 
 	span {
 		font-size: 0.9rem;
@@ -232,12 +238,6 @@ header {
 	}
 	a {
 		font-size: 0.9rem;
-		text-decoration: none;
-		color: #333333;
-
-		&:hover {
-			color: #004080;
-		}
 	}
 }
 .fixed-header {
@@ -259,6 +259,12 @@ header {
 	margin: 0 auto;
 }
 
+@media(max-width: 60rem) {
+	.home-container {
+		width: 90%;
+	}
+}
+
 .home-nick {
 	font-size: 1.7rem;
 	font-weight: 900;
@@ -272,8 +278,6 @@ header {
 .home-container a {
 	display: inline-block;
 	width: 100%;
-	color: #333333;
-	text-decoration: none;
 
 	&:hover {
 		color: var(--hover-font-color);
@@ -291,24 +295,27 @@ a.home-about, a.home-portfolio {
 	padding: 0.2rem 0.5rem;
 }
 .home-post-outer-item, .home-project-outer-item, .posts-outer-item {
-	padding: 2rem;
+	padding: 0.8rem 2%;
 }
 .home-post-inner-item, .home-project-inner-item, .posts-inner-item {
 	cursor: pointer;
+	aspect-ratio: 16/10;
 
 	&:hover {
 		background: #eeeeee;
 
 		img {
-			opacity: 0.9;
+			opacity: 0.8;
 		}
 	}
 }
 .home-post-img, .home-project-img, .posts-doc-img {
-	height: 8rem;
 	overflow: hidden;
 
 	img {
+		border: 1px solid #eeeeee;
+		box-sizing: border-box;
+		aspect-ratio: 16/10;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
@@ -332,19 +339,24 @@ img.posts-header-img, img.post-header-img {
 	object-position: center;
 	opacity: 0.4;
 }
+.posts-header-title, .post-header-title {
+	padding: 0 1rem;
+	text-overflow: ellipsis;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5em;
+	font-weight: 700;
+}
 .posts-header-title, .post-header-title, img.posts-header-img, img.post-header-img {
 	position: absolute;
 	top: var(--header-height);
+	overflow: hidden;
 }
 .posts-header-background, .post-header-background, .posts-header-title, .post-header-title {
 	width: 100%;
 	height: var(--header-img-height);
 	color: white;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 3rem;
-	font-weight: 700;
 }
 .posts-header-background, .post-header-background {
 	background: black;
@@ -352,7 +364,12 @@ img.posts-header-img, img.post-header-img {
 }
 .posts-row {
 	width: 50rem;
-	margin: 0 auto;
+	margin: 1.5rem auto;
+}
+@media(max-width: 60rem) {
+	.posts-row {
+		width: 90%;
+	}
 }
 
 /*---------------- post ----------------*/
@@ -426,6 +443,7 @@ img.posts-header-img, img.post-header-img {
 		display: flex;
 		align-items: center;
 		font-weight: 800;
+		white-space: nowrap;
 	}
 	.post-title {
 		font-size: 2.7rem;

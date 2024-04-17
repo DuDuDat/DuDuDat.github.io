@@ -1,4 +1,4 @@
-<img class="posts-header-img" src="{{root_url}}/public/img/free_keyboard.jpg" alt="{{ site.title }}" />
+<img class="posts-header-img" src="{{root_url}}/public/img/free_keyboard.jpg" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />
 <div class="posts-header-background"></div>
 <div class="posts-header-title"></div>
 
@@ -50,10 +50,10 @@
     }
 
     const html = data['docs'].map(doc => {
-        return `<div class="col-4 posts-outer-item">
+        return `<div class="col-12 col-sm-6 col-md-4 col-lg-4  posts-outer-item">
                     <div onclick="clickPost('${doc.url}')" class="posts-inner-item">
                         <div class="posts-doc-img">
-                            <img src="{{root_url}}/public/img/free_keyboard.jpg" />
+                            <img src="{{root_url}}/public/img/free_keyboard.jpg" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />
                         </div>
                         <div class="posts-doc-title">${doc.title}</div>
                     </div>

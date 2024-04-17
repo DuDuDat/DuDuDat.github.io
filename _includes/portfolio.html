@@ -1,11 +1,17 @@
+{% assign portfolio = site.posts.first %}
 
 <div class="post-container">
     <div class="post-side"></div>
     <div class="post-content">
-        {% assign portfolio = site.posts.first %}
         {{ portfolio.content | markdownify }}
     </div>
-    <div class="post-side"></div>
+    <div class="post-side">
+        <div class="post-side-fixed">
+            <div class="post-side-column-direction-scroll">
+                <div class="post-nav"></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -16,3 +22,4 @@
         `)
     })
 </script>
+<script src="{{root_url}}/public/js/custom/post-side-nav.js"></script>

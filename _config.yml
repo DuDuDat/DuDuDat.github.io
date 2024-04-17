@@ -30,6 +30,11 @@ collections:
     output: true
     permalink: /project/:path/
     name: 프로젝트
+  About:
+    output: true
+    permalink: /About/:path/
+    name: "특강 요약"
+    order: 0
   Python:
     output: true
     permalink: /Python/:path/

@@ -1,6 +1,6 @@
 <div class="post-side-menu"></div>
 
-<img class="post-header-img" src="{{root_url}}/public/img/{{page.img}}" alt="{{ site.title }}" />
+<img class="post-header-img" src="{{root_url}}/public/img/{{page.img}}" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />
 <div class="post-header-background"></div>
 <div class="post-header-title">{{page.title}}</div>
 <div class="post-container">
@@ -93,22 +93,23 @@
 </script>
 
 <!-- 우측 게시글 nav -->
-<script>
-        $(document).ready(function () {
-            $('h3, h4, h5').each(function (index) {
-                let headerId = `header-${index}`
-                $(this).attr('id', 'header-' + index);
+<script src="{{root_url}}/public/js/custom/post-side-nav.js"></script>
+<!--<script>-->
+<!--        $(document).ready(function () {-->
+<!--            $('h3, h4, h5').each(function (index) {-->
+<!--                let headerId = `header-${index}`-->
+<!--                $(this).attr('id', 'header-' + index);-->
 
-                let indentCount = this.tagName.replace('H', '') - 2
-                let navItem = $('<div></div>').addClass('post-nav-item').addClass(`post-nav-item-${indentCount}`).html($(this).text()).attr('title', $(this).text())
+<!--                let indentCount = this.tagName.replace('H', '') - 2-->
+<!--                let navItem = $('<div></div>').addClass('post-nav-item').addClass(`post-nav-item-${indentCount}`).html($(this).text()).attr('title', $(this).text())-->
 
-                navItem.on('click', function(e) {
-                    $('html, body').animate({
-                        scrollTop: $(`#${headerId}`).offset().top - $('.fixed-header').outerHeight()
-                    }, 150)
-                })
-                $('.post-side-fixed').css('display', 'block')
-                $('.post-nav').append(navItem)
-            });
-        });
-</script>
+<!--                navItem.on('click', function(e) {-->
+<!--                    $('html, body').animate({-->
+<!--                        scrollTop: $(`#${headerId}`).offset().top - $('.fixed-header').outerHeight()-->
+<!--                    }, 150)-->
+<!--                })-->
+<!--                $('.post-side-fixed').css('display', 'block')-->
+<!--                $('.post-nav').append(navItem)-->
+<!--            });-->
+<!--        });-->
+<!--</script>-->
