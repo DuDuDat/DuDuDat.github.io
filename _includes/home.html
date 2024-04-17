@@ -13,10 +13,10 @@
         {% assign project = site.collections | where: "label", "project" | first %}
         {% assign docs = project.docs %}
         {% for doc in docs %}
-        <div class="col-4 home-project-outer-item">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 home-project-outer-item">
             <div class="home-project-inner-item" onclick="window.location.href='{{doc.url}}'">
                 <div class="home-project-img">
-                    <img src="{{root_url}}/public/img/{{doc.img}}" />
+                    <img src="{{root_url}}/public/img/{{doc.img}}" alt="{{doc.title}}" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />
                 </div>
                 <div class="home-project-title">
                     {{doc.title}}
@@ -31,10 +31,10 @@
         {% assign sorted_collections = site.collections | sort: 'order' %}
         {% for collection in sorted_collections %}
         {% if collection.label != 'posts' and collection.label != 'project' %}
-        <div class="col-4 home-post-outer-item">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 home-post-outer-item">
             <div class="home-post-inner-item" onclick="window.location.href='/posts/#{{collection.label}}'">
                 <div class="home-post-img">
-                    <img src="{{root_url}}/public/img/{{collection.img}}" />
+                    <img src="{{root_url}}/public/img/{{collection.img}}" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />
                 </div>
                 <div class="home-post-name">
                 {% if collection.name %}
