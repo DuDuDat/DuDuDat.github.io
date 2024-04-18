@@ -4,7 +4,7 @@
 
 .portfolio-container {
     width: 994px;
-    margin: 0 auto;
+    margin: 1rem auto;
 
     table, tr {
         width: 100%;
@@ -20,7 +20,7 @@
 
     .title {
         width: fit-content;
-        padding: 0 1rem;
+        padding: 0 0.5rem;
         font-weight: 800;
         border: 2px solid #0e84b5;
         font-size: 1.25rem;
@@ -56,6 +56,31 @@
         font-size: 1rem;
         margin-bottom: 0.6rem;
     }
+    .circle {
+        width: 8.5rem;
+        height: 8.5rem;
+        border: 3px solid #2d7fcf;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        flex-direction: column;
+    }
+    .next-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            font-size: 1.8rem;
+            color: gray;
+        }
+    }
+
+    h3:before {
+        content: "";
+    }
 
 }
 
@@ -89,4 +114,7 @@
 }
 .width-100 {
     width: 100%;
+}
+.flex-1 {
+    flex: 1;
 }

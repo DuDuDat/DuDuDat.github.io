@@ -2,7 +2,7 @@
 title: 포트폴리오
 ---
 
-### 음악 장르 추천 시스템 
+<h3>☀️ 음악 장르 추천 시스템</h3> 
 <table>
 <tr>
     <td colspan="2">
@@ -54,11 +54,11 @@ title: 포트폴리오
     </td>
 </tr>
 <tr>
-    <td class="width-60" style="border-right: none">
+    <td class="width-60" style="border-right: none; border-top: none; border-bottom: none">
         <div class="sub-title">데이터 필터링을 위한 기후 분류</div>
         <img src="{{root_url}}/public/img/portfolio/데이터 필터링을 위한 기후 분류.png" />
     </td>
-    <td style="border-left: none">
+    <td style="border-left: none; border-top: none; border-bottom: none">
         <div class="sub-title" style="opacity: 0">데이터 필터링을 위한 기후 분류</div>
         <div style="font-weight: 800; margin-bottom: 0.8rem">데이터의 방대함으로 인한 학습지연 해결 목적</div>        
         <div>
@@ -80,25 +80,57 @@ title: 포트폴리오
     </td>
 </tr>
 <tr>
-    <td colspan="2">
+    <td colspan="2" style="border-top: none;">
         <div class="sub-title">Glove 모델을 사용한 국가별 장르 선호도 가중치</div>
-        <div class="d-flex">
-            <div>
-                학습된 Glove 모델을 다운받아 장르와 태그 사이의 단어 유사도 값을 추출함
+        <div>
+            <div class="d-flex" style="padding: 1rem">
+                <div class="flex-1" style="padding: 0 2rem">
+                    <div class="circle">
+                        <div style="font-size: 1.5rem">🔗</div>
+                        단어 유사도 추출
+                    </div>
+                </div>
+                <div class="next-arrow"><span class="material-symbols-outlined">arrow_forward_ios</span></div>
+                <div class="flex-1" style="padding: 0 2rem">
+                    <div class="circle">
+                        <div style="font-size: 1.5rem">⚖️</div>
+                        가중치 조정
+                    </div>
+                </div>
+                <div class="next-arrow"><span class="material-symbols-outlined">arrow_forward_ios</span></div>
+                <div class="flex-1" style="padding: 0 2rem">
+                    <div class="circle">
+                        <div style="font-size: 1.5rem">🇰🇷</div>
+                        한국 취향 반영
+                    </div>
+                </div>
             </div>
-            <div>
-                e 지수함수를 사용하여 연관성 낮은 단어의 영향력을 낮춤
-            </div>
-            <div>
-                조정된 가중치를 각 국가의 장르 청취수에 반영한 뒤 한국의 취향을 반영하기 위해 한국의 가중치도 반영함
+            <div class="d-flex" style="padding: 0 1rem 0.5rem">
+                <div class="flex-1" style="padding: 0 2rem">
+                    학습된 Glove 모델을 다운받아 장르와 태그 사이의 단어 유사도 값을 추출함
+                </div>
+                <div style="opacity: 0" class="next-arrow"><span class="material-symbols-outlined">arrow_forward_ios</span></div>
+                <div class="flex-1" style="padding: 0 2rem">
+                    e 지수함수를 사용하여 연관성 낮은 단어의 영향력을 낮춤
+                </div>
+                <div style="opacity: 0" class="next-arrow"><span class="material-symbols-outlined">arrow_forward_ios</span></div>
+                <div class="flex-1" style="padding: 0 2rem">
+                    조정된 가중치를 각 국가의 장르 청취수에 반영한 뒤 한국의 취향을 반영하기 위해 한국의 가중치도 반영함
+                </div>
             </div>
         </div>
     </td>
 </tr>
 <tr>
-    <td colspan="2">
+    <td colspan="2" style="border-top: none;">
         <div class="sub-title">오늘의 추천 장르 출력</div>
-
+        <div class="d-flex" style="padding: 1rem">
+            <div>날씨 패턴별 상관계수가 가장 높은 장르 추출</div>
+            <div class="next-arrow"><span class="material-symbols-outlined">arrow_right_alt</span></div>
+            <div>기상청 API 연동을 통해 오늘의 날씨 패턴 확인</div>
+            <div class="next-arrow"><span class="material-symbols-outlined">arrow_right_alt</span></div>
+            <div>오늘의 추천 장르 출력</div>
+        </div>
     </td>
 </tr>
 </table>
