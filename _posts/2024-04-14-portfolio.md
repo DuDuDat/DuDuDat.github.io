@@ -84,7 +84,7 @@ title: 포트폴리오
         <div class="sub-title">날씨 패턴 라벨링 + 인구수 가중치</div>
         <img style="width: 95%; display: block; margin: 1.5rem auto 0;" src="{{root_url}}/public/img/portfolio/시계열클러스터링.png" />
         <div style="margin: 1rem 0 0.5rem; font-size: 1rem; font-weight: 600; text-align: center">
-            <span style="padding: 0.1rem 1rem;">시계열 클러스터를 사용해 하루동안의 날씨에 번호를 붙여 라벨링한 후 그 안의 값은 스케일링된 인구수의 합으로 채움</span>
+            <span style="padding: 0.1rem 1rem;">시계열 클러스터를 사용해 하루동안의 날씨 패턴에 번호를 붙여 라벨링한 후 그 안의 값은 스케일링된 인구수의 합으로 채움</span>
         </div>        
     </td>
 </tr>
