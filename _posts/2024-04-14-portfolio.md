@@ -2,55 +2,41 @@
 title: 포트폴리오
 ---
 
-<h3>☀️ 음악 장르 추천 시스템</h3> 
+<h3>☀️ 음악 장르 추천 시스템</h3>
 <table>
 <tr>
     <td colspan="2">
         <div class="title">프로젝트 개요</div>
         <div class="sub-title">프로젝트 목표</div>
+        <ul>오늘의 날씨에 맞는 음악 장르 추천</ul>
+        <div class="sub-title">데이터 소개</div>
         <ul>
-            <li>오늘의 날씨에 맞는 음악 장르 추천</li>
+            <div>🎤 음악 특성 데이터 : 3만 곡에 대한 상세정보(각 곡의 다양한 음악 특성), 장르 O</div>
+            <div>🎧 음악 청취수 데이터 : 2019년 동안 매일 수집된 여러 음악의 상세정보(각 곡의 다양한 음악 특성, 음악 청취수), 장르 X</div>
+            <div>☔ 날씨 데이터 : 위도와 경도를 포함함</div>
+            <div>🌐 지리 데이터 : 국가별 행정 구역 (경계면), 도시 (중심좌표, 인구수) 등</div>
+            <div>🎼 국가별 TOP 100 음악 태그 : 각 국가의 장르 선호도 분석용</div>
         </ul>
         <div class="sub-title">프로젝트 전제 조건</div>
         <ul>
             <li>음악 선택시 기분이 중요한 요소로 작용한다는 가정하에 이에 영향을 미칠 수 있는 날씨를 기반으로 음악 장르 추천</li>
             <li>하루 동안의 날씨 변화 패턴이 음악 선호도에 영향을 미칠 것으로 가정함</li>
-            <li>각 국가의 행정 구역 경계면을 기준으로 날씨 데이터를 분류한 뒤 경계면 내 도시 중 가장 가까운 위치로 날씨를 분류함</li>
-            <li>인기 음악의 단어 유사도를 사용해 장르 선호도 가중치를 계산할 때 단어 유사도가 낮은 값들은 부정적인 영향을 미칠 것으로 가정함</li>
-        </ul>
-    </td>
-</tr>
-<tr>
-    <td colspan="2">
-        <div class="title">데이터 소개</div>
-        <div class="sub-title">장르 분류 모델</div>
-        <ul>
-            <li>🎤 음악 특성 데이터 : 다양한 음악 특성(템포, 에너지), 장르 O</li>
-            <li>⛅ 캐글 날씨 데이터 : 2019년 동안 수집된 음악 청취수, 유럽의 날씨, 다양한 음악 특성, 장르 X</li>
-        </ul>
-        <div class="sub-title">장르 추천 모델</div>
-        <ul>
-            <li>🎧 장르 라벨링된 2019년 음악 청취수 데이터 (캐글 날씨 데이터에서 추출)</li>
-            <li>☔ 위치 기반 날씨 (온도, 습도) 데이터</li>
-            <li>🌐 국가별 행정 구역 (경계면), 도시 (중심좌표) 등 지리 데이터</li>
-            <li>🎼 장르 선호도 분석용 국가별 TOP 100 음악 태그</li>
+            <li>각 국가 사람들의 장르 취향은 다른 것으로 가정함</li>
+            <li>각 국가의 TOP 100 음악 태그(음악 특성을 의미하는 단어) 분석을 통해 장르 선호도 파악</li>
         </ul>
     </td>
 </tr>
 <tr>
     <td colspan="2" style="padding-bottom: 2rem;">
         <div class="title">프로젝트 진행 순서</div>
-        <img style="width: 95%; display: block; margin: 0 auto;" src="{{root_url}}/public/img/portfolio/워크플로우.png" />
     </td>
 </tr>
 <tr>
     <td colspan="2">
-        <div class="title">데이터 분석/처리</div>
-        <div class="sub-title">장르 분류 모델을 통해 라벨링 된 캐글 날씨 데이터 탐색</div>
-        <img src="{{root_url}}/public/img/portfolio/장르라벨링된 날씨 데이터 탐색.png" />
-        <div style="margin: 0.5rem; font-size: 1rem; font-weight: 600; text-align: center">
-            <span style="background: #eeeeee; padding: 0.1rem 1rem;">오스트리아를 제외한 모든 국가가 같은 데이터를 가지고 있음을 확인, 2019년 유럽 날씨 데이터 재수집 진행</span>
-        </div>
+        <div class="title">데이터 처리/분석</div>
+        <div class="sub-title">날씨 데이터 전처리</div>
+        <div>대충 어케야 하냐면 날씨 데이터 + 지리 데이터 합치는 거 보여줘야지 ㅇㅇ 이미지나 이모지 좀 넣고</div>
+
     </td>
 </tr>
 <tr>
@@ -81,16 +67,12 @@ title: 포트폴리오
 </tr>
 <tr>
     <td colspan="2" style="border-top: none">
-        <div class="sub-title">날씨 패턴 라벨링 + 인구수 가중치</div>
-        <img style="width: 95%; display: block; margin: 1.5rem auto 0;" src="{{root_url}}/public/img/portfolio/시계열클러스터링.png" />
-        <div style="margin: 1rem 0 0.5rem; font-size: 1rem; font-weight: 600; text-align: center">
-            <span style="padding: 0.1rem 1rem;">시계열 클러스터를 사용해 하루동안의 날씨 패턴에 번호를 붙여 라벨링한 후 그 안의 값은 스케일링된 인구수의 합으로 채움</span>
-        </div>        
+        <div class="sub-title">하루동안의 날씨 변화 패턴 번호 매기기는 이미 했을듯? 각 도시별 인구수</div>
     </td>
 </tr>
 <tr>
     <td colspan="2" style="border-top: none;">
-        <div class="sub-title">Glove 모델을 사용한 국가별 장르 선호도 가중치</div>
+        <div class="sub-title">국가별 장르 선호도 분석</div>
         <div>
             <div class="d-flex" style="padding: 1rem">
                 <div class="flex-1" style="padding: 0 2rem">
