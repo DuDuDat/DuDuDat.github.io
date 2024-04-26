@@ -65,46 +65,4 @@ title: 포트폴리오
         </div>
     </td>
 </tr>
-<tr>
-    <td colspan="2" style="border-top: none;">
-        <div class="sub-title">국가별 장르 선호도 분석</div>
-        <div>
-            <div class="d-flex" style="padding: 1rem">
-                <div class="flex-1" style="padding: 0 2rem">
-                    <div class="circle">
-                        <div style="font-size: 1.5rem">🔗</div>
-                        단어 유사도 추출
-                    </div>
-                </div>
-                <div class="next-arrow"><span class="material-symbols-outlined">arrow_forward_ios</span></div>
-                <div class="flex-1" style="padding: 0 2rem">
-                    <div class="circle">
-                        <div style="font-size: 1.5rem">⚖️</div>
-                        가중치 조정
-                    </div>
-                </div>
-                <div class="next-arrow"><span class="material-symbols-outlined">arrow_forward_ios</span></div>
-                <div class="flex-1" style="padding: 0 2rem">
-                    <div class="circle">
-                        <div style="font-size: 1.5rem">🇰🇷</div>
-                        한국 취향 반영
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex" style="padding: 0 1rem 0.5rem">
-                <div class="flex-1" style="padding: 0 2rem">
-                    학습된 Glove 모델을 다운받아 장르와 태그 사이의 단어 유사도 값을 추출함
-                </div>
-                <div style="opacity: 0" class="next-arrow"><span class="material-symbols-outlined">arrow_forward_ios</span></div>
-                <div class="flex-1" style="padding: 0 2rem">
-                    e 지수함수를 사용하여 연관성 낮은 단어의 영향력을 낮춤
-                </div>
-                <div style="opacity: 0" class="next-arrow"><span class="material-symbols-outlined">arrow_forward_ios</span></div>
-                <div class="flex-1" style="padding: 0 2rem">
-                    조정된 가중치를 각 국가의 장르 청취수에 반영한 뒤 한국의 취향을 반영하기 위해 한국의 가중치도 반영함
-                </div>
-            </div>
-        </div>
-    </td>
-</tr>
 </table>
