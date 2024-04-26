@@ -34,7 +34,11 @@
         font-size: 1.02rem;
     }
 
-    li {
+    ul div {
+        padding-left: 0.3rem;
+    }
+
+    ul div, li {
         margin: 0.5rem 0;
         font-size: 1rem;
 
@@ -80,6 +84,14 @@
 
     h3:before {
         content: "";
+    }
+
+    .diagram-block {
+        background: #DAE8FC;
+        border: 2px solid #6C8EBF;
+        width: fit-content;
+        border-radius: 1rem;
+        padding: 0.7rem;
     }
 
 }
