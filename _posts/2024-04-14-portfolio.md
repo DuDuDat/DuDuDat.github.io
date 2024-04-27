@@ -65,4 +65,10 @@ title: 포트폴리오
         </div>
     </td>
 </tr>
+<tr>
+    <td colspan="2" style="border-top: none;">
+        <div class="sub-title">국가별 장르 선호도</div>
+        <img style="display: block; margin: 2.5rem auto 1.5rem;" src="{{root_url}}/public/img/portfolio/국가별 장르 선호도 반영.png" />
+    </td>
+</tr>
 </table>
