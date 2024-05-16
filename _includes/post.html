@@ -4,17 +4,15 @@
 <div class="post-header-background"></div>
 <div class="post-header-title">{{page.title}}</div>
 <div class="post-container">
-    <div class="post-side"></div>
     <div class="post-content">{{content}}</div>
-    <div class="post-side">
-        <div class="post-side-fixed">
-            <div class="post-side-column-direction-scroll">
-                <div class="post-nav"></div>
-            </div>
-        </div>
-    </div>
 </div>
-
+<indexnav>
+    <navicon><i class="fa-solid fa-list"></i></navicon>
+    <navlist class="d-none">
+        <navmenu><i class="fa-solid fa-ellipsis"></i><i class="fa-solid fa-xmark"></i></navmenu>
+        <navitem></navitem>
+    </navlist>
+</indexnav>
 <script id="collection" type="application/json">
     {
     {% for collection in site.collections %}
@@ -34,7 +32,7 @@
     }
 </script>
 
-<!-- post 좌측 사이드 메뉴  -->
+<!-- post 좌측 메뉴  -->
 <script>
     function escapeQuotesInHTMLTags(jsonString) { // HTML 태그 내의 큰따옴표를 이스케이프 처리
         return jsonString.replace(/<[^>]*>/g, function(match) {
@@ -89,7 +87,22 @@
         `
     }).join('');
     $('.post-side-menu').append(html)
+</script>
 
+<!-- 사용자 정의 태그 소괄호는 js/custom/latex-with-parentheses-tag.js 에 정의 -->
+<script>
+    $(document).ready(function () {
+        // 전체
+        let html = $('.post-content').html()
+
+        // @@ <desc></desc>
+        html = html.replace(/@@(.+?)(\r\n|[\s]*\r|\n|$)/g, "<desc>$1</desc>$2");
+
+        // ++ <plus></plus>
+        html = html.replace(/\+\+(.+?)(\r\n|[\s]*\r|\n|$)/g, "<plus>$1</plus>$2");
+
+        $(".post-content").html(html);
+    })
 </script>
 
 <!-- 우측 게시글 nav -->

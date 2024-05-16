@@ -75,3 +75,9 @@ collections:
     name: 딥러닝
     img: "딥러닝.jpg"
     order: 7
+  DiscreteMathematics:
+    output: true
+    permalink: /DiscreteMathematics/:path/
+    name: 이산수학
+    img: "이산수학.jpg"
+    order: 8

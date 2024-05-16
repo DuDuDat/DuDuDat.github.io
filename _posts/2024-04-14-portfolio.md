@@ -9,14 +9,6 @@ title: 포트폴리오
         <div class="title">프로젝트 개요</div>
         <div class="sub-title">프로젝트 목표</div>
         <ul><div>오늘의 날씨에 맞는 음악 장르 추천</div></ul>
-        <div class="sub-title">데이터 소개</div>
-        <ul>
-            <div>🎤 3만 곡의 상세정보(템포 등), 장르 O</div>
-            <div>🎧 2019년 동안 매일 수집된 여러 곡의 음악 청취수와 해당 곡에 대한 상세정보(템포 등), 장르 X</div>
-            <div>☔ 수집된 위치를 위도와 경도로 나타낸 날씨 데이터</div>
-            <div>🌐 각 좌표가 어느 국가에 속하는지 구분하기 위한 위한 지리 데이터 (도시의 인구수 포함)</div>
-            <div>🎼 장르 선호도 분석을 위한 국가별 TOP 100 음악 태그 (음악 특징을 나타내는 단어)</div>
-        </ul>
         <div class="sub-title">프로젝트 전제 조건</div>
         <ul>
             <li>음악 선택시 기분이 중요한 요소로 작용한다는 가정하에 이에 영향을 미칠 수 있는 날씨를 기반으로 음악 장르 추천</li>
@@ -29,12 +21,24 @@ title: 포트폴리오
 <tr>
     <td colspan="2" style="padding-bottom: 2rem;">
         <div class="title">프로젝트 진행 순서</div>
-        <img style="width: 98%; display: block; margin: 0 auto" src="{{root_url}}/public/img/portfolio/프로젝트 진행 순서.png" />
+        <img style="display: block; margin: 2rem auto 0" src="{{root_url}}/public/img/portfolio/머신러닝 프로젝트 진행 순서.png" />
     </td>
 </tr>
 <tr>
     <td colspan="2">
         <div class="title">데이터 처리/분석</div>
+        <div class="sub-title">장르 분류</div>
+        자자자
+    </td>
+</tr>
+<tr>
+    <td colspan="2" style="border-left: none; border-top: none; border-bottom: none">
+        <div class="sub-title">국가별 선호도 분석</div>
+        <img style="display: block; margin: 2.5rem auto 1.5rem;" src="{{root_url}}/public/img/portfolio/국가별 장르 선호도 반영.png" />
+    </td>
+</tr>
+<tr>
+    <td colspan="2" style="border-left: none; border-top: none; border-bottom: none">
         <div class="sub-title">날씨 데이터 전처리</div>
         <img style="display: block; margin: 2.5rem auto 1.5rem;" src="{{root_url}}/public/img/portfolio/날씨 데이터 전처리.png" />
     </td>
@@ -66,9 +70,19 @@ title: 포트폴리오
     </td>
 </tr>
 <tr>
-    <td colspan="2" style="border-top: none;">
-        <div class="sub-title">국가별 장르 선호도</div>
-        <img style="display: block; margin: 2.5rem auto 1.5rem;" src="{{root_url}}/public/img/portfolio/국가별 장르 선호도 반영.png" />
+    <td colspan="2" style="border-left: none; border-top: none; border-bottom: none">
+        <div class="sub-title">날씨별 가장 많이 듣는 장르 추출?</div>
+        앵
+    </td>
+</tr>
+<tr>
+    <td colspan="2" style="border-left: none; border-top: none; border-bottom: none">
+        <div class="sub-title">오늘의 추천 장르 출력</div>
+    </td>
+</tr>
+<tr>
+    <td colspan="2" style="padding-bottom: 2rem;">
+        <div class="title">회고?</div>
     </td>
 </tr>
 </table>
