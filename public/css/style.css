@@ -358,6 +358,7 @@ img.posts-header-img, img.post-header-img {
 	display: flex;
 
 	.post-content {
+		position: relative;
 		padding: 4rem 0;
 		flex: 1;
 

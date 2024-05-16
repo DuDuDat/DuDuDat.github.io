@@ -3,6 +3,8 @@ let lastScrollY = 0; // 현재 위치
 let isDown = false; // 스크롤 방향
 let initObserver =  true // observer 첫 실행 여부
 const indexInfo = [] // {'mainIndex': h1 인덱스, 'subIndex': h2 인덱스, 'referenceHeight': checkpoint 위치}
+let interval // index 선택 class 딜레이
+let click = false // click 했을 땐 딜레이 더 길게
 
 $(window).on('scroll', function() {
     let currentScrollY = window.scrollY;
@@ -16,14 +18,18 @@ function makeNavItem(obj, mainIndex, subIndex) { // obj: this 객체, index: mai
         .html($(obj).text())
         .attr('title', $(obj).text())
         .on('click', function() {
+            click = true
             $('html, body').animate({
                 scrollTop: $(`#${obj.id}`).offset().top - fixedHeaderHeight
-            }, 150)
+            }, 10)
+            setTimeout(() => {
+                click = false
+            }, 500)
         })
 
     $('navItem').append(navItem)
 
-    const checkPoint = $(`<check></check>`).html($(obj).text())
+    const checkPoint = $(`<check class="${!isNaN(subIndex)? 'sub' : 'main'}"></check>`)
     const nextObj = $(obj).nextAll('h1, h2').first(); // 다음 h1 또는 h2 구간 찾기
     let nextPos = nextObj.length > 0? nextObj.before(checkPoint).offset().top - fixedHeaderHeight : $(document).height()
 
@@ -37,6 +43,32 @@ function makeNavItem(obj, mainIndex, subIndex) { // obj: this 객체, index: mai
         'subIndex': subIndex
     })
     viewObserver.observe(checkPoint.get(0));
+}
+
+/* ------------------ debounce 설정 ------------------ */
+function debounce(elements) {
+    const orderedElement = isDown? elements : elements.slice().reverse()
+    orderedElement.forEach(el => {
+        const target = $(el.target)
+        if (isDown? !el.isIntersecting:el.isIntersecting) {
+            // const index = $('check').index(target)
+            // $('index').removeClass('active')
+            // $('index').get(isDown? index+1:index).classList.add('active')
+            // toggleSubIndices()
+            if (interval) {
+                clearInterval(interval)
+            }
+            interval = setInterval(() => {
+                if (!click) {
+                    const index = $('check').index(target)
+                    $('index').removeClass('active')
+                    $('index').get(isDown? index+1:index).classList.add('active')
+                    toggleSubIndices()
+                    clearInterval(interval)
+                }
+            }, 50);
+        }
+    })
 }
 
 /* ------------------ 요소 관찰을 위한 옵션 설정 ------------------ */
@@ -53,17 +85,7 @@ const viewObserver = new IntersectionObserver((elements) => {
         return
     }
 
-    const orderedElement = isDown? elements : elements.slice().reverse()
-    orderedElement.forEach(el => {
-        const target = $(el.target)
-        const index = $('check').index(target)
-
-        if (isDown? !el.isIntersecting:el.isIntersecting) {
-            $('index').removeClass('active')
-            $('index').get(isDown? index+1:index).classList.add('active')
-        }
-    })
-    toggleSubIndices()
+    debounce(elements)
 }, {
     root: null, // 뷰포트를 기본값으로 설정
     rootMargin: `-${fixedHeaderHeight}px 0px 0px 0px`,

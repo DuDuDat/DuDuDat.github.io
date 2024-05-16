@@ -2,7 +2,7 @@
 h1, h2, h3, h4, h5, h6 {
     display: flex;
     font-weight: 700;
-    padding: 0.5rem 0;
+    padding: 0.1rem 0;
     margin: 0;
 
     &:before {
@@ -12,33 +12,51 @@ h1, h2, h3, h4, h5, h6 {
         justify-content: center;
     }
 }
-h3 {
-    font-size: 1.4rem;
-    background: #CCEBFF;
-    margin-top: 4rem;
-
-    &:before {
-        content: '🐬';
-    }
-    &:first-child {
-        margin-top: 0;
-    }
-}
-h4 {
+h1 {
+    font-size: 2.2rem;
     width: fit-content;
-    font-size: 1.1rem;
-    background: rgba(224, 224, 224, 0.6);
-    padding-left: 0.1rem;
-    padding-right: 0.6rem;
-    margin-top: 1.5rem;
+    padding: 0.1rem 0;
+    margin: 0 0 1rem;
+    border-bottom: 2px solid #ff8844;
 
-    &:before {
-        content: '🧊️';
+    &:after {
+        display: block;
+        position: absolute;
+        content: ' ';
+        width: 100%;
+        height: 2.85rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        z-index: -1;
     }
 }
-h5 {
-    font-size: 1.1rem;
+h2 {
+    font-size: 1.8rem;
 }
+h3 {
+    font-size: 1.4rem
+}
+/*h3 {*/
+/*    font-size: 1.4rem;*/
+/*    background: #CCEBFF;*/
+/*    !*&:before {*!*/
+/*    !*    content: '🐬';*!*/
+/*    !*}*!*/
+/*}*/
+/*h4 {*/
+/*    !*width: fit-content;*!*/
+/*    font-size: 1.1rem;*/
+/*    !*background: rgba(224, 224, 224, 0.6);*!*/
+/*    !*padding-left: 0.1rem;*!*/
+/*    !*padding-right: 0.6rem;*!*/
+/*    !*margin-top: 1.5rem;*!*/
+
+/*    !*&:before {*!*/
+/*    !*    content: '🧊️';*!*/
+/*    !*}*!*/
+/*}*/
+/*h5 {*/
+/*    font-size: 1.1rem;*/
+/*}*/
 
 ul {
     list-style: none;
@@ -148,7 +166,6 @@ indexnav {
             position: relative;
 
             .fa-ellipsis, .fa-xmark {
-                cursor: pointer;
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
@@ -156,13 +173,14 @@ indexnav {
             .fa-ellipsis {
                 left: -0.4rem;
                 font-size: 1.5rem;
-                background: linear-gradient(to right, #FF6600, #FFBF00, #1e90ff);
+                background: linear-gradient(to right, #FF6600 33.33%, #FFBF00 33.33%, #FFBF00 66.66%, #1e90ff 66.66%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
                 color: transparent;
             }
             .fa-xmark {
+                cursor: pointer;
                 right: -0.4rem;
                 font-size: 0.7rem;
             }
@@ -173,14 +191,29 @@ indexnav {
             cursor: pointer;
 
             &.active {
+                font-weight: bold;
                 color: #f65660;
             }
             &.sub {
                 padding-left: 0.4rem;
                 font-size: 1rem;
             }
+            &:hover {
+                color: #ff8844;
+            }
         }
 
+    }
+}
+
+check {
+    display: block;
+
+    &.main {
+        height: 2rem;
+    }
+    &.sub {
+        height: 1rem;
     }
 }
 
