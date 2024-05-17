@@ -1,8 +1,22 @@
 module Jekyll
+  module CollectionExtensions
+    attr_accessor :subdir
+  end
   class CollectionSubdirsGenerator < Generator
     safe true
 
+    # def generate(site)
+    #   # site.config['test'] = 'Hello, Jekyll!'
+    #   values = []
+    #
+    #   site.collections.each do |label, collection|
+    #
+    #   end
+    # end
+
     def generate(site)
+      collections = []
+
       site.collections.each do |label, collection|
         collection_dir = File.join(site.source, collection.relative_directory)
 
@@ -10,7 +24,7 @@ module Jekyll
           subdirs = []
 
           Dir.foreach(collection_dir) do |entry|
-            next if entry == '.' || entry == '..' # '.', '..' 제외
+            next if entry == '.' || entry == '..'
             full_path = File.join(collection_dir, entry)
 
             if File.directory?(full_path)
@@ -21,22 +35,15 @@ module Jekyll
             end
           end
 
-          # @subdirectories 인스턴스 변수 설정
-          collection.instance_variable_set(:@subdirectories, subdirs)
+          dict = {
+            "label" => collection.metadata["name"] || label, "subdirs" => subdirs,
+          }
+          collections << dict
         end
       end
-
-      puts "Finished CollectionSubdirsGenerator"
+      puts "#{collections}"
+      site.config['test'] = collections
     end
+
   end
 end
-
-module Jekyll
-  module CollectionSubdirsFilter
-    def subdirectories(collection)
-      collection.instance_variable_get(:@subdirectories)
-    end
-  end
-end
-
-Liquid::Template.register_filter(Jekyll::CollectionSubdirsFilter)

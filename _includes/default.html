@@ -47,20 +47,10 @@
         </div>
     </header>
     <div class="content">
-        {% for collection in site.collections %}
-        잉
-        <h2>{{ collection.label }}</h2>
-        ㅎㅎ
-        <ul>
-            {% assign subdirs = collection | subdirectories %}
-            {% if subdirs %}
-            {% for subdir in subdirs %}
-            <li>{{ subdir }}</li>
-            {% endfor %}
-            {% else %}
-            <li>No subdirectories</li>
-            {% endif %}
-        </ul>
+        {% for collection in site.test %}
+        {{collection["label"]}}
+        {{collection["subdirs"]}}
+        {{collection["name"]}}
         {% endfor %}
         {{content}}
     </div>
