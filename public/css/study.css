@@ -4,6 +4,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     padding: 0.1rem 0;
     margin: 0;
+    font-family: "Binggrae", sans-serif;
 
     &:before {
         display: inline-flex;
@@ -16,7 +17,7 @@ h1 {
     font-size: 2.2rem;
     width: fit-content;
     padding: 0.1rem 0;
-    margin: 0 0 1rem;
+    margin: 0 0 1.3rem;
     border-bottom: 2px solid #ff8844;
 
     &:after {
@@ -30,60 +31,20 @@ h1 {
     }
 }
 h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
 }
-h3 {
-    font-size: 1.4rem
-}
-/*h3 {*/
-/*    font-size: 1.4rem;*/
-/*    background: #CCEBFF;*/
-/*    !*&:before {*!*/
-/*    !*    content: '🐬';*!*/
-/*    !*}*!*/
-/*}*/
-/*h4 {*/
-/*    !*width: fit-content;*!*/
-/*    font-size: 1.1rem;*/
-/*    !*background: rgba(224, 224, 224, 0.6);*!*/
-/*    !*padding-left: 0.1rem;*!*/
-/*    !*padding-right: 0.6rem;*!*/
-/*    !*margin-top: 1.5rem;*!*/
 
-/*    !*&:before {*!*/
-/*    !*    content: '🧊️';*!*/
-/*    !*}*!*/
-/*}*/
-/*h5 {*/
-/*    font-size: 1.1rem;*/
-/*}*/
+p {
+    line-height: 1.7;
+    margin: 0.5rem 0;
+    padding: 0 0.1rem;
+}
 
 ul {
     list-style: none;
     padding: 0;
     margin: 0;
-
-    li {
-        position: relative;
-        margin: 1rem 0;
-        font-size: 1.1rem;
-        padding-left: 1.5rem;
-        line-height: 1.5rem;
-
-        &:before {
-            position: absolute;
-            left: 0.1rem;
-            content: '🔹';
-            font-size: 0.9rem;
-            height: 1.5rem;
-            display: inline-flex;
-            align-items: center;
-            justify-items: center;
-        }
-        &:last-of-type {
-            margin-bottom: 0;
-        }
-    }
 }
 table {
     margin: 0.5rem 0;
@@ -149,10 +110,15 @@ indexnav {
         padding: 0.1rem 0.3rem;
         border-radius: 0.5rem;
         cursor: pointer;
+
+        .fa-list {
+            color: gray;
+        }
     }
 
     navlist {
         display: block;
+        background: rgba(255, 255, 255, 0.5);
         width: 100%;
         height: 100%;
         border: 1px solid #dee2e6;
@@ -208,12 +174,29 @@ indexnav {
 
 check {
     display: block;
+    position: relative;
 
+    &:before {
+        line-height: 1;
+        position: absolute;
+        right: 1rem;
+        top: calc(50% - 2.5px);
+        transform: translateY(-50%) scaleX(-1);
+    }
     &.main {
-        height: 2rem;
+        margin: 4rem 0;
+        border-top: 3px dashed rgba(255, 102, 0, 0.4);
+
+        &:before {
+            content: '✂';
+            color: #FF6600;
+            font-size: 2rem;
+        }
     }
     &.sub {
-        height: 1rem;
+        margin: 2rem 0;
+        border : 0;
+        border-top: 2px dashed rgba(0, 0, 0, 0.2);
     }
 }
 

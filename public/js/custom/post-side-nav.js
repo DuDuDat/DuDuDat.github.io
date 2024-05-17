@@ -29,7 +29,7 @@ function makeNavItem(obj, mainIndex, subIndex) { // obj: this 객체, index: mai
 
     $('navItem').append(navItem)
 
-    const checkPoint = $(`<check class="${!isNaN(subIndex)? 'sub' : 'main'}"></check>`)
+    const checkPoint = $(`<check></check>`)
     const nextObj = $(obj).nextAll('h1, h2').first(); // 다음 h1 또는 h2 구간 찾기
     let nextPos = nextObj.length > 0? nextObj.before(checkPoint).offset().top - fixedHeaderHeight : $(document).height()
 
@@ -139,5 +139,16 @@ $(document).ready(function () {
             $(this).attr('id', `header-${count++}`);
             makeNavItem(this, mainIndex, subIndex)
         })
+    })
+
+    $('check').each(function(index) {
+        const next = $(this).nextAll('h1, h2').first()
+        if (next.length > 0) {
+            if (next.get(0).tagName.includes(1)) {
+                $(this).addClass('main')
+            }else {
+                $(this).addClass('sub')
+            }
+        }
     })
 });

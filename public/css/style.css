@@ -3,14 +3,14 @@
 @import url(syntax/monokai.css);
 @font-face {
 	font-family: 'Binggrae';
-	/*font-weight: normal;*/
+	font-weight: normal;
 	src: url('../font/Binggrae.ttf') format('truetype');
 }
-/*@font-face {*/
-/*	font-family: 'Naver';*/
-/*	font-weight: bold;*/
-/*	src: url('../font/nanum-barun-pen/NanumBarunpenB.ttf') format('truetype');*/
-/*}*/
+@font-face {
+	font-family: 'Binggrae';
+	font-weight: bold;
+	src: url('../font/Binggrae-Bold.ttf') format('truetype');
+}
 @font-face {
 	font-family: 'SUITE';
 	font-weight: 300;
@@ -241,6 +241,7 @@ img.posts-header-img, img.post-header-img {
 	opacity: 0.4;
 }
 .posts-header-title, .post-header-title {
+	font-family: 'Binggrae', sans-serif;
 	padding: 0 1rem;
 	text-overflow: ellipsis;
 	display: inline-flex;

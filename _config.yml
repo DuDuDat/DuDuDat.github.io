@@ -81,3 +81,9 @@ collections:
     name: 이산수학
     img: "이산수학.jpg"
     order: 8
+  Test:
+    output: true
+    permalink: /Test/:path/
+    name: 테스트용
+    img: "테스트.jpg"
+    order: 9
