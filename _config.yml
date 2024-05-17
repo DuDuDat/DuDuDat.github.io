@@ -13,6 +13,7 @@ highlighter-theme: monokai
 plugins:
   - jekyll-feed
   - jemoji
+plugins_dir: _plugins
 category_dir: category/
 tag_dir: tag/
 livereload: true
@@ -26,64 +27,10 @@ kramdown:
   input: GFM  # GitHub Flavored Markdown을 사용하도록 설정
 
 collections:
-  project:
+  Tip:
     output: true
-    permalink: /project/:path/
-    name: 프로젝트
-  About:
-    output: true
-    permalink: /About/:path/
-    name: "특강 요약"
-    order: 0
-  Python:
-    output: true
-    permalink: /Python/:path/
-    name: 파이썬
-    img: "파이썬.jpg"
-    order: 1
-  EDA:
-    output: true
-    permalink: /EDA/:path/
-    img: "EDA.png"
-    order: 2
-  SQL:
-    output: true
-    permalink: /SQL/:path/
-    img: "SQL.jpg"
-    order: 3
-  Math:
-    output: true
-    permalink: /Math/:path/
-    name: 수학
-    img: "수학.jpg"
-    order: 4
-  Statistics:
-    output: true
-    permalink: /Statistics/:path/
-    name: 통계학
-    img: "통계학.jpg"
-    order: 5
-  ML:
-    output: true
-    permalink: /ML/:path/
-    name: 머신러닝
-    img: "머신러닝.jpg"
-    order: 6
-  Deep:
-    output: true
-    permalink: /Deep/:path/
-    name: 딥러닝
-    img: "딥러닝.jpg"
-    order: 7
-  DiscreteMathematics:
-    output: true
-    permalink: /DiscreteMathematics/:path/
-    name: 이산수학
-    img: "이산수학.jpg"
-    order: 8
-  Test:
-    output: true
-    permalink: /Test/:path/
-    name: 테스트용
+    permalink: /Tip/:path/
+    name: 팁
+    icon: "아직 안정함"
     img: "테스트.jpg"
-    order: 9
+    order: 1
