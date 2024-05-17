@@ -3,11 +3,18 @@ module Jekyll
     safe true
 
     def generate(site)
-      puts "Starting CollectionSubdirsGenerator"
-
       site.collections.each do |label, collection|
         puts "오옹: #{label}"
 
+        collection_dir = File.join(site.source, collection.relative_directory)
+
+        if Dir.exist?(collection_dir)
+          subdirs = Dir.entries(collection_dir).select do |entry|
+            path = File.join(collection_dir, entry)
+            puts "오옹: #{path}"
+            File.directory?(path) && !(entry == '.' || entry == '..')
+          end
+        end
         collection.docs.each do |doc|
           doc_dir = File.dirname(doc.path)
           puts "에옹 #{doc_dir}"
