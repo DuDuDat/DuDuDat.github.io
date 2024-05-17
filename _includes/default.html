@@ -58,6 +58,8 @@
     "img": "{{ collection.img | escape }}",
     "subdir": [
     {% assign subdirs = collection | subdirectories %}
+    {{subdirs}}
+            왓더?
     {% for dir in subdirs %}
     {% for subdir in subdirs[dir] %}
     "{{ subdir | escape }}"{% unless forloop.last and forloop.parentloop.last %}, {% endunless %}

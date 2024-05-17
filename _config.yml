@@ -13,7 +13,6 @@ highlighter-theme: monokai
 plugins:
   - jekyll-feed
   - jemoji
-  - jekyll-collection-subdirs
 category_dir: category/
 tag_dir: tag/
 livereload: true
