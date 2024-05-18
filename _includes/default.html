@@ -28,7 +28,17 @@
         <div class="profile-desc">{{ site.title }}</div>
     </div>
     <div class="category">
+        {% for collection in site.cols %}
+        {{collection["label"]}}
 
+        {% for key, value in collection.dirs %}
+        {{key}}
+        {{value}}
+        {% endfor %}
+
+<!--        {{collection["dirs"]}}-->
+<!--        {{collection["img"]}}-->
+        {% endfor %}
     </div>
 </aside>
 <div class="container">

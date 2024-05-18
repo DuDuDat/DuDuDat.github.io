@@ -10,15 +10,21 @@ module Jekyll
 
       site.collections.each do |label, collection|
         collection_dir = File.join(site.source, collection.relative_directory) # _Develop
-        next if collection.relative_directory == "_posts" # _posts 제외
+        next if label == "posts" # _posts 제외
+
+        directories_info = {}
         
-        dirs = search_directories(collection_dir)
+        dirs, dir_data = search_directories(site, collection_dir)
+        directories_info = directories_info.merge(dir_data)
 
         dirs.each do |dir| # Language
           dir_path = File.join(collection_dir, dir)
 
           # 파일 경로 예시: _Develop/Language/C
-          search_directories(dir_path).each do |sub_dir|
+          sub_dirs, sub_dir_data = search_directories(site, dir_path)
+          directories_info = directories_info.merge(sub_dir_data)
+
+          sub_dirs.each do |sub_dir|
             set_docs(site, collection.docs, File.join(dir_path, sub_dir))
           end
           
@@ -29,27 +35,18 @@ module Jekyll
         # 컬렉션 정보 저장
         if Dir.exist?(collection_dir) # collection_dir: D:/dududat.github.io/_Develop
           collection_dict = {
-            "label" => collection.metadata["name"] || label, "dirs" => dirs, "img" => collection.metadata["img"]
+            "label" => collection.metadata["name"] || label, "dirs" => directories_info, "img" => collection.metadata["img"]
           }
           collections << collection_dict
         end
 
-        # 디렉토리 아이콘 등 저장
-        json_file_path = File.join(site.source, 'directories_info.json')
-        if File.exist?(json_file_path)
-          json_data = File.read(json_file_path)
-          json_data = JSON.parse(json_data)
-          for dir_name, dics in json_data
-            dics['name'] = dics.fetch('name', dir_name)
-          end
-          site.config['directories_info'] = json_data
-        end
+
       end
-      site.config['test'] = collections
+      site.config['cols'] = collections
     end
 
     # path: 디렉토리 경로, check: "dir" or "file" return sub_directories or sub_files
-    def search_directories(path)
+    def search_directories(site, path)
       sub_directories = []
       if Dir.exist?(path)
         Dir.foreach(path) do |entry|
@@ -60,7 +57,20 @@ module Jekyll
           end
         end
       end
-      sub_directories
+      # 디렉토리 아이콘 등 저장
+      json_file_path = File.join(site.source, 'directories_info.json')
+      root_dir = path.split("/").last
+      root_dir = root_dir.sub(/^_/, '')
+      sub_dirs = []
+      if File.exist?(json_file_path)
+        json_data = File.read(json_file_path)
+        json_data = JSON.parse(json_data)
+        sub_directories.each do |dir|
+          sub_dirs << {dir => json_data[dir] || {}}
+        end
+      end
+      data = {root_dir => sub_dirs}
+      [sub_directories, data]
     end
 
     def set_docs(site, docs, path)
