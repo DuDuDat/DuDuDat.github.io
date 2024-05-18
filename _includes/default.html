@@ -50,8 +50,9 @@
         {% for collection in site.test %}
         {{collection["label"]}}
         {{collection["subdirs"]}}
-        {{collection["name"]}}
+        {{collection["img"]}}
         {% endfor %}
+        {{ site.directories_info }}
         {{content}}
     </div>
 </div>

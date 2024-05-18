@@ -26,10 +26,9 @@ kramdown:
   input: GFM  # GitHub Flavored Markdown을 사용하도록 설정
 
 collections:
-  Tip:
+  Develop:
     output: true
-    permalink: /Tip/:path/
-    name: 팁
+    permalink: /Develop/:path/
     icon: "아직 안정함"
     img: "테스트.jpg"
     order: 1
