@@ -116,6 +116,16 @@ $(document).ready(function () {
 
     let count = 0
     /* ------------------ 목차용 블럭 생성 ------------------ */
+    $('h2').each(function(index) { // h1 이 없는 h2 객체가 있다면
+        const prevH1 = $(this).prevAll('h1')
+        const nextH = $(this).nextAll('h1, h2')
+        index = nextH.length + index
+
+        if(prevH1.length === 0) {
+            makeNavItem(this, index)
+        }
+    })
+
     $('h1').each(function(mainIndex) {
         $(this).attr('id', `header-${count++}`);
         makeNavItem(this, mainIndex)

@@ -1,4 +1,4 @@
-title: 두두닷의 공부 일지
+title: 두두닷의 개발 공부
 email: kjm1709@naver.com
 description: >-
   <img class="fox-image" src="/public/img/default/fox_icon.jpeg" alt="fox_icon" /> 두두닷
@@ -30,10 +30,10 @@ collections:
     output: true
     permalink: /Develop/:path/
     icon: "<i class='fa-brands fa-connectdevelop'></i>"
-  GitHub:
+  DevOps:
     output: true
-    permalink: /GitHub/:path/
-    icon: "<i class='devicon-github-original'></i>"
+    permalink: /DevOps/:path/
+    icon: "<i class='fa-solid fa-graduation-cap'></i>"
   Others:
     output: true
     permalink: /Others/:path/

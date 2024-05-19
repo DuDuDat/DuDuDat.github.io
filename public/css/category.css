@@ -52,6 +52,10 @@
 .post-title {
     font-size: 1rem;
     margin-bottom: 0.4rem;
+    height: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .post-content {
     font-size: 0.85rem;
