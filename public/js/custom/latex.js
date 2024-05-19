@@ -29,7 +29,7 @@ window.MathJax = {
         ready: () => {
             MathJax.startup.defaultReady();
             // 사용자 정의 태그 소괄호
-            $('li, p, td').each(function() {
+            $('.post-content').each(function() {
                 const htmlContent = $(this).html();
                 const updatedText = htmlContent.replace(/(\(([^)]+)\))/g, function(match, p1, p2, offset, string) {
                     const leftHtml = string.slice(0, offset);

@@ -46,7 +46,7 @@
         const html = jsonData.map(doc => {
             return `<div class="col-sm-12 col-md-6 col-lg-4">
                     <div class="post ${doc['url']}">
-                        <img class="post-image" src="${doc['image'] || '{{root_url}}/public/img/default.jpg'}" />
+                        <img class="post-image" src="${doc['image'] || '{{site.url}}/public/img/default.jpg'}" />
                         <div class="post-label">${doc['label']}</div>
                         <div class="post-info">
                             <div class="post-title">${doc['title']}</div>
@@ -65,7 +65,7 @@
 
         fetch('{{root_url}}/image_url.json')
             .then(res => res.json())
-            .then(data => $('.posts-image').attr('src', data[hash] || "{{root_url}}/public/img/default.jpg"))
+            .then(data => $('.posts-image').attr('src', data[hash] || "{{site.url}}/public/img/default.jpg"))
             .catch(err => console.log(err))
     }
 

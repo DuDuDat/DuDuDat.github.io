@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{root_url}}/public/css/post.css">
+<link rel="stylesheet" href="{{root_url}}/public/css/dynamic-tag.css">
 <!--<div class="post-side-menu"></div>-->
 
 <img class="post-header-img" src="{{root_url}}/public/img/{{page.img}}" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />
@@ -34,6 +35,19 @@
         });
 
         $highlightDiv.append($button)
+    })
+</script>
+
+<!-- post 내 이미지 src 변경 -->
+<script>
+    $(document).ready(function () {
+        const url = "{{site.url}}"
+        const pathname = decodeURIComponent(location.pathname);
+        const dir = pathname.split('/').slice(-3, -2)[0]
+        $('.post-content img').each(function() {
+            const filename = $(this).attr('src')
+            $(this).attr('src', `${url}/public/img/${dir}/${filename}`)
+        })
     })
 </script>
 
