@@ -1,0 +1,355 @@
+/*---------------- HTML ----------------*/
+h1, h2, h3, h4, h5, h6 {
+    display: flex;
+    font-weight: 700;
+    padding: 0.1rem 0;
+    margin: 0;
+    font-family: "Binggrae", sans-serif;
+
+    &:before {
+        display: inline-flex;
+        margin-right: 0.3rem; /* 오른쪽 여백 추가 */
+        align-items: center;
+        justify-content: center;
+    }
+}
+h1 {
+    font-size: 2.2rem;
+    width: fit-content;
+    padding: 0.1rem 0;
+    margin: 0 0 1.7rem;
+    border-bottom: 2px solid #ff8844;
+
+    &:after {
+        display: block;
+        position: absolute;
+        content: ' ';
+        width: 100%;
+        height: 2.85rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        z-index: -1;
+    }
+}
+h2 {
+    font-size: 1.6rem;
+    margin: 3rem 0 1.5rem;
+}
+h3 {
+    font-size: 1.2rem;
+    margin: 2rem 0 0;
+    font-family: 'SUIT', sans-serif;
+}
+
+p {
+    line-height: 1.6;
+    margin: 1.5rem 0;
+    padding: 0 0.1rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+
+    li {
+        padding-left: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+
+        &:before {
+            display: inline-block;
+            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="orange" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 5.25-9 13-9 13S3 15.25 3 10a9 9 0 1 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>');
+            height: 100%;
+            color: #FF6600;
+            transform: scaleX(-1);
+            margin-right: 0.5rem;
+        }
+    }
+}
+table {
+    margin: 0.5rem 0;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+    & th {
+        border-bottom: 1px solid #dee2e6;
+    }
+    & th, td {
+        padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    }
+    & tr {
+        border-bottom: 1px solid #dee2e6;
+
+        &:last-of-type {
+            border-bottom: 0;
+        }
+    }
+    & td {
+        border-left: 1px solid #dee2e6;
+
+        &:first-of-type {
+            border-left: 0;
+        }
+        &:last-of-type {
+            border-bottom: 0;
+        }
+        & li:last-of-type {
+            margin-bottom: 0 !important;
+        }
+    }
+}
+.post-content {
+    position: relative;
+    width: 45rem;
+    margin: 0 auto 4rem;
+}
+.post-header-background {
+    background: rgba(0, 0, 0, 0.3);
+}
+.post-header-img {
+    opacity: 0.8;
+}
+.post-header-img, .post-header-background {
+    width: 100%;
+    height: 13rem;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    z-index: -1;
+}
+.post-header-title, .post-header-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 13rem;
+    margin-bottom: 5rem;
+    font-family: var(--category-font);
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
+    z-index: 1;
+}
+.post-header-date {
+    padding: 3rem 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5.8rem;
+    font-weight: normal;
+    font-size: 0.85rem;
+
+    span {
+        color: white;
+        margin-right: 0.5rem;
+        font-size: 1.3rem;
+    }
+}
+/*---------------- 마크 다운 ----------------*/
+blockquote { /*-- > 인용구 --*/
+    display: flex;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 1rem 0 1rem 1rem;
+    border-left: 0.15rem solid #ff8844;
+    margin-left: 0.4rem;
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
+
+    /*&:before {*/
+    /*    display: inline-flex;*/
+    /*    content: "💡";*/
+    /*    padding-right: 0.5rem;*/
+    /*}*/
+}
+
+/*---------------- 코드 블록 ----------------*/
+div.highlight {
+    position: relative; /* 부모 요소에 상대 위치를 설정 */
+    padding: 2.5rem 0 0; /* 코드 블록 패딩 */
+    background: #282c34; /* 코드 블록 배경색 */
+    color: #abb2bf; /* 코드 색상 */
+    border-radius: 5px; /* 둥근 모서리 */
+    overflow: hidden;
+    margin: 1rem 0;
+}
+div.highlight:before {
+    display: flex;
+    align-items: center;
+    content: "🚀 Code Block";
+    padding-left: 0.7rem;
+    font-size: 0.8rem;
+    line-height: 2;
+    background: #393b46;
+    color: #ffffff; /* 텍스트 색상 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; /* 왼쪽과 오른쪽을 0으로 설정하여 전체 너비를 차지하도록 함 */
+    box-sizing: border-box; /* 패딩을 포함한 전체 너비를 고려 */
+}
+div.highlight .copy-button {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* 비표준 브라우저를 위한 기본값 */
+
+    position: absolute;
+    right: 1rem;
+    top: 0;
+    line-height: 2;
+    font-size: 0.8rem;
+    cursor: pointer;
+    z-index: 2;
+    color: #eeeeee;
+    pointer-events: auto !important;
+
+    i {
+        color: #eeeeee;
+        margin-right: 0.2rem;
+        font-size: 0.8rem;
+    }
+}
+pre.highlight {
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+}
+pre code {
+    display: inline-block; /* 코드 요소를 블록 요소로 설정 */
+    padding-right: 1rem;
+    padding-bottom: 1.0rem;
+    background: #282c34; /* 코드 블록 배경색 */
+    min-width: 100%;
+}
+
+/*---------------- 목차 네비 ----------------*/
+indexnav {
+    display: block;
+    position: fixed;
+    top: 10rem;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+
+    navicon {
+        display: block;
+        padding: 0.1rem 0.3rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+
+        .fa-list {
+            color: gray;
+        }
+    }
+
+    navlist {
+        display: block;
+        background: rgba(255, 255, 255, 0.5);
+        width: 100%;
+        height: 100%;
+        border: 1px solid #dee2e6;
+        padding: 0.1rem 1rem;
+        border-radius: 0.5rem;
+        position: relative;
+
+        navmenu {
+            display: block;
+            height: 1.5rem;
+            position: relative;
+
+            .fa-ellipsis, .fa-xmark {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .fa-ellipsis {
+                left: -0.4rem;
+                font-size: 1.5rem;
+                background: linear-gradient(to right, #FF6600 33.33%, #FFBF00 33.33%, #FFBF00 66.66%, #1e90ff 66.66%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+            }
+            .fa-xmark {
+                cursor: pointer;
+                right: -0.4rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        index {
+            display: block;
+            cursor: pointer;
+
+            &.active {
+                font-weight: bold;
+                color: #f65660;
+            }
+            &.sub {
+                padding-left: 0.4rem;
+                font-size: 1rem;
+            }
+            &:hover {
+                color: #ff8844;
+            }
+        }
+
+    }
+}
+
+check {
+    display: block;
+    position: relative;
+
+    &:before {
+        line-height: 1;
+        position: absolute;
+        right: 1rem;
+        top: calc(50% - 2.5px);
+        transform: translateY(-50%) scaleX(-1);
+    }
+    &.main {
+        margin: 4rem 0;
+        border-top: 3px dashed rgba(255, 102, 0, 0.4);
+
+        &:before {
+            content: '✂';
+            color: #FF6600;
+            font-size: 2rem;
+        }
+    }
+    &.sub {
+        margin: 2rem 0;
+        border : 0;
+        border-top: 2px dashed rgba(0, 0, 0, 0.2);
+    }
+    &.sub.first {
+        border-top: none;
+    }
+}
+
+/*---------------- 필기용 태그 ----------------*/
+parentheses { /*-- 소괄호 --*/
+    display: inline;
+    font-weight: 100 !important;
+    font-size: 0.9em !important;
+}
+desc { /*-- @@ 태그 --*/
+    display: block;
+    background: #f5f5f5;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+plus { /*-- ++ 태그 --*/
+    display: block;
+    background: #eeeeee;
+    padding: 1rem;
+    margin: 1rem 0;
+}
