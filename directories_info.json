@@ -1,4 +1,10 @@
 {
-  "C": "아이콘임돵",
-  "쿠우": "슈롱"
+  "Language": "<i class=\"fa-solid fa-spinner\"></i>",
+  "C": "<i class=\"fal devicon-c-plain\"></i>",
+  "Python": "<i class=\"devicon-python-plain\"></i>",
+  "Markdown": "<i class=\"devicon-markdown-plain\"></i>",
+  "블로그": "<i class=\"fa-solid fa-blog\"></i>",
+  "StyleSheet": "<i class=\"devicon-css3-plain\"></i>",
+  "CSS": "<i class=\"devicon-css3-plain\"></i>",
+  "Liquid": "<i class=\"fa-solid fa-flask\"></i>"
 }

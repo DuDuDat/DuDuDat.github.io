@@ -1,7 +1,75 @@
-<script>
-    fetch('{{root_url}}/custom_directory.json')
-        .then(res => res.json())
-        .then(data => console.log(data))
-        .catch(err => console.log(err))
-
+<link rel="stylesheet" href="{{root_url}}/public/css/category.css">
+<input type="image" class="posts-image"  src="" alt="이미지" />
+<div class="directory-name">분류 전체 보기</div>
+<div class="row"></div>
+<script id="documents" type="application/json">
+    [
+        {% for doc in site.documents %}
+        {% assign arr = doc.path | split: '/' %}
+        {% assign index = arr.size | minus: 2 %}
+        {
+            "label": "{{ arr[index] }}",
+            "image": "{{ doc.img }}",
+            "url": "{{ doc.url | relative_url | escape }}",
+            "title": "{{ doc.title | escape }}",
+            "date": "{{ doc.date | date: '%Y-%m-%d' | escape }}",
+            "content": "{{ doc.content | strip_html | strip_newlines | escape | truncatewords: 20 }}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ]
 </script>
+
+<script>
+    function filterAndUpdate() {
+        const hash = decodeURIComponent(window.location.hash.substring(1)).trim();
+
+        let jsonData = $('#documents').text()
+        jsonData = JSON.parse(jsonData)
+
+        $(`.selected`).removeClass('selected')
+        $(`.sub-directory`).addClass('d-none')
+        $(`.category-drop-down`).removeClass('d-none')
+        $(`.category-drop-up`).addClass('d-none')
+
+        if (hash !== 'total') {
+            jsonData = jsonData.filter(data => data['label'].trim() === hash)
+            $('.directory-name').text(hash)
+            const selected = $(`.sub-directory.${hash}`)
+            selected.addClass('selected')
+            const category = selected.get(0).classList[1]
+            $(`.sub-directory.${category}`).removeClass('d-none')
+            $(`.category-drop-down.${category}`).addClass('d-none')
+            $(`.category-drop-up.${category}`).removeClass('d-none')
+        }else {
+            $('.directory-name').text('분류 전체 보기')
+        }
+        const html = jsonData.map(doc => {
+            return `<div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="post ${doc['url']}">
+                        <img class="post-image" src="${doc['image'] || '{{root_url}}/public/img/default.jpg'}" />
+                        <div class="post-label">${doc['label']}</div>
+                        <div class="post-info">
+                            <div class="post-title">${doc['title']}</div>
+                            <div class="post-content">${doc['content']}</div>
+                            <div class="post-date">${doc['date']}</div>
+                        </div>
+                    </div>
+                </div>`
+        }).join('');
+
+        $('.row').html(html)
+
+        $('.post').on('click', function() {
+            window.location.href = $(this).get(0).classList[1]
+        })
+
+        fetch('{{root_url}}/image_url.json')
+            .then(res => res.json())
+            .then(data => $('.posts-image').attr('src', data[hash] || "{{root_url}}/public/img/default.jpg"))
+            .catch(err => console.log(err))
+    }
+
+    $(document).ready(filterAndUpdate)
+    $(window).on('hashchange', filterAndUpdate)
+</script>
+

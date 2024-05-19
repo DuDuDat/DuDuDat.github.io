@@ -1,4 +1,4 @@
-const fixedHeaderHeight = $('.fixed-header').height() // 상단 고정 헤더
+const fixedHeaderHeight = $('header').height() // 상단 고정 헤더
 let lastScrollY = 0; // 현재 위치
 let isDown = false; // 스크롤 방향
 let initObserver =  true // observer 첫 실행 여부
@@ -51,10 +51,6 @@ function debounce(elements) {
     orderedElement.forEach(el => {
         const target = $(el.target)
         if (isDown? !el.isIntersecting:el.isIntersecting) {
-            // const index = $('check').index(target)
-            // $('index').removeClass('active')
-            // $('index').get(isDown? index+1:index).classList.add('active')
-            // toggleSubIndices()
             if (interval) {
                 clearInterval(interval)
             }
@@ -142,6 +138,10 @@ $(document).ready(function () {
     })
 
     $('check').each(function(index) {
+        const prev = $(this).prevAll('h1, h2').first(); // 이전 h1 또는 h2 구간 찾기
+        if (prev.length === 0 ||prev.is('h1')) {
+            $(this).addClass('first')
+        }
         const next = $(this).nextAll('h1, h2').first()
         if (next.length > 0) {
             if (next.get(0).tagName.includes(1)) {

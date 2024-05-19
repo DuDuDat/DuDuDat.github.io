@@ -1,7 +1,7 @@
-title: 초보 개발자
+title: 두두닷의 공부 일지
 email: kjm1709@naver.com
-description: >- 
-  개발용 블로그 일지
+description: >-
+  <img class="fox-image" src="/public/img/default/fox_icon.jpeg" alt="fox_icon" /> 두두닷
 # baseurl: "/" # the subpath of your site, e.g. /blog
 # url: "http://ejjoo.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: ejjoo
@@ -29,6 +29,12 @@ collections:
   Develop:
     output: true
     permalink: /Develop/:path/
-    icon: "아직 안정함"
-    img: "테스트.jpg"
-    order: 1
+    icon: "<i class='fa-brands fa-connectdevelop'></i>"
+  GitHub:
+    output: true
+    permalink: /GitHub/:path/
+    icon: "<i class='devicon-github-original'></i>"
+  Others:
+    output: true
+    permalink: /Others/:path/
+    icon: "<i class='fa-brands fa-sketch'></i>"

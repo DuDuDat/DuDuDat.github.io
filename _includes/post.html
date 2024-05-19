@@ -1,7 +1,9 @@
-<div class="post-side-menu"></div>
+<link rel="stylesheet" href="{{root_url}}/public/css/post.css">
+<!--<div class="post-side-menu"></div>-->
 
 <img class="post-header-img" src="{{root_url}}/public/img/{{page.img}}" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />
 <div class="post-header-background"></div>
+<div class="post-header-date"><span class="material-symbols-outlined">edit_calendar</span>{{page.date | date: "%Y.%m.%d"}}</div>
 <div class="post-header-title">{{page.title}}</div>
 <div class="post-container">
     <div class="post-content">{{content}}</div>
@@ -13,80 +15,26 @@
         <navitem></navitem>
     </navlist>
 </indexnav>
-<script id="collection" type="application/json">
-    {
-    {% for collection in site.collections %}
-    "{{ collection.label | escape }}": {
-    "name": {% if collection.name %}"{{ collection.name | escape }}"{% else %}"{{ collection.label | escape }}"{% endif %},
-    "img": "{{ collection.img | escape }}",
-    "docs":[
-    {% for doc in collection.docs %}
-    {"title": "{{ doc.title | escape }}", "url": "{{ doc.url | relative_url | escape }}"
-    }
-    {% unless forloop.last %}, {% endunless %}
-    {% endfor %}
-    ]
-    }
-    {% unless forloop.last %}, {% endunless %}
-    {% endfor %}
-    }
-</script>
 
-<!-- post 좌측 메뉴  -->
+<!-- 코드 블럭 복사 이벤트 -->
 <script>
-    function escapeQuotesInHTMLTags(jsonString) { // HTML 태그 내의 큰따옴표를 이스케이프 처리
-        return jsonString.replace(/<[^>]*>/g, function(match) {
-            return match.replace(/"/g, '\\"');
+    $(document).ready(function () {
+        const $highlightDiv = $('div.highlight');
+        const $button = $('<span class="copy-button"><i class="fa-regular fa-copy"></i> Copy</span>');
+        $(document).on('click', '.copy-button', function() { // 이벤트 위임
+            const div = $(this).closest('div.highlight');
+            const index = div.index('div.highlight');
+
+            const codeText = div.find('code').text();
+            navigator.clipboard.writeText(codeText).then(function() {
+                $('.copy-button').eq(index).html('<i class="fa-regular fa-copy"></i> Copied');
+            }).catch(function(err) {
+                console.error('텍스트 복사에 실패했습니다: ', err);
+            });
         });
-    }
 
-    const path = window.location.pathname
-    const label = path.split('/')[1]
-
-    let jsonString = $('#collection').text()
-    jsonString = escapeQuotesInHTMLTags(jsonString);
-    jsonString = JSON.parse(jsonString)
-    const data = jsonString[label]
-
-    // header.html
-    $('.header-path').html(`
-        <span class="material-symbols-outlined">chevron_right</span>
-        <a href="/posts/#${label}" class="post-label">${data['name']}</a>
-        <span class="material-symbols-outlined">chevron_right</span>
-        <span class="header-recent-file-path">{{page.title}}</span>
-    `)
-
-    if (label === 'project') { // project 라벨인 경우
-        $('.header-path').html(`
-        <span class="material-symbols-outlined">chevron_right</span>
-        {{page.title}}
-        `)
-    }
-
-    $('.header-side-menu-btn-group').html(`
-        <i class="post-side-menu-open-btn fa-solid fa-bars"></i>
-        <span class="post-side-menu-hide-btn material-symbols-outlined">keyboard_double_arrow_left</span>
-    `)
-
-    $('.post-side-menu-open-btn').on('click', function () {
-        $('.post-side-menu').addClass('post-side-menu-show')
-        $('header').addClass('post-header-move')
-        $('.post-side-menu-open-btn').css('display', 'none')
-        $('.post-side-menu-hide-btn').css('display', 'inline-block')
+        $highlightDiv.append($button)
     })
-    $('.post-side-menu-hide-btn').on('click', function () {
-        $('.post-side-menu').removeClass('post-side-menu-show')
-        $('header').removeClass('post-header-move')
-        $('.post-side-menu-open-btn').css('display', 'inline-block')
-        $('.post-side-menu-hide-btn').css('display', 'none')
-    })
-
-    const html = data['docs'].map(doc => {
-        return `
-            <a class="post-menu-title" href='${doc.url}'>${doc.title}</a>
-        `
-    }).join('');
-    $('.post-side-menu').append(html)
 </script>
 
 <!-- 사용자 정의 태그 소괄호는 js/custom/latex-with-parentheses-tag.js 에 정의 -->
