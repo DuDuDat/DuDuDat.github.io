@@ -12,7 +12,7 @@
             "image": "{{ doc.img }}",
             "url": "{{ doc.url | relative_url | escape }}",
             "title": "{{ doc.title | escape }}",
-            "date": "{{ doc.date | date: '%Y-%m-%d' | escape }}",
+            "date": "{{ doc.created_date | date: '%Y-%m-%d' | escape }}",
             "content": "{{ doc.content | strip_html | strip_newlines | escape | truncatewords: 20 }}"
         }{% unless forloop.last %},{% endunless %}
         {% endfor %}

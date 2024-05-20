@@ -4,7 +4,7 @@
 
 <img class="post-header-img" src="{{root_url}}/public/img/{{page.img}}" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />
 <div class="post-header-background"></div>
-<div class="post-header-date"><span class="material-symbols-outlined">edit_calendar</span>{{page.date | date: "%Y.%m.%d"}}</div>
+<div class="post-header-date"><span class="material-symbols-outlined">edit_calendar</span>{{page.created_date | date: "%Y.%m.%d"}}</div>
 <div class="post-header-title">{{page.title}}</div>
 <div class="post-container">
     <div class="post-content">{{content}}</div>

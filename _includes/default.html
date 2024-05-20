@@ -18,7 +18,7 @@
 <script src="{{root_url}}/public/js/custom/latex.js"></script>
 </head>
 <body>
-{% assign documents = site["docs"] %}
+{% assign docs_size = site["docs_size"] %}
 <aside>
     <div class="aside-fixed">
         <div class="profile">
@@ -27,7 +27,7 @@
         </div>
         <div class="side-menu">
             <div class="documents-total">
-                <span class="all-documents">Total <span class="total-count">({{ site.documents | size }})</span></span>
+                <span class="all-documents">Total <span class="total-count">({{ docs_size['total'] }})</span></span>
             </div>
             {% for col in site.collections %}{% if col.label != "posts" %}
             {% assign label = "_" | append: col.label %}
@@ -37,7 +37,7 @@
             {% assign name = dir[0] %}
             {% assign icon = dir[1] %}
             <div class="directory {{name}}">
-                <div class="directory-info">{{icon}} {{name}} <span class="docs-count">{{ documents[name] | size }}</span></div>
+                <div class="directory-info">{{icon}} {{name}} <span class="docs-count">{{ docs_size[name] }}</span></div>
                 <span class="material-symbols-outlined {{name}} category-drop-down">keyboard_arrow_down</span>
                 <span class="material-symbols-outlined  {{name}} category-drop-up d-none">keyboard_arrow_up</span>
             </div>
@@ -46,7 +46,7 @@
             {% assign sub_name = sub[0] %}
             {% assign icon = sub[1] %}
             <div class="sub-directory {{name}} {{sub_name}} d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span>{{icon}} {{sub_name}} <span class="docs-count">{{ documents[sub_name] | size }}</span></div>
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span>{{icon}} {{sub_name}} <span class="docs-count">{{ docs_size[sub_name] }}</span></div>
             </div>
             {% endfor %}{% endfor %}
 
@@ -65,7 +65,7 @@
     <header>
         <div class="header-logo">
             <header-button title="사이드 메뉴" ><span class="material-symbols-outlined menu">menu_open</span></header-button>
-<!--            <input type="button" value="Project" title="Project" />-->
+            <input class="project-btn" type="button" value="Project" title="Project" />
 <!--            <input type="button" value="Develop" title="Develop" />-->
 <!--            <input type="button" value="Basic" title="Basic" />-->
 <!--            <input type="button" value="Tip" title="Tip" />-->
@@ -99,6 +99,9 @@
     $('.sub-directory').on('click', function() {
         const dir = this.classList[2]
         window.location.href = `/posts/#${dir}`
+    })
+    $('.project-btn').on('click', function() {
+        window.location.href = '/project'
     })
 </script>
 </body>

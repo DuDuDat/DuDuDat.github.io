@@ -7,9 +7,21 @@ module Jekyll
   end
   class CollectionSubdirsGenerator < Generator
     safe true
+    priority :high
 
     def generate(site)
-      site.config["docs"] = {}
+      site.config['date'] = {}
+
+      documents = site.documents
+      documents.each do |doc|
+        file_creation_date = File.birthtime(doc.path)
+        doc.data['created_date'] = file_creation_date
+      end
+      sorted_docs = documents.sort_by { |doc| doc.data['created_date'] }
+      site.instance_variable_set(:@documents, sorted_docs)
+
+      site.config["docs_size"] = {}
+      site.config["docs_size"]["total"] = documents.size
       site.collections.each do |label, collection|
         collection_dir = File.join(site.source, collection.relative_directory) # _Develop
         next if label == "posts" # _posts 제외
@@ -58,15 +70,14 @@ module Jekyll
     end
 
     def set_docs(site, docs, path)
-      return_docs = []
+      count = 0
       val_path = path + "/"
       docs.each do |doc|
         if doc.path.include?(val_path)
-          doc = { "url" => doc.url }
-          return_docs << doc
+          count += 1
         end
       end
-      site.config["docs"][path.split("/").last] = return_docs # 폴더명: documents 정보
+      site.config["docs_size"][path.split("/").last] = count # 폴더명: documents 정보
     end
 
 
