@@ -1,15 +1,28 @@
 .home-image {
     background: #FFBF00;
-    height: 20rem;
+    height: 13rem;
 }
 .home-container {
-    background: #bb60d5;
     width: 90%;
     margin: 3rem auto;
 }
-.blog-log {
-    background: #ffffcc;
-    width: 100%;
-    height: 18rem;
-    margin-bottom: 8rem;
+.category-title {
+    font-size: 1.8rem;
+    font-family: var(--category-font);
+    display: flex;
+    align-items: center;
+
+    .emoji, .material-symbols-outlined {
+        margin-left: 0.6rem;
+    }
+    .material-symbols-outlined {
+        color: #0e84b5;
+    }
+    .emoji {
+        font-size: 1.5rem;
+    }
+}
+.category-desc {
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
 }
