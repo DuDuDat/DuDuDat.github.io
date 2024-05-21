@@ -379,15 +379,11 @@ check {
 }
 
 /*---------------- 같은 폴더 내 포스트 목록 ----------------*/
-.post-list {
+.fixed-post-list {
     position: fixed;
     top: 10rem;
     left: calc(var(--aside-width) + 1.5rem);
     z-index: 10;
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid #dee2e6;
-    padding: 0.5rem 0.8rem;
-    border-radius: 0.5rem;
 
 
     a {
@@ -399,6 +395,7 @@ check {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        padding: 0.15rem 0;
 
         &.page {
             color: #FF6600;
@@ -408,14 +405,40 @@ check {
         }
     }
 }
+.post-list {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #dee2e6;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+}
 .post-list-title {
     color: rgba(0, 0, 0, 0.5);
     font-size: 0.9rem;
     font-family: var(--category-font);
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .fa-xmark {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        font-size: 0.8rem;
+        color: gray;
+    }
 }
 .post-list-content {
     margin-top: 0.6rem;
     max-height: 10rem;
     overflow-y: auto;
+}
+.post-list-btn {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    .material-symbols-outlined {
+        color: rgba(0, 0, 0, 0.4);
+    }
 }

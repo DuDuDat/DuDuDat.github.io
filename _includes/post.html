@@ -1,18 +1,21 @@
 <link rel="stylesheet" href="{{root_url}}/public/css/post.css">
 <link rel="stylesheet" href="{{root_url}}/public/css/dynamic-tag.css">
-<div class="post-list">
+<div class="fixed-post-list">
     {% assign dir = page.url | url_decode | split: '/' | slice: -2, 1 | first %}
-    <div class="post-list-title">{{ dir }} 다른 글</div>
-    <div class="post-list-content">
-        {% assign documents = site['docs'][dir] %}
-        {% assign sorted_docs = documents | sort: "created_date" | reverse %}
-        {% for doc in sorted_docs %}
-        {% if doc.url == page.url %}
-        <a href="{{doc.url}}" class="page">{{doc.title}}</a>
-        {% else %}
-        <a href="{{doc.url}}">{{doc.title}}</a>
-        {% endif %}
-        {% endfor %}
+    <div title="{{dir}} 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
+    <div class="post-list d-none">
+        <div class="post-list-title">{{ dir }} 다른 글 <i class="fa-solid fa-xmark"></i></div>
+        <div class="post-list-content">
+            {% assign documents = site['docs'][dir] %}
+            {% assign sorted_docs = documents | sort: "created_date" | reverse %}
+            {% for doc in sorted_docs %}
+            {% if doc.url == page.url %}
+            <a href="{{doc.url}}" class="page">{{doc.title}}</a>
+            {% else %}
+            <a href="{{doc.url}}">{{doc.title}}</a>
+            {% endif %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 
@@ -24,12 +27,26 @@
     <div class="post-content">{{content}}</div>
 </div>
 <indexnav>
-    <navicon><i class="fa-solid fa-list"></i></navicon>
+    <navicon title="목차 네비"><i class="fa-solid fa-list"></i></navicon>
     <navlist class="d-none">
         <navmenu><i class="fa-solid fa-ellipsis"></i><i class="fa-solid fa-xmark"></i></navmenu>
         <navitem></navitem>
     </navlist>
 </indexnav>
+
+<!-- 다른 게시글 보기 버튼 이벤트 -->
+<script>
+    $(document).ready(function () {
+        $('.post-list-btn').on('click', function() {
+            $('.post-list').removeClass('d-none');
+            $('.post-list-btn').addClass('d-none');
+        })
+        $('.post-list-title .fa-xmark').on('click', function() {
+            $('.post-list').addClass('d-none');
+            $('.post-list-btn').removeClass('d-none');
+        })
+    })
+</script>
 
 <!-- 코드 블럭 복사 이벤트 -->
 <script>
