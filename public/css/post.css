@@ -166,6 +166,8 @@ table {
     font-weight: normal;
     font-size: 0.85rem;
     color: white;
+    display: flex;
+    align-items: center;
 
     span {
         color: white;
