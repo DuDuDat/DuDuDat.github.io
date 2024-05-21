@@ -377,3 +377,10 @@ check {
         border-top: none;
     }
 }
+
+/*---------------- 같은 폴더 내 포스트 목록 ----------------*/
+.post-list {
+    position: fixed;
+    top: 10rem;
+    left: calc(var(--aside-width) + 1.5rem);
+}

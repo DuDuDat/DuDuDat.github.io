@@ -10,18 +10,23 @@ module Jekyll
     priority :high
 
     def generate(site)
-      site.config['date'] = {}
-
+      # site.documents 객체에 파일 생성일 추가
       documents = site.documents
       documents.each do |doc|
         file_creation_date = File.birthtime(doc.path)
         doc.data['created_date'] = file_creation_date
       end
-      sorted_docs = documents.sort_by { |doc| doc.data['created_date'] }
-      site.instance_variable_set(:@documents, sorted_docs)
+      site.instance_variable_set(:@documents, documents)
 
-      site.config["docs_size"] = {}
-      site.config["docs_size"]["total"] = documents.size
+      # dir 에 속한 docs_size 정의
+      site.config["docs"] = {}
+      total = []
+      documents.each do |doc|
+        total << {"url" => doc.url, "created_date" => doc.data['created_date'], "title" => doc.data['title']}
+      end
+      site.config["docs"]["total"] = total
+
+      site.config["dir"] = {}
       site.collections.each do |label, collection|
         collection_dir = File.join(site.source, collection.relative_directory) # _Develop
         next if label == "posts" # _posts 제외
@@ -42,7 +47,7 @@ module Jekyll
       end
     end
 
-    # path: 디렉토리 경로, check: "dir" or "file" return sub_directories or sub_files
+    # path: 디렉토리 경로, 디렉토리 정보 sub 디렉토리, 아이콘
     def search_directories(site, path)
       sub_directories = []
       if Dir.exist?(path)
@@ -65,19 +70,19 @@ module Jekyll
           sub_dirs << {dir => json_data[dir]}
         end
       end
-      site.config[root_dir] = sub_dirs
+      site.config["dir"][root_dir] = sub_dirs
       sub_directories
     end
 
     def set_docs(site, docs, path)
-      count = 0
+      documents = []
       val_path = path + "/"
       docs.each do |doc|
         if doc.path.include?(val_path)
-          count += 1
+          documents << {"url" => doc.url, "created_date" => doc.data['created_date'], "title" => doc.data['title']}
         end
       end
-      site.config["docs_size"][path.split("/").last] = count # 폴더명: documents 정보
+      site.config["docs"][path.split("/").last] = documents # 폴더명: documents 정보
     end
 
 

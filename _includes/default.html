@@ -18,35 +18,35 @@
 <script src="{{root_url}}/public/js/custom/latex.js"></script>
 </head>
 <body>
-{% assign docs_size = site["docs_size"] %}
+{% assign docs = site["docs"] %}
 <aside>
     <div class="aside-fixed">
         <div class="profile">
-            <img class="profile-image" src="{{root_url}}/public/img/default/profile.jpeg" alt="프로필 이미지" />
+            <img class="profile-image" src="{{root_url}}/public/img/default/profile02.jpeg" alt="프로필 이미지" />
             <div class="profile-desc">{{ site.description }}</div>
         </div>
         <div class="side-menu">
             <div class="documents-total">
-                <span class="all-documents">Total <span class="total-count">({{ docs_size['total'] }})</span></span>
+                <span class="all-documents">Total <span class="total-count">({{ docs['total'] | size }})</span></span>
             </div>
             {% for col in site.collections %}{% if col.label != "posts" %}
             {% assign label = "_" | append: col.label %}
-            {% assign collection = site[label] %}
+            {% assign collection = site["dir"][label] %}
             <div class="collection">{{col.icon}} {{ col.label }}</div>
             {% for dir_info in collection %}{% for dir in dir_info %}
             {% assign name = dir[0] %}
             {% assign icon = dir[1] %}
             <div class="directory {{name}}">
-                <div class="directory-info">{{icon}} {{name}} <span class="docs-count">{{ docs_size[name] }}</span></div>
+                <div class="directory-info">{{icon}} {{name}} <span class="docs-count">{{ docs[name] | size }}</span></div>
                 <span class="material-symbols-outlined {{name}} category-drop-down">keyboard_arrow_down</span>
                 <span class="material-symbols-outlined  {{name}} category-drop-up d-none">keyboard_arrow_up</span>
             </div>
-            {% assign sub_dirs = site[name] %}
+            {% assign sub_dirs = site["dir"][name] %}
             {% for sub_dir in sub_dirs %}{% for sub in sub_dir %}
             {% assign sub_name = sub[0] %}
             {% assign icon = sub[1] %}
             <div class="sub-directory {{name}} {{sub_name}} d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span>{{icon}} {{sub_name}} <span class="docs-count">{{ docs_size[sub_name] }}</span></div>
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span>{{icon}} {{sub_name}} <span class="docs-count">{{ docs[sub_name] | size }}</span></div>
             </div>
             {% endfor %}{% endfor %}
 
@@ -65,11 +65,9 @@
     <header>
         <div class="header-logo">
             <header-button title="사이드 메뉴" ><span class="material-symbols-outlined menu">menu_open</span></header-button>
-            <input class="project-btn" type="button" value="Project" title="Project" />
-<!--            <input type="button" value="Develop" title="Develop" />-->
-<!--            <input type="button" value="Basic" title="Basic" />-->
-<!--            <input type="button" value="Tip" title="Tip" />-->
-<!--            <input type="button" value="Tool" title="Tool" />-->
+            <input type="button" value="Develop" title="Develop" />
+            <input type="button" value="DevOps" title="DevOps" />
+            <input type="button" value="Tip" title="Tip" />
         </div>
         <div class="header-home"><header-button title="Home">{{ site.description }}</header-button></div>
         <div class="header-search">
@@ -99,9 +97,6 @@
     $('.sub-directory').on('click', function() {
         const dir = this.classList[2]
         window.location.href = `/posts/#${dir}`
-    })
-    $('.project-btn').on('click', function() {
-        window.location.href = '/project'
     })
 </script>
 </body>

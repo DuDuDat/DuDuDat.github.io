@@ -4,7 +4,8 @@
 <div class="row"></div>
 <script id="documents" type="application/json">
     [
-        {% for doc in site.documents %}
+        {% assign sorted_docs = site.documents | sort: "created_date" | reverse %}
+        {% for doc in sorted_docs %}
         {% assign arr = doc.path | split: '/' %}
         {% assign index = arr.size | minus: 2 %}
         {
