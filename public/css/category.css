@@ -1,9 +1,11 @@
 .posts-image {
     width: 100%;
-    height: 14rem;
+    height: 20rem;
     object-fit: cover;
     object-position: center;
     cursor: default;
+    background: gray;
+    opacity: 0.9;
 }
 .directory-name {
     display: flex;
