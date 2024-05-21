@@ -1,0 +1,12 @@
+[
+  {
+    "label": "블로그",
+    "color": "black",
+    "background": "rgba(255, 111, 97, 0.8)"
+  },
+  {
+    "label": "CSS",
+    "color": "blue",
+    "background": "#C3E0E5"
+  }
+]
