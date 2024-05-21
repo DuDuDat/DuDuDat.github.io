@@ -94,7 +94,8 @@
     <div class="hidden-header"></div>
     <header>
         <div class="header-logo">
-            <header-button title="사이드 메뉴" ><span class="material-symbols-outlined menu">menu_open</span></header-button>
+            <header-button class="header-icon" ><span class="material-symbols-outlined">widgets</span></header-button>
+            <header-button class="menu-btn" title="메뉴" ><span class="material-symbols-outlined">widgets</span></header-button>
             <input type="button" value="Develop" title="Develop" />
             <input type="button" value="DevOps" title="DevOps" />
             <input type="button" value="Tip" title="Tip" />
@@ -195,7 +196,7 @@
 </script>
 
 <script>
-    function filterAndUpdate() {
+    function filterAndUpdate(data) {
         const hash = decodeURIComponent(window.location.hash.substring(1)).trim();
 
         let jsonData = $('#documents').text()
@@ -218,10 +219,16 @@
         }else {
             $('.directory-name').text('분류 전체 보기')
         }
+
         const html = jsonData.map(doc => {
+            let icon = data[`${doc['label']}`]
+            let image = `<div class="${doc['label']} post-image">${icon}</div>`
+            if (doc['image']) {
+                image = `<img class="post-image" src="${doc['image']}" />`
+            }
             return `<div class="col-sm-12 col-md-6 col-lg-4">
                     <div class="post ${doc['url']}">
-                        <img class="post-image" src="${doc['image'] || '/public/img/default.jpg'}" />
+                        ${image}
                         <div class="post-label">${doc['label']}</div>
                         <div class="post-info">
                             <div class="post-title">${doc['title']}</div>
@@ -238,14 +245,26 @@
             window.location.href = $(this).get(0).classList[1]
         })
 
-        fetch('/image_url.json')
+    }
+
+    function hashChanged() {
+        fetch('/directories_info.json')
             .then(res => res.json())
-            .then(data => $('.posts-image').attr('src', data[hash] || "/public/img/default.jpg"))
+            .then(data => {
+                filterAndUpdate(data)
+
+                fetch('/directory_css.json').then(res => res.json()).then(jsonData => {
+                    jsonData.forEach(css => {
+                        $(`.post-image.${css['label']}`).css('background', css['background'])
+                        $(`.post-image.${css['label']} i`).css('color', css['color'])
+                    })
+                })
+            })
             .catch(err => console.log(err))
     }
 
-    $(document).ready(filterAndUpdate)
-    $(window).on('hashchange', filterAndUpdate)
+    $(document).ready(hashChanged)
+    $(window).on('hashchange', hashChanged)
 </script>
 
 

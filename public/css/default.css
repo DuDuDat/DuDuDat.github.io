@@ -161,6 +161,17 @@ header-button {
     width: 1em;
     height: 1em;
 }
+.header-icon {
+    margin-right: 0.4rem !important;
+    cursor: default;
+
+    & .material-symbols-outlined {
+        font-size: 1.4rem;
+    }
+}
+.menu-btn {
+    display: none;
+}
 
 /*------------------ 사이드 메뉴 ----------------*/
 aside {
@@ -327,5 +338,15 @@ aside {
     }
     header {
         max-width: 100vw;
+    }
+    .header-icon {
+        display: none;
+    }
+    .menu-btn {
+        display: flex;
+
+        span {
+            font-size: 1.4rem;
+        }
     }
 }
