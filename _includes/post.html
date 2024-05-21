@@ -1,16 +1,19 @@
 <link rel="stylesheet" href="{{root_url}}/public/css/post.css">
 <link rel="stylesheet" href="{{root_url}}/public/css/dynamic-tag.css">
-<div class="post-list d-none">
+<div class="post-list">
     {% assign dir = page.url | url_decode | split: '/' | slice: -2, 1 | first %}
-    {{ dir }}
-    {% assign documents = site['docs'][dir] %}
-    {% for doc in documents %}
+    <div class="post-list-title">{{ dir }} 다른 글</div>
+    <div class="post-list-content">
+        {% assign documents = site['docs'][dir] %}
+        {% assign sorted_docs = documents | sort: "created_date" | reverse %}
+        {% for doc in sorted_docs %}
         {% if doc.url == page.url %}
-            <a href="{{doc.url}}" class="page">{{doc.title}}</a>
+        <a href="{{doc.url}}" class="page">{{doc.title}}</a>
         {% else %}
-            <a href="{{doc.url}}">{{doc.title}}</a>
+        <a href="{{doc.url}}">{{doc.title}}</a>
         {% endif %}
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 
 <img class="post-header-img" src="{{root_url}}/public/img/{{page.img}}" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />
