@@ -4,7 +4,7 @@
     {% assign dir = page.url | url_decode | split: '/' | slice: -2, 1 | first %}
     <div title="{{dir}} 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
     <div class="post-list d-none">
-        <div class="post-list-title">{{ dir }} 다른 글 <i class="fa-solid fa-xmark"></i></div>
+        <div class="post-list-title">{{ dir }}의 다른 글 <i class="fa-solid fa-xmark"></i></div>
         <div class="post-list-content">
             {% assign documents = site['docs'][dir] %}
             {% assign sorted_docs = documents | sort: "created_date" | reverse %}
