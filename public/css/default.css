@@ -191,7 +191,7 @@ aside {
 .profile-image {
     width: 180px;
     height: 180px;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 }
 .profile-desc {
     margin-top: 0.4rem;

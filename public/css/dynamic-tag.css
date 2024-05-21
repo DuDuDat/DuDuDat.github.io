@@ -1,0 +1,18 @@
+/*---------------- 필기용 태그 ----------------*/
+parentheses { /*-- 소괄호 --*/
+    display: inline;
+    font-weight: 100 !important;
+    font-size: 0.95em !important;
+}
+desc { /*-- @@ 태그 --*/
+    display: block;
+    background: #f5f5f5;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+plus { /*-- ++ 태그 --*/
+    display: block;
+    background: #eeeeee;
+    padding: 1rem;
+    margin: 1rem 0;
+}
