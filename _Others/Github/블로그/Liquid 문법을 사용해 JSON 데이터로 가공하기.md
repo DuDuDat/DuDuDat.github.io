@@ -1,6 +1,4 @@
 ---
-layout: post
-title: Liquid -> JSON 데이터 가공하는 방법
 ---
 
 # 데이터 가공하기

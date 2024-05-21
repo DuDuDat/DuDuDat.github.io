@@ -1,7 +1,16 @@
 <link rel="stylesheet" href="{{root_url}}/public/css/post.css">
 <link rel="stylesheet" href="{{root_url}}/public/css/dynamic-tag.css">
-<div class="post-list">
-    호오
+<div class="post-list d-none">
+    {% assign dir = page.url | url_decode | split: '/' | slice: -2, 1 | first %}
+    {{ dir }}
+    {% assign documents = site['docs'][dir] %}
+    {% for doc in documents %}
+        {% if doc.url == page.url %}
+            <a href="{{doc.url}}" class="page">{{doc.title}}</a>
+        {% else %}
+            <a href="{{doc.url}}">{{doc.title}}</a>
+        {% endif %}
+    {% endfor %}
 </div>
 
 <img class="post-header-img" src="{{root_url}}/public/img/{{page.img}}" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />
