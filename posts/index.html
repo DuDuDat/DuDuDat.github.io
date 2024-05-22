@@ -39,42 +39,8 @@
             
             
             
-            <div class="directory StyleSheet">
-                <div class="directory-info"><i class="devicon-css3-plain"></i> StyleSheet <span class="docs-count">3</span></div>
-                <span class="material-symbols-outlined StyleSheet category-drop-down">keyboard_arrow_down</span>
-                <span class="material-symbols-outlined  StyleSheet category-drop-up d-none">keyboard_arrow_up</span>
-            </div>
-            
-            
-            
-            
-            <div class="sub-directory StyleSheet CSS d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-css3-plain"></i> CSS <span class="docs-count">3</span></div>
-            </div>
-            
-
-            
-            
-            
             
             <div class="collection"><i class='fa-brands fa-sketch'></i> Others</div>
-            
-            
-            
-            <div class="directory Github">
-                <div class="directory-info"><i class='devicon-github-original'></i> Github <span class="docs-count">4</span></div>
-                <span class="material-symbols-outlined Github category-drop-down">keyboard_arrow_down</span>
-                <span class="material-symbols-outlined  Github category-drop-up d-none">keyboard_arrow_up</span>
-            </div>
-            
-            
-            
-            
-            <div class="sub-directory Github 블로그 d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-jekyll-plain"></i> 블로그 <span class="docs-count">4</span></div>
-            </div>
-            
-
             
             
             
@@ -250,7 +216,7 @@
     }
 
     function hashChanged() {
-        fetch('/directories_info.json')
+        fetch('/directory_info.json')
             .then(res => res.json())
             .then(data => {
                 filterAndUpdate(data)
