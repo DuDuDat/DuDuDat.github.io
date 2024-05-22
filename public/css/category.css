@@ -1,22 +1,29 @@
-.posts-image {
+.category-head-block {
+    position: relative;
     width: 100%;
-    height: 20rem;
+    height: 13rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.9);
+    margin-bottom: 3rem;
+}
+.posts-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     cursor: default;
     background: gray;
-    opacity: 0.9;
+    opacity: 0.4;
 }
 .directory-name {
-    display: flex;
-    width: fit-content;
-    margin: 3rem auto;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
+    color: white;
+    z-index: 1;
+    font-size: 3rem;
     font-family: var(--category-font);
-    border-bottom: 1px solid #ff8844;
-    padding: 0.2rem 5rem;
+    font-weight: bold;
 }
 .row {
     width: 100%;
