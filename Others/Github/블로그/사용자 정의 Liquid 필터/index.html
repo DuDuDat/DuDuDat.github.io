@@ -25,7 +25,7 @@
         </div>
         <div class="side-menu">
             <div class="documents-total">
-                <span class="all-documents">Total <span class="total-count">(7)</span></span>
+                <span class="all-documents">Total <span class="total-count">(8)</span></span>
             </div>
             
             
@@ -58,6 +58,23 @@
             
             
             <div class="collection"><i class='fa-brands fa-sketch'></i> Others</div>
+            
+            
+            
+            <div class="directory 실험실">
+                <div class="directory-info"> 실험실 <span class="docs-count">1</span></div>
+                <span class="material-symbols-outlined 실험실 category-drop-down">keyboard_arrow_down</span>
+                <span class="material-symbols-outlined  실험실 category-drop-up d-none">keyboard_arrow_up</span>
+            </div>
+            
+            
+            
+            
+            <div class="sub-directory 실험실 스트림덱 d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span> 스트림덱 <span class="docs-count">1</span></div>
+            </div>
+            
+
             
             
             
@@ -225,15 +242,22 @@
 <script>
     $(document).ready(function () {
         // 전체
-        let html = $('.post-content').html()
+        let p = $('p')
 
         // @@ <desc></desc>
-        html = html.replace(/@@(.+?)(\r\n|[\s]*\r|\n|$)/g, "<desc>$1</desc>$2");
+        p.each(function() {
+            if ($(this).text().startsWith('@@')) {
+                const desc = $('<desc></desc>').html($(this).html().replace('@@', ''))
+                $(this).replaceWith(desc)
+            }
+        })
 
-        // ++ <plus></plus>
-        html = html.replace(/\+\+(.+?)(\r\n|[\s]*\r|\n|$)/g, "<plus>$1</plus>$2");
+        // html = html.replace(/@@(.+?)(\r\n|[\s]*\r|\n|$)/g, "<desc>$1</desc>$2");
+        //
+        // // ++ <plus></plus>
+        // html = html.replace(/\+\+(.+?)(\r\n|[\s]*\r|\n|$)/g, "<plus>$1</plus>$2");
 
-        $(".post-content").html(html);
+        // $("p").html(p);
     })
 </script>
 
