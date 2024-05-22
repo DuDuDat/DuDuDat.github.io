@@ -75,7 +75,7 @@
     }
 
     function hashChanged() {
-        fetch('{{root_url}}/directories_info.json')
+        fetch('{{root_url}}/directory_info.json')
             .then(res => res.json())
             .then(data => {
                 filterAndUpdate(data)
