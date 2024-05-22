@@ -63,7 +63,7 @@ module Jekyll
         end
       end
       # 디렉토리 아이콘 등 저장
-      json_file_path = File.join(site.source, 'directories_info.json')
+      json_file_path = File.join(site.source, 'directory_info.json')
       root_dir = path.split("/").last
       sub_dirs = []
       if File.exist?(json_file_path)
