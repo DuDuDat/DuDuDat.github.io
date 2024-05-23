@@ -4,8 +4,11 @@ $(document).ready(function () {
         // @@ <desc></desc>
         if ($(this).text().startsWith('@@')) { // copy
             const id = /^@@ /
-            const btn = '<div><span class="copy-button"><i class="fa-regular fa-copy"></i> Copy</span></div>'
-            const span = `${btn}<span class="copy-text">${$(this).html().replace(id, '')}</span>`
+            const text = $(this).html().replace(id, '')
+            const title = text.split('\n')[0]
+            const content = text.split('\n').slice(1).join('\n')
+            const btn = `<div class="copy-head"><span class="copy-title">${title}</span><span class="copy-button"><i class="fa-regular fa-copy"></i> Copy</span></div>`
+            const span = `${btn}<span class="copy-text">${content}</span>`
             const html = $('<copy></copy>').html(span)
             $(this).replaceWith(html)
         }
@@ -17,7 +20,7 @@ $(document).ready(function () {
         }
     })
     
-    $('copy .copy-button').on('click', function() {
+    $(document).on('click', 'copy .copy-button', function() {
         const index = $('copy .copy-button').index(this)
         const text = $('copy .copy-text').eq(index).text()
 

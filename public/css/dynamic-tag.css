@@ -4,15 +4,15 @@ parentheses { /*-- 소괄호 --*/
     font-weight: 100 !important;
     font-size: 0.95em !important;
 }
-copy, tip { /*-- @@ 태그 --*/
+copy, tip {
     display: block;
     white-space: pre-wrap;
     position: relative;
+    margin: 1rem 0;
 }
 
 /* ++ */
 tip {
-    margin: 1rem 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 0.3rem;
 
@@ -51,20 +51,28 @@ copy {
         color: rgba(0, 0, 0, 0.7);
     }
 
-    div {
+    .copy-head {
         border-radius: 0.3rem 0.3rem 0 0;
         display: flex;
         align-items: center;
         padding: 0.3rem 0.7rem;
         background: rgba(211,211,211, 0.6); /* Light Blue */
 
-        .copy-button, i {
+        .copy-button, .copy-title {
             padding: 0;
             font-size: 0.8rem;
             font-family: var(--category-font);
             font-weight: bold;
             color: gray;
             cursor: pointer;
+        }
+        i {
+            font-size: 0.8rem;
+            color: gray;
+        }
+        .copy-button {
+            position: absolute;
+            right: 0.7rem;
         }
     }
 }

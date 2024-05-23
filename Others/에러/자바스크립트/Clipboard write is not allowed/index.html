@@ -174,27 +174,15 @@
 <link rel="stylesheet" href="/public/css/dynamic-tag.css">
 <div class="fixed-post-list">
     
-    <div title="블로그 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
+    <div title="자바스크립트 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
     <div class="post-list d-none">
-        <div class="post-list-title">블로그의 다른 글 <i class="fa-solid fa-xmark"></i></div>
+        <div class="post-list-title">자바스크립트의 다른 글 <i class="fa-solid fa-xmark"></i></div>
         <div class="post-list-content">
             
             
             
             
-            <a href="/Others/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%EC%97%90%EC%84%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%9E%AC%EC%A0%95%EC%9D%98%ED%95%98%EA%B8%B0/" class="page">플러그인에서 데이터 재정의하기</a>
-            
-            
-            
-            <a href="/Others/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%BB%A4%EC%8A%A4%ED%85%80%20%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0/">커스텀 플러그인 만들기</a>
-            
-            
-            
-            <a href="/Others/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%82%AC%EC%9A%A9%EC%9E%90%20%EC%A0%95%EC%9D%98%20Liquid%20%ED%95%84%ED%84%B0/">사용자 정의 liquid 필터</a>
-            
-            
-            
-            <a href="/Others/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/Liquid%20%EB%AC%B8%EB%B2%95%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%B4%20JSON%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A1%9C%20%EA%B0%80%EA%B3%B5%ED%95%98%EA%B8%B0/">Liquid 문법을 사용해 json 데이터로 가공하기</a>
+            <a href="/Others/%EC%97%90%EB%9F%AC/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/Clipboard%20write%20is%20not%20allowed/" class="page">DOMException: Clipboard write is not allowed.</a>
             
             
         </div>
@@ -202,30 +190,15 @@
 </div>
 <div class="post-head">
 <!--    <div class="post-header-background"></div>-->
-    <div class="post-title">플러그인에서 데이터 재정의하기</div>
+    <div class="post-title">DOMException: Clipboard write is not allowed.</div>
     <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.23</div>
     <img class="post-img" src="/public/img/" onerror="this.onerror=null; this.src='/public/img/default.jpg';" />
     <div class="post-background"></div>
 </div>
 <div class="post-container">
-    <div class="post-content"><h2 id="주의">주의!</h2>
-<blockquote>
-  <p>Jekyll 문서 객체의 속성을 직접 덮어쓰는 것은 문제를 일으킬 수 있으므로 커스텀 속성을 추가할 것</p>
+    <div class="post-content"><blockquote>
+  <p>상위 객체에 클릭 이벤트를 위임했는지 확인해보도록 하자</p>
 </blockquote>
-
-<h1 id="예시">예시</h1>
-<h2 id="jekyll-문서-객체에-파일-생성일-추가">Jekyll 문서 객체에 파일 생성일 추가</h2>
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">documents</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">documents</span>
-  <span class="n">documents</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">doc</span><span class="o">|</span>
-    <span class="n">file_creation_date</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">birthtime</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="nf">path</span><span class="p">)</span>
-    <span class="n">doc</span><span class="p">.</span><span class="nf">data</span><span class="p">[</span><span class="s1">'created_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_creation_date</span>
-  <span class="k">end</span>
-  <span class="n">site</span><span class="p">.</span><span class="nf">instance_variable_set</span><span class="p">(</span><span class="ss">:@documents</span><span class="p">,</span> <span class="n">documents</span><span class="p">)</span>
-</code></pre></div></div>
-<h2 id="jekyll-객체-정의">Jekyll 객체 정의</h2>
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">site</span><span class="p">.</span><span class="nf">config</span><span class="p">[</span><span class="s2">"docs_size"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-  <span class="n">site</span><span class="p">.</span><span class="nf">config</span><span class="p">[</span><span class="s2">"docs_size"</span><span class="p">][</span><span class="s2">"total"</span><span class="p">]</span> <span class="o">=</span> <span class="n">documents</span><span class="p">.</span><span class="nf">size</span>
-</code></pre></div></div>
 </div>
 </div>
 <indexnav>

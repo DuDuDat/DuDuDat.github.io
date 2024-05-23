@@ -25,7 +25,7 @@
         </div>
         <div class="side-menu">
             <div class="documents-total">
-                <span class="all-documents">Total <span class="total-count">(10)</span></span>
+                <span class="all-documents">Total <span class="total-count">(12)</span></span>
             </div>
             
             
@@ -36,6 +36,23 @@
             
             
             <div class="collection"><i class='fa-brands fa-connectdevelop'></i> Develop</div>
+            
+            
+            
+            <div class="directory Language">
+                <div class="directory-info"><i class="fa-solid fa-spinner"></i> Language <span class="docs-count">1</span></div>
+                <span class="material-symbols-outlined Language category-drop-down">keyboard_arrow_down</span>
+                <span class="material-symbols-outlined  Language category-drop-up d-none">keyboard_arrow_up</span>
+            </div>
+            
+            
+            
+            
+            <div class="sub-directory Language Javascript d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-javascript-plain"></i> Javascript <span class="docs-count">1</span></div>
+            </div>
+            
+
             
             
             
@@ -89,6 +106,23 @@
             
             <div class="sub-directory Tool 기타 d-none">
                 <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-regular fa-object-group"></i> 기타 <span class="docs-count">1</span></div>
+            </div>
+            
+
+            
+            
+            
+            <div class="directory 에러">
+                <div class="directory-info"><i class="fa-solid fa-triangle-exclamation"></i> 에러 <span class="docs-count">1</span></div>
+                <span class="material-symbols-outlined 에러 category-drop-down">keyboard_arrow_down</span>
+                <span class="material-symbols-outlined  에러 category-drop-up d-none">keyboard_arrow_up</span>
+            </div>
+            
+            
+            
+            
+            <div class="sub-directory 에러 자바스크립트 d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-javascript-plain"></i> 자바스크립트 <span class="docs-count">1</span></div>
             </div>
             
 
@@ -226,7 +260,7 @@
     $(document).ready(function () {
         const $highlightDiv = $('div.highlight');
         const $button = $('<span class="copy-button"><i class="fa-regular fa-copy"></i> Copy</span>');
-        $(document).on('click', '.copy-button', function() { // 이벤트 위임
+        $(document).on('click', 'div.highlight .copy-button', function() { // 이벤트 위임
             const div = $(this).closest('div.highlight');
             const index = div.index('div.highlight');
 

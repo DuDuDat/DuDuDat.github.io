@@ -17,5 +17,13 @@
   {
     "label": "기타",
     "background": "#C5E3C7"
+  },
+  {
+    "label": "자바스크립트",
+    "background": "rgba(255, 253, 208, 1)"
+  },
+  {
+    "label": "Javascript",
+    "background": "rgba(255, 253, 208, 1)"
   }
 ]
