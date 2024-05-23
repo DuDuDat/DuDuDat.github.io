@@ -103,9 +103,17 @@ table {
     }
     & th, td {
         padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+        background: rgba(211, 211, 211, 0.1);
+        color: rgba(0, 0, 0, 0.7);
     }
     & tr {
         border-bottom: 1px solid #dee2e6;
+
+        &:first-of-type td {
+            font-weight: bold;
+            background: rgba(255, 221, 187, 0.4);
+            color: #ff8844;
+        }
 
         &:last-of-type {
             border-bottom: 0;
@@ -450,6 +458,15 @@ check {
         color: rgba(0, 0, 0, 0.4);
         font-size: 1.3rem;
     }
+}
+
+/*------------------ 커스텀 태그 ----------------*/
+btn {
+    background: whitesmoke;
+    padding: 0.2rem 0.3rem;
+    border: 2px solid rgba(211, 211, 211, 0.8);
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
 }
 
 /*------------------ 모바일 최적화 ----------------*/
