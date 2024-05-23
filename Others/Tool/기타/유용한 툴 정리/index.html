@@ -136,7 +136,106 @@
     </header>
 <!--    <div class="drop-menu d-none"></div>-->
     <div class="content">
-        <p>되려나?</p>
+        <link rel="stylesheet" href="/public/css/post.css">
+<link rel="stylesheet" href="/public/css/dynamic-tag.css">
+<div class="fixed-post-list">
+    
+    <div title="기타 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
+    <div class="post-list d-none">
+        <div class="post-list-title">기타의 다른 글 <i class="fa-solid fa-xmark"></i></div>
+        <div class="post-list-content">
+            
+            
+            
+            
+            <a href="/Others/Tool/%EA%B8%B0%ED%83%80/%EC%9C%A0%EC%9A%A9%ED%95%9C%20%ED%88%B4%20%EC%A0%95%EB%A6%AC/" class="page">유용한 툴 정리</a>
+            
+            
+        </div>
+    </div>
+</div>
+<div class="post-head">
+<!--    <div class="post-header-background"></div>-->
+    <div class="post-title">유용한 툴 정리</div>
+    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.23</div>
+    <img class="post-img" src="/public/img/" onerror="this.onerror=null; this.src='/public/img/default.jpg';" />
+    <div class="post-background"></div>
+</div>
+<div class="post-container">
+    <div class="post-content"><h2 id="캡쳐">캡쳐</h2>
+<p>@@ 픽픽</p>
+
+<h2 id="다이어그램">다이어그램</h2>
+<p>@@ EdrawMind</p>
+
+<h2 id="엘가토-스트림덱">엘가토 스트림덱</h2>
+<p>@@ Stream Deck</p>
+
+<h2 id="키보드-매핑-프로그램">키보드 매핑 프로그램</h2>
+<p>@@ AULA F75 (현재 사용 중인 키보드 전용 매핑 프로그램)</p>
+</div>
+</div>
+<indexnav>
+    <navicon title="목차 네비"><i class="fa-solid fa-list"></i></navicon>
+    <navlist class="d-none">
+        <navmenu><i class="fa-solid fa-ellipsis"></i><i class="fa-solid fa-xmark"></i></navmenu>
+        <navitem></navitem>
+    </navlist>
+</indexnav>
+
+<!-- 다른 게시글 보기 버튼 이벤트 -->
+<script>
+    $(document).ready(function () {
+        $('.post-list-btn').on('click', function() {
+            $('.post-list').removeClass('d-none');
+            $('.post-list-btn').addClass('d-none');
+        })
+        $('.post-list-title .fa-xmark').on('click', function() {
+            $('.post-list').addClass('d-none');
+            $('.post-list-btn').removeClass('d-none');
+        })
+    })
+</script>
+
+<!-- 코드 블럭 복사 이벤트 -->
+<script>
+    $(document).ready(function () {
+        const $highlightDiv = $('div.highlight');
+        const $button = $('<span class="copy-button"><i class="fa-regular fa-copy"></i> Copy</span>');
+        $(document).on('click', '.copy-button', function() { // 이벤트 위임
+            const div = $(this).closest('div.highlight');
+            const index = div.index('div.highlight');
+
+            const codeText = div.find('code').text();
+            navigator.clipboard.writeText(codeText).then(function() {
+                $('div.highlight .copy-button').eq(index).html('<i class="fa-regular fa-copy"></i> Copied');
+            }).catch(function(err) {
+                console.error('텍스트 복사에 실패했습니다: ', err);
+            });
+        });
+
+        $highlightDiv.append($button)
+    })
+</script>
+
+<!-- post 내 이미지 src 변경 -->
+<script>
+    $(document).ready(function () {
+        const url = ""
+        const pathname = decodeURIComponent(location.pathname);
+        const dir = pathname.split('/').slice(-3, -2)[0]
+        $('.post-content img').each(function() {
+            const filename = $(this).attr('src')
+            $(this).attr('src', `${url}/public/img/${dir}/${filename}`)
+        })
+    })
+</script>
+
+<!-- 사용자 정의 태그 -->
+<script src="/public/js/custom/dynamic-tag.js"></script>
+
+<!-- 우측 게시글 nav -->
+<script src="/public/js/custom/post-side-nav.js"></script>
 
     </div>
 </div>

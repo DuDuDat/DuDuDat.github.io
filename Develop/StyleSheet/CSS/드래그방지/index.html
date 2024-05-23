@@ -25,7 +25,7 @@
         </div>
         <div class="side-menu">
             <div class="documents-total">
-                <span class="all-documents">Total <span class="total-count">(8)</span></span>
+                <span class="all-documents">Total <span class="total-count">(10)</span></span>
             </div>
             
             
@@ -62,7 +62,7 @@
             
             
             <div class="directory 실험실">
-                <div class="directory-info"> 실험실 <span class="docs-count">1</span></div>
+                <div class="directory-info"><i class="fa-solid fa-flask"></i> 실험실 <span class="docs-count">2</span></div>
                 <span class="material-symbols-outlined 실험실 category-drop-down">keyboard_arrow_down</span>
                 <span class="material-symbols-outlined  실험실 category-drop-up d-none">keyboard_arrow_up</span>
             </div>
@@ -71,7 +71,24 @@
             
             
             <div class="sub-directory 실험실 스트림덱 d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span> 스트림덱 <span class="docs-count">1</span></div>
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-regular fa-circle-play"></i> 스트림덱 <span class="docs-count">2</span></div>
+            </div>
+            
+
+            
+            
+            
+            <div class="directory Tool">
+                <div class="directory-info"><i class='fa fa-wrench' aria-hidden='true'></i> Tool <span class="docs-count">1</span></div>
+                <span class="material-symbols-outlined Tool category-drop-down">keyboard_arrow_down</span>
+                <span class="material-symbols-outlined  Tool category-drop-up d-none">keyboard_arrow_up</span>
+            </div>
+            
+            
+            
+            
+            <div class="sub-directory Tool 기타 d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-regular fa-object-group"></i> 기타 <span class="docs-count">1</span></div>
             </div>
             
 
@@ -92,11 +109,6 @@
             </div>
             
 
-            
-            
-            
-            
-            <div class="collection"><i class='fa fa-wrench' aria-hidden='true'></i> Tool</div>
             
             
 
@@ -153,7 +165,7 @@
 <div class="post-head">
 <!--    <div class="post-header-background"></div>-->
     <div class="post-title">드래그 방지 코드</div>
-    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.22</div>
+    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.23</div>
     <img class="post-img" src="/public/img/" onerror="this.onerror=null; this.src='/public/img/default.jpg';" />
     <div class="post-background"></div>
 </div>
@@ -200,7 +212,7 @@
 
             const codeText = div.find('code').text();
             navigator.clipboard.writeText(codeText).then(function() {
-                $('.copy-button').eq(index).html('<i class="fa-regular fa-copy"></i> Copied');
+                $('div.highlight .copy-button').eq(index).html('<i class="fa-regular fa-copy"></i> Copied');
             }).catch(function(err) {
                 console.error('텍스트 복사에 실패했습니다: ', err);
             });
@@ -223,28 +235,8 @@
     })
 </script>
 
-<!-- 사용자 정의 태그 소괄호는 js/custom/latex-with-parentheses-tag.js 에 정의 -->
-<script>
-    $(document).ready(function () {
-        // 전체
-        let p = $('p')
-
-        // @@ <desc></desc>
-        p.each(function() {
-            if ($(this).text().startsWith('@@')) {
-                const desc = $('<desc></desc>').html($(this).html().replace('@@', ''))
-                $(this).replaceWith(desc)
-            }
-        })
-
-        // html = html.replace(/@@(.+?)(\r\n|[\s]*\r|\n|$)/g, "<desc>$1</desc>$2");
-        //
-        // // ++ <plus></plus>
-        // html = html.replace(/\+\+(.+?)(\r\n|[\s]*\r|\n|$)/g, "<plus>$1</plus>$2");
-
-        // $("p").html(p);
-    })
-</script>
+<!-- 사용자 정의 태그 -->
+<script src="/public/js/custom/dynamic-tag.js"></script>
 
 <!-- 우측 게시글 nav -->
 <script src="/public/js/custom/post-side-nav.js"></script>
