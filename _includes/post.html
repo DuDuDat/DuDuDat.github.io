@@ -50,6 +50,25 @@
     })
 </script>
 
+<script>
+    $(document).ready(function () {
+        $('div.highlight code').each(function() {
+            const text = $(this).html()
+            const lines = text.split('\n')
+            const spaceCount = lines[0].match(/^\s*/)[0].length;
+            const trimmedLines = lines.map(line => {
+                const lineSpaceCount = line.match(/^\s*/)[0].length;
+                if (lineSpaceCount >= spaceCount) {
+                    return line.slice(spaceCount)
+                } else {
+                    return line.trimStart()
+                }
+            })
+            $(this).html(trimmedLines.join('\n'))
+        });
+    })
+</script>
+
 <!-- 코드 블럭 복사 이벤트 -->
 <script>
     $(document).ready(function () {
