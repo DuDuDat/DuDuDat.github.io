@@ -221,6 +221,11 @@
 <div class="post-container">
     <div class="post-content"><h2 id="픽픽-캡쳐">픽픽 [캡쳐]</h2>
 
+<h3 id="캡쳐-소리-무음">캡쳐 소리 무음</h3>
+<p>Program Files (x86) 또는 Program Files 에 설치된 PicPick 폴더로 가서 sound.wav 파일을 무음 파일로 교체하기</p>
+
+<h3 id="단축키">단축키</h3>
+
 <table>
   <tbody>
     <tr>
@@ -312,11 +317,9 @@
 <script>
     $(document).ready(function () {
         const url = ""
-        const pathname = decodeURIComponent(location.pathname);
-        const dir = pathname.split('/').slice(-3, -2)[0]
         $('.post-content img').each(function() {
             const filename = $(this).attr('src')
-            $(this).attr('src', `${url}/public/img/${dir}/${filename}`)
+            $(this).attr('src', `${url}/public/img/스크린샷/${filename}.jpg`)
         })
     })
 </script>

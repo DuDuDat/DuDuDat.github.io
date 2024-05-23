@@ -295,10 +295,10 @@
 </code></pre></div></div>
 <h4 id="github-repository-actions-에-토큰-변수-저장">Github repository Actions 에 토큰 변수 저장</h4>
 
-<p><img src="customplugin2.png" alt="깃허브 액션" /></p>
+<p><img src="customplugin2" alt="깃허브 액션" /></p>
 
 <h4 id="블로그-pages-branch-설정">블로그 pages branch 설정</h4>
-<p><img src="customplugin1.png" alt="깃허브 브랜치 설정" /></p>
+<p><img src="customplugin1" alt="깃허브 브랜치 설정" /></p>
 </div>
 </div>
 <indexnav>
@@ -367,11 +367,9 @@
 <script>
     $(document).ready(function () {
         const url = ""
-        const pathname = decodeURIComponent(location.pathname);
-        const dir = pathname.split('/').slice(-3, -2)[0]
         $('.post-content img').each(function() {
             const filename = $(this).attr('src')
-            $(this).attr('src', `${url}/public/img/${dir}/${filename}`)
+            $(this).attr('src', `${url}/public/img/스크린샷/${filename}.jpg`)
         })
     })
 </script>

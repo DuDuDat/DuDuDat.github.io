@@ -321,11 +321,9 @@
 <script>
     $(document).ready(function () {
         const url = ""
-        const pathname = decodeURIComponent(location.pathname);
-        const dir = pathname.split('/').slice(-3, -2)[0]
         $('.post-content img').each(function() {
             const filename = $(this).attr('src')
-            $(this).attr('src', `${url}/public/img/${dir}/${filename}`)
+            $(this).attr('src', `${url}/public/img/스크린샷/${filename}.jpg`)
         })
     })
 </script>
