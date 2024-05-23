@@ -197,15 +197,31 @@
 <link rel="stylesheet" href="/public/css/dynamic-tag.css">
 <div class="fixed-post-list">
     
-    <div title="Ruby 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
+    <div title="블로그 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
     <div class="post-list d-none">
-        <div class="post-list-title">Ruby의 다른 글 <i class="fa-solid fa-xmark"></i></div>
+        <div class="post-list-title">블로그의 다른 글 <i class="fa-solid fa-xmark"></i></div>
         <div class="post-list-content">
             
             
             
             
-            <a href="/Develop/Language/Ruby/%EA%B0%84%EB%8B%A8%ED%95%9C%20%EB%AC%B8%EB%B2%95%20%EC%A0%95%EB%A6%AC/" class="page">간단한 문법 정리</a>
+            <a href="/Others/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%EC%97%90%EC%84%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%9E%AC%EC%A0%95%EC%9D%98%ED%95%98%EA%B8%B0/">플러그인에서 데이터 재정의하기</a>
+            
+            
+            
+            <a href="/Others/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%BB%A4%EC%8A%A4%ED%85%80%20%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0/">커스텀 플러그인 만들기</a>
+            
+            
+            
+            <a href="/Others/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%BB%A4%EC%8A%A4%ED%85%80%20%ED%83%9C%EA%B7%B8%20%EC%A0%95%EB%A6%AC/" class="page">커스텀 태그 정리</a>
+            
+            
+            
+            <a href="/Others/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%82%AC%EC%9A%A9%EC%9E%90%20%EC%A0%95%EC%9D%98%20Liquid%20%ED%95%84%ED%84%B0/">사용자 정의 liquid 필터</a>
+            
+            
+            
+            <a href="/Others/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/Liquid%20%EB%AC%B8%EB%B2%95%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%B4%20JSON%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A1%9C%20%EA%B0%80%EA%B3%B5%ED%95%98%EA%B8%B0/">Liquid 문법을 사용해 json 데이터로 가공하기</a>
             
             
         </div>
@@ -213,21 +229,19 @@
 </div>
 <div class="post-head">
 <!--    <div class="post-header-background"></div>-->
-    <div class="post-title">간단한 문법 정리</div>
+    <div class="post-title">커스텀 태그 정리</div>
     <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.23</div>
     <img class="post-img" src="/public/img/" onerror="this.onerror=null; this.src='/public/img/default.jpg';" />
     <div class="post-background"></div>
 </div>
 <div class="post-container">
-    <div class="post-content"><h2 id="변수-선언">변수 선언</h2>
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">documents</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">documents</span>
-</code></pre></div></div>
+    <div class="post-content"><btn>btn 태그</btn>
 
-<h2 id="반복문">반복문</h2>
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">documents</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">doc</span><span class="o">|</span> <span class="c1"># documents: 반복을 돌리기 위한 literal 객체, doc 요소 하나</span>
-      <span class="n">doc</span><span class="p">.</span><span class="nf">data</span><span class="p">[</span><span class="s1">'created_date'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"0000년 00월 00일"</span>
-    <span class="k">end</span>
-</code></pre></div></div>
+<p>@@ 복사 붙여넣기 태그
+@@ 제목
+내용</p>
+
+<p>++ ++ 내용</p>
 </div>
 </div>
 <indexnav>
