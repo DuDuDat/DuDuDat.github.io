@@ -55,7 +55,7 @@
     $(document).ready(function () {
         const $highlightDiv = $('div.highlight');
         const $button = $('<span class="copy-button"><i class="fa-regular fa-copy"></i> Copy</span>');
-        $(document).on('click', '.copy-button', function() { // 이벤트 위임
+        $(document).on('click', 'div.highlight .copy-button', function() { // 이벤트 위임
             const div = $(this).closest('div.highlight');
             const index = div.index('div.highlight');
 
