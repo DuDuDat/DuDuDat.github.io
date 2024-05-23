@@ -25,5 +25,15 @@
   {
     "label": "Javascript",
     "background": "rgba(255, 253, 208, 1)"
+  },
+  {
+    "label": "SQL",
+    "color": "skyblue",
+    "background": "rgba(213, 213, 213, 0.4)"
+  },
+  {
+    "label": "Ruby",
+    "color": "red",
+    "background": "rgba(255, 240, 245, 1)"
   }
 ]

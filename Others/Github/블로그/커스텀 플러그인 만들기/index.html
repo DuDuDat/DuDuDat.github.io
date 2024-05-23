@@ -25,12 +25,29 @@
         </div>
         <div class="side-menu">
             <div class="documents-total">
-                <span class="all-documents">Total <span class="total-count">(12)</span></span>
+                <span class="all-documents">Total <span class="total-count">(14)</span></span>
             </div>
             
             
             
             <div class="collection"><i class='fa-solid fa-graduation-cap'></i> DevOps</div>
+            
+            
+            
+            <div class="directory DBMS">
+                <div class="directory-info"><i class="devicon-azuresqldatabase-plain"></i> DBMS <span class="docs-count">1</span></div>
+                <span class="material-symbols-outlined DBMS category-drop-down">keyboard_arrow_down</span>
+                <span class="material-symbols-outlined  DBMS category-drop-up d-none">keyboard_arrow_up</span>
+            </div>
+            
+            
+            
+            
+            <div class="sub-directory DBMS SQL d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-solid fa-database"></i> SQL <span class="docs-count">1</span></div>
+            </div>
+            
+
             
             
             
@@ -40,7 +57,7 @@
             
             
             <div class="directory Language">
-                <div class="directory-info"><i class="fa-solid fa-spinner"></i> Language <span class="docs-count">1</span></div>
+                <div class="directory-info"><i class="fa-solid fa-spinner"></i> Language <span class="docs-count">2</span></div>
                 <span class="material-symbols-outlined Language category-drop-down">keyboard_arrow_down</span>
                 <span class="material-symbols-outlined  Language category-drop-up d-none">keyboard_arrow_up</span>
             </div>
@@ -50,6 +67,12 @@
             
             <div class="sub-directory Language Javascript d-none">
                 <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-javascript-plain"></i> Javascript <span class="docs-count">1</span></div>
+            </div>
+            
+            
+            
+            <div class="sub-directory Language Ruby d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-ruby-plain"></i> Ruby <span class="docs-count">1</span></div>
             </div>
             
 
@@ -220,9 +243,9 @@
 </blockquote>
 
 <h3 id="gemfile-설정">Gemfile 설정</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># gem "github-pages", group: :jekyll_plugins 주석 처리
-</span>    <span class="n">gem</span> <span class="sh">"</span><span class="s">jekyll</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">~&gt; 4.3.3</span><span class="sh">"</span> <span class="c1"># 필요한 버전으로 기술
-</span></code></pre></div></div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c"># gem "github-pages", group: :jekyll_plugins 주석 처리</span>
+    gem <span class="s2">"jekyll"</span>, <span class="s2">"~&gt; 4.3.3"</span> <span class="c"># 필요한 버전으로 기술</span>
+</code></pre></div></div>
 
 <h3 id="github-actions-설정">Github Actions 설정</h3>
 <h4 id="github-actions-워크플로우-파일-githubworkflows파일명yml-작성">GitHub Actions 워크플로우 파일 (.github/workflows/파일명.yml) 작성</h4>
@@ -293,6 +316,25 @@
             $('.post-list').addClass('d-none');
             $('.post-list-btn').removeClass('d-none');
         })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('div.highlight code').each(function() {
+            const text = $(this).html()
+            const lines = text.split('\n')
+            const spaceCount = lines[0].match(/^\s*/)[0].length;
+            const trimmedLines = lines.map(line => {
+                const lineSpaceCount = line.match(/^\s*/)[0].length;
+                if (lineSpaceCount >= spaceCount) {
+                    return line.slice(spaceCount)
+                } else {
+                    return line.trimStart()
+                }
+            })
+            $(this).html(trimmedLines.join('\n'))
+        });
     })
 </script>
 

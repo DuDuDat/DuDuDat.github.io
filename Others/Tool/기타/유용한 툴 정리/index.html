@@ -25,12 +25,29 @@
         </div>
         <div class="side-menu">
             <div class="documents-total">
-                <span class="all-documents">Total <span class="total-count">(12)</span></span>
+                <span class="all-documents">Total <span class="total-count">(14)</span></span>
             </div>
             
             
             
             <div class="collection"><i class='fa-solid fa-graduation-cap'></i> DevOps</div>
+            
+            
+            
+            <div class="directory DBMS">
+                <div class="directory-info"><i class="devicon-azuresqldatabase-plain"></i> DBMS <span class="docs-count">1</span></div>
+                <span class="material-symbols-outlined DBMS category-drop-down">keyboard_arrow_down</span>
+                <span class="material-symbols-outlined  DBMS category-drop-up d-none">keyboard_arrow_up</span>
+            </div>
+            
+            
+            
+            
+            <div class="sub-directory DBMS SQL d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-solid fa-database"></i> SQL <span class="docs-count">1</span></div>
+            </div>
+            
+
             
             
             
@@ -40,7 +57,7 @@
             
             
             <div class="directory Language">
-                <div class="directory-info"><i class="fa-solid fa-spinner"></i> Language <span class="docs-count">1</span></div>
+                <div class="directory-info"><i class="fa-solid fa-spinner"></i> Language <span class="docs-count">2</span></div>
                 <span class="material-symbols-outlined Language category-drop-down">keyboard_arrow_down</span>
                 <span class="material-symbols-outlined  Language category-drop-up d-none">keyboard_arrow_up</span>
             </div>
@@ -50,6 +67,12 @@
             
             <div class="sub-directory Language Javascript d-none">
                 <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-javascript-plain"></i> Javascript <span class="docs-count">1</span></div>
+            </div>
+            
+            
+            
+            <div class="sub-directory Language Ruby d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-ruby-plain"></i> Ruby <span class="docs-count">1</span></div>
             </div>
             
 
@@ -228,6 +251,25 @@
             $('.post-list').addClass('d-none');
             $('.post-list-btn').removeClass('d-none');
         })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('div.highlight code').each(function() {
+            const text = $(this).html()
+            const lines = text.split('\n')
+            const spaceCount = lines[0].match(/^\s*/)[0].length;
+            const trimmedLines = lines.map(line => {
+                const lineSpaceCount = line.match(/^\s*/)[0].length;
+                if (lineSpaceCount >= spaceCount) {
+                    return line.slice(spaceCount)
+                } else {
+                    return line.trimStart()
+                }
+            })
+            $(this).html(trimmedLines.join('\n'))
+        });
     })
 </script>
 

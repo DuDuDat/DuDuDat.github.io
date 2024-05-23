@@ -15,5 +15,8 @@
   "개발": "<i class=\"fa-solid fa-laptop-code\"></i>",
   "자바스크립트": "<i class=\"devicon-javascript-plain\"></i>",
   "Javascript": "<i class=\"devicon-javascript-plain\"></i>",
-  "에러": "<i class=\"fa-solid fa-triangle-exclamation\"></i>"
+  "에러": "<i class=\"fa-solid fa-triangle-exclamation\"></i>",
+  "DBMS": "<i class=\"devicon-azuresqldatabase-plain\"></i>",
+  "SQL": "<i class=\"fa-solid fa-database\"></i>",
+  "Ruby": "<i class=\"devicon-ruby-plain\"></i>"
 }
