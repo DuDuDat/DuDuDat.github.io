@@ -8,5 +8,14 @@
     "label": "CSS",
     "color": "blue",
     "background": "#C3E0E5"
+  },
+  {
+    "label": "스트림덱",
+    "color": "white",
+    "background": "gray"
+  },
+  {
+    "label": "기타",
+    "background": "#C5E3C7"
   }
 ]

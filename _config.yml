@@ -34,10 +34,6 @@ collections:
     output: true
     permalink: /DevOps/:path/
     icon: "<i class='fa-solid fa-graduation-cap'></i>"
-  Tool:
-    output: true
-    permalink: /Tool/:path/
-    icon: "<i class='fa fa-wrench' aria-hidden='true'></i>"
   Others:
     output: true
     permalink: /Others/:path/
