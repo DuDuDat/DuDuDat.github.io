@@ -20,7 +20,10 @@ module Jekyll
         # doc.data['created_date'] = file_creation_date
         # file_creation_date = File.ctime(doc.path)
         # doc.data['created_date'] = file_creation_date
-        file_creation_date = File.mtime(doc.path)
+        # file_creation_date = File.mtime(doc.path)
+        # doc.data['created_date'] = file_creation_date
+        # puts "#{file_creation_date}"
+        file_creation_date = git_creation_date(doc.path)
         doc.data['created_date'] = file_creation_date
         puts "#{file_creation_date}"
         filename = File.basename(doc.basename, File.extname(doc.basename))
