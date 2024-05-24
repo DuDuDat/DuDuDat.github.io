@@ -1,3 +1,4 @@
+require 'jekyll'
 require 'json'
 require 'cgi'
 
@@ -5,7 +6,7 @@ module Jekyll
   module CollectionExtensions
     attr_accessor :subdir
   end
-  class CollectionSubdirsGenerator < Generator
+  class CollectionSubdirsGenerator < Jekyll::Generator
     safe true
     priority :high
 
