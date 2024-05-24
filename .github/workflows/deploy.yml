@@ -30,6 +30,9 @@ jobs:
           gem install bundler -v 2.4.22
           bundle install
 
+      - name: Add Git commit dates to Front Matter
+        run: bundle exec ruby _plugins/jekyll-collection-subdirs.rb
+
       - name: Build the site with Jekyll
         run: bundle exec jekyll build
 
