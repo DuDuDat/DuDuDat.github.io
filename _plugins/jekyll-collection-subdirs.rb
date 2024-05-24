@@ -94,9 +94,14 @@ module Jekyll
       site.config["docs"][path.split("/").last] = documents # 폴더명: documents 정보
     end
 
-    def git_creation_date(path)
-      stdout, stderr, status = Open3.capture3("git log --diff-filter=A --follow --format=%aD -1 -- #{file_path}")
-      status.success? ? stdout.strip : nil
+    def git_creation_date(file_path)
+      begin
+        creation_date = `git log --diff-filter=A --follow --format=%aD -1 -- #{file_path}`.strip
+        return creation_date unless creation_date.empty?
+      rescue => e
+        # puts "Error getting creation date for #{file_path}: #{e.message}"
+      end
+      nil
     end
 
 
