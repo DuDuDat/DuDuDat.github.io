@@ -218,7 +218,7 @@
 <div class="post-head">
 <!--    <div class="post-header-background"></div>-->
     <div class="post-title">부팅 시 서비스 자동 실행</div>
-    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.23</div>
+    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.24</div>
     <img class="post-img" src="/public/img/" onerror="this.onerror=null; this.src='/public/img/default.jpg';" />
     <div class="post-background"></div>
 </div>
@@ -245,15 +245,24 @@
 <h2 id="서비스-등록-예시">서비스 등록 예시</h2>
 <h3 id="flask">Flask</h3>
 <h4 id="application-설정">Application 설정</h4>
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  path: C:<span class="se">\U</span>sers<span class="se">\k</span>jm17<span class="se">\.</span>conda<span class="se">\e</span>nvs<span class="se">\s</span>tudy<span class="se">\p</span>ython.exe
-  start: C:<span class="se">\U</span>sers<span class="se">\k</span>jm17<span class="se">\D</span>ocuments<span class="se">\s</span>tream_deck<span class="se">\l</span>ocalhost
-  arguments: <span class="nt">-m</span> flask run <span class="nt">--cert</span><span class="o">=</span>C:<span class="se">\U</span>sers<span class="se">\k</span>jm17<span class="se">\D</span>ocuments<span class="se">\s</span>tream_deck<span class="se">\l</span>ocalhost<span class="se">\s</span>sl<span class="se">\l</span>ocalhost+2.pem <span class="nt">--key</span><span class="o">=</span>C:<span class="se">\U</span>sers<span class="se">\k</span>jm17<span class="se">\D</span>ocuments<span class="se">\s</span>tream_deck<span class="se">\l</span>ocalhost<span class="se">\s</span>sl<span class="se">\l</span>ocalhost+2-key.pem
-</code></pre></div></div>
+<p><img src="nssm application" alt="" /></p>
+
+<p>@@ path
+C:\Users\kjm17.conda\envs\study\python.exe</p>
+
+<p>@@ Startup directory
+C:\Users\kjm17\Documents\stream_deck\localhost</p>
+
+<p>@@ Arguments
+-m flask run –cert=C:\Users\kjm17\Documents\stream_deck\localhost\ssl\localhost+2.pem –key=C:\Users\kjm17\Documents\stream_deck\localhost\ssl\localhost+2-key.pem</p>
 
 <h4 id="environment-설정">Environment 설정</h4>
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">FLASK_APP</span><span class="o">=</span>app.py
-  <span class="nv">FLASK_RUN_PORT</span><span class="o">=</span>9080
-</code></pre></div></div>
+
+<p><img src="nssm environment" alt="" /></p>
+
+<p>@@ Environment
+FLASK_APP=app.py
+FLASK_RUN_PORT=9080</p>
 </div>
 </div>
 <indexnav>
