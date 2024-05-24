@@ -12,12 +12,15 @@ module Jekyll
     def generate(site)
       # site.documents 객체 데이터 재정의
       documents = site.documents
+      puts "#{site.source}"
       documents.each do |doc|
         # file_creation_date = File.birthtime(doc.path)
         # doc.data['created_date'] = file_creation_date
-        file_creation_date = File.ctime(doc.path)
-        doc.data['created_date'] = file_creation_date
-        # puts "#{File.ctime(doc.path)}"
+        # file_creation_date = File.ctime(doc.path)
+        # doc.data['created_date'] = file_creation_date
+        file_creation_date = git_creation_date(doc.path)
+        doc.data['created_date'] = file_creation_date if file_creation_date
+        puts "#{file_creation_date}"
         filename = File.basename(doc.basename, File.extname(doc.basename))
         doc.data['title'] ||= filename # 현재 title이 없는 경우에만 파일명을 title로 설정
         doc.data['layout'] ||= 'post'
@@ -89,6 +92,11 @@ module Jekyll
         end
       end
       site.config["docs"][path.split("/").last] = documents # 폴더명: documents 정보
+    end
+
+    def git_creation_date(path)
+      stdout, stderr, status = Open3.capture3("git log --diff-filter=A --follow --format=%aD -1 -- #{path}")
+      status.success? ? stdout.strip : nil
     end
 
 
