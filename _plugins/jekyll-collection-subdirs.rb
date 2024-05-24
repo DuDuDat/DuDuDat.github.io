@@ -100,29 +100,29 @@ module Jekyll
     end
 
     def git_creation_date(file_path)
-      begin
-        # 디버깅을 위해 명령어 출력과 오류 메시지 확인
-        stdout, stderr, status = Open3.capture3("git log --diff-filter=A --follow --format=%aD -1 -- #{file_path}")
-        puts "STDOUT: #{stdout}"
-        puts "STDERR: #{stderr}"
-        puts "STATUS: #{status.exitstatus}"
-
-        if status.success?
-          creation_date = stdout.strip
-          return creation_date unless creation_date.empty?
-        end
-      rescue => e
-        puts "Error getting creation date for #{file_path}: #{e.message}"
-      end
-      nil
-
       # begin
-      #   creation_date = `git log --diff-filter=A --follow --format=%aD -1 -- #{file_path}`.strip
-      #   return creation_date unless creation_date.empty?
+      #   # 디버깅을 위해 명령어 출력과 오류 메시지 확인
+      #   stdout, stderr, status = Open3.capture3("git log --diff-filter=A --follow --format=%aD -1 -- \"#{file_path}\"")
+      #   puts "STDOUT: #{stdout}"
+      #   puts "STDERR: #{stderr}"
+      #   puts "STATUS: #{status.exitstatus}"
+      #
+      #   if status.success?
+      #     creation_date = stdout.strip
+      #     return creation_date unless creation_date.empty?
+      #   end
       # rescue => e
-      #   # puts "Error getting creation date for #{file_path}: #{e.message}"
+      #   puts "Error getting creation date for #{file_path}: #{e.message}"
       # end
       # nil
+
+      begin
+        creation_date = `git log --diff-filter=A --follow --format=%aD -1 -- "#{file_path}"`.strip
+        return creation_date unless creation_date.empty?
+      rescue => e
+        # puts "Error getting creation date for #{file_path}: #{e.message}"
+      end
+      nil
     end
 
 
