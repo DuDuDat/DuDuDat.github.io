@@ -13,8 +13,11 @@ module Jekyll
       # site.documents 객체 데이터 재정의
       documents = site.documents
       documents.each do |doc|
-        file_creation_date = File.birthtime(doc.path)
+        # file_creation_date = File.birthtime(doc.path)
+        # doc.data['created_date'] = file_creation_date
+        file_creation_date = File.ctime(doc.path)
         doc.data['created_date'] = file_creation_date
+        # puts "#{File.ctime(doc.path)}"
         filename = File.basename(doc.basename, File.extname(doc.basename))
         doc.data['title'] ||= filename # 현재 title이 없는 경우에만 파일명을 title로 설정
         doc.data['layout'] ||= 'post'
