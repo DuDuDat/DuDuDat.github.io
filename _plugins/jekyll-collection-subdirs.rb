@@ -18,8 +18,8 @@ module Jekyll
         # doc.data['created_date'] = file_creation_date
         # file_creation_date = File.ctime(doc.path)
         # doc.data['created_date'] = file_creation_date
-        file_creation_date = git_creation_date(doc.path)
-        doc.data['created_date'] = file_creation_date if file_creation_date
+        file_creation_date = File.mtime(doc.path)
+        doc.data['created_date'] = file_creation_date
         puts "#{file_creation_date}"
         filename = File.basename(doc.basename, File.extname(doc.basename))
         doc.data['title'] ||= filename # 현재 title이 없는 경우에만 파일명을 title로 설정
@@ -95,7 +95,7 @@ module Jekyll
     end
 
     def git_creation_date(path)
-      stdout, stderr, status = Open3.capture3("git log --diff-filter=A --follow --format=%aD -1 -- #{path}")
+      stdout, stderr, status = Open3.capture3("git log --diff-filter=A --follow --format=%aD -1 -- #{file_path}")
       status.success? ? stdout.strip : nil
     end
 
