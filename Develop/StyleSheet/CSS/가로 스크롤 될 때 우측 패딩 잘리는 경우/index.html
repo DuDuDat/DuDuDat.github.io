@@ -460,6 +460,11 @@
         $(`.drop-menu:not( ._${this.value})`).addClass('d-none')
         $(`.drop-menu._${this.value}`).toggleClass('d-none')
     })
+    $(document).on('click', function(e) {
+        if (!$(e.target).hasClass('header-btn')) {
+            $('.drop-menu').addClass('d-none')
+        }
+    })
 </script>
 </body>
 </html>
