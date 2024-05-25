@@ -4,7 +4,7 @@ parentheses { /*-- 소괄호 --*/
     font-weight: 100 !important;
     font-size: 0.95em !important;
 }
-copy, tip {
+copy, tip, warn {
     display: block;
     white-space: pre-wrap;
     position: relative;
@@ -74,5 +74,31 @@ copy {
             position: absolute;
             right: 0.7rem;
         }
+    }
+}
+
+/* !! */
+warn {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+
+    &:before {
+        border-radius: 0.3rem 0.3rem 0 0;
+        content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"  fill="rgb(219, 112, 147)" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>') " 주의";
+        display: flex;
+        align-items: center;
+        padding: 0.3rem 0.7rem;
+        background: rgba(244, 194, 194, 0.5);
+        font-size: 0.8rem;
+        font-family: var(--category-font);
+        font-weight: bold;
+        color: rgb(219, 112, 147);
+    }
+    span {
+        padding: 0.5rem 1rem 0.5rem;
+        border-radius: 0 0 0.3rem 0.3rem;
+        background: rgba(244, 194, 194, 0.1);
+        display: block;
+        color: rgba(0, 0, 0, 0.7);
     }
 }

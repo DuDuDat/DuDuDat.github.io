@@ -18,6 +18,12 @@ $(document).ready(function () {
             const html = $('<tip></tip>').html(span)
             $(this).replaceWith(html)
         }
+        if ($(this).text().startsWith('!!')) { // Tip!
+            const id = /^!! /
+            const span = `<span>${$(this).html().replace(id, '')}</span>`
+            const html = $('<warn></warn>').html(span)
+            $(this).replaceWith(html)
+        }
     })
     
     $(document).on('click', 'copy .copy-button', function() {
