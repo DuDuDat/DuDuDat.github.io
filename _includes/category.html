@@ -4,6 +4,7 @@
     <input type="image" class="posts-image"  src="" alt="이미지" />
 </div>
 <div class="row"></div>
+<div class="page-block"></div>
 <script id="documents" type="application/json">
     [
         {% assign sorted_docs = site.documents | sort: "created_date" | reverse %}
@@ -25,6 +26,9 @@
 <script>
     function filterAndUpdate(data) {
         const hash = decodeURIComponent(window.location.hash.substring(1)).trim();
+        const token = hash.split('^')[0]
+        const page = hash.split('^')[1]
+        const itemCount = 9
 
         let jsonData = $('#documents').text()
         jsonData = JSON.parse(jsonData)
@@ -34,10 +38,10 @@
         $(`.category-drop-down`).removeClass('d-none')
         $(`.category-drop-up`).addClass('d-none')
 
-        if (hash !== 'total') {
-            jsonData = jsonData.filter(data => data['label'].trim() === hash)
-            $('.directory-name').text(hash)
-            const selected = $(`.sub-directory.${hash}`)
+        if (token !== 'total') {
+            jsonData = jsonData.filter(data => data['label'].trim() === token)
+            $('.directory-name').text(token)
+            const selected = $(`.sub-directory.${token}`)
             selected.addClass('selected')
             const category = selected.get(0).classList[1]
             $(`.sub-directory.${category}`).removeClass('d-none')
@@ -45,6 +49,17 @@
             $(`.category-drop-up.${category}`).removeClass('d-none')
         }else {
             $('.directory-name').text('분류 전체 보기')
+        }
+
+        const totalPage = Math.ceil(jsonData.length / itemCount)
+
+        const pages = Array.from({ length: totalPage }, (_, i) => `<span class="page">${i+1}</span>`);
+        $('.page-block').html(pages)
+
+        if (jsonData.length >= itemCount*page) {
+            jsonData = jsonData.slice((itemCount) * (page - 1), itemCount * page)
+        }else {
+            jsonData = jsonData.slice((itemCount) * (page - 1))
         }
 
         const html = jsonData.map(doc => {
@@ -71,10 +86,14 @@
         $('.post').on('click', function() {
             window.location.href = $(this).get(0).classList[1]
         })
+        $('.page').on('click', function() {
+            const page = $(this).text()
+            window.location.href = `/posts/#${token}^${page}`
+        })
 
     }
 
-    function hashChanged() {
+    function tokenChanged() {
         fetch('{{root_url}}/directory_info.json')
             .then(res => res.json())
             .then(data => {
@@ -94,7 +113,7 @@
         $('.posts-image').attr('src', src)
     }
 
-    $(document).ready(hashChanged)
-    $(window).on('hashchange', hashChanged)
+    $(document).ready(tokenChanged)
+    $(window).on('hashchange', tokenChanged)
 </script>
 
