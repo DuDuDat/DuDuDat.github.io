@@ -66,28 +66,46 @@
         <div class="header-logo">
             <header-button class="header-icon" ><span class="material-symbols-outlined">widgets</span></header-button>
             <header-button class="menu-btn" title="메뉴" ><span class="material-symbols-outlined">widgets</span></header-button>
-            <input type="button" value="Develop" title="Develop" />
-            <input type="button" value="DevOps" title="DevOps" />
-            <input type="button" value="Tip" title="Tip" />
+            <input class="header-btn" type="button" value="Develop" title="Develop" />
+            <input class="header-btn" type="button" value="DevOps" title="DevOps" />
+            <input class="header-btn" type="button" value="Others" title="Others" />
         </div>
         <div class="header-home"><header-button title="Home">{{ site.description }}</header-button></div>
         <div class="header-search">
             <header-button title="Search"><span class="material-symbols-outlined">search</span></header-button>
         </div>
     </header>
-<!--    <div class="drop-menu d-none"></div>-->
+    {% for col in site.collections %}{% if col.label != "posts" %}
+    {% assign label = "_" | append: col.label %}
+    <div class="{{label}} drop-menu row d-none">
+        {% assign collection = site["dir"][label] %}
+        {% for dir_info in collection %}{% for dir in dir_info %}
+        <div class="col-4 drop-category"><div>
+        {% assign name = dir[0] %}
+        <div class="drop-directory">
+            {{name}}
+        </div>
+        {% assign sub_dirs = site["dir"][name] %}
+        {% for sub_dir in sub_dirs %}{% for sub in sub_dir %}
+        {% assign sub_name = sub[0] %}
+        {% assign icon = sub[1] %}
+        <div class="drop-sub-directory {{name}} {{sub_name}}">{{icon}} {{sub_name}}</div>
+        {% endfor %}{% endfor %}
+        </div></div>
+        {% endfor %}{% endfor %}
+        </div>
+    {% endif %}{% endfor %}
     <div class="content">
         {{content}}
     </div>
 </div>
-
 
 <script>
     $('.header-home header-button, aside .profile-desc').on('click', function() {
         location.href = '/'
     })
     $('.all-documents').on('click', function() { // Total
-        location.href = '/posts/#total'
+        location.href = '/posts/#total^1'
     })
     $('.directory').on('click', function() {
         const category = this.classList[1]
@@ -95,9 +113,14 @@
         $(`.category-drop-down.${category}`).toggleClass('d-none')
         $(`.category-drop-up.${category}`).toggleClass('d-none')
     })
-    $('.sub-directory').on('click', function() {
+    $('.sub-directory, .drop-sub-directory').on('click', function() {
         const dir = this.classList[2]
         window.location.href = `/posts/#${dir}^1`
+        $('.drop-menu').addClass('d-none')
+    })
+    $('input.header-btn').on('click', function() {
+        $(`.drop-menu:not( ._${this.value})`).addClass('d-none')
+        $(`.drop-menu._${this.value}`).toggleClass('d-none')
     })
 </script>
 </body>

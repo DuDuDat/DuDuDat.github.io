@@ -3,7 +3,7 @@
     <span class="directory-name"></span>
     <input type="image" class="posts-image"  src="" alt="이미지" />
 </div>
-<div class="row"></div>
+<div class="row category"></div>
 <div class="page-block"></div>
 <script id="documents" type="application/json">
     [
@@ -81,7 +81,7 @@
                 </div>`
         }).join('');
 
-        $('.row').html(html)
+        $('.row.category').html(html)
 
         $('.post').on('click', function() {
             window.location.href = $(this).get(0).classList[1]
