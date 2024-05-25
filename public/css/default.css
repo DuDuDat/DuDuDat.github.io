@@ -300,18 +300,6 @@ aside {
 
 }
 
-/*------------------ 드롭 메뉴 ----------------*/
-.drop-menu {
-    position: absolute;
-    top: 4rem;
-    left: 5%;
-    z-index: 999;
-    width: 90%;
-    border-radius: 0.7rem;
-    background: #FF6600;
-    padding: 1rem;
-}
-
 /*------------------ copyright ----------------*/
 .copyright {
     padding: 1.5rem 1.7rem 0.5rem;
@@ -326,6 +314,58 @@ aside {
         font-size: 0.8rem;
         font-weight: bold;
     }
+}
+
+/*------------------ 드랍메뉴 ----------------*/
+.drop-menu {
+    position: fixed;
+    top: 3.2rem;
+    left: calc(var(--aside-width) + 3.5rem);
+    z-index: 999;
+    width: 30rem;
+    border-radius: 0.7rem;
+    background: rgb(250,250,250);
+    margin: 0;
+    padding: 2rem 1rem;
+
+    &._DevOps {
+        left: calc(var(--aside-width) + 8rem);
+    }
+    &._Others {
+        left: calc(var(--aside-width) + 12.5rem);
+    }
+}
+.drop-category {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.drop-directory {
+    font-size: 0.9rem;
+    color: rgba(246,86,96,1);
+    margin-bottom: 1rem;
+}
+
+.drop-sub-directory {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.7);
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    i {
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 0.8rem;
+        padding-right:  0.3rem;
+    }
+    &:hover {
+        background: rgba(211,211,211,0.4);
+    }
+}
+.padding-0 {
+    padding: 0 !important;
 }
 
 /*------------------ 모바일 최적화 ----------------*/
