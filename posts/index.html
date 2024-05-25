@@ -199,6 +199,7 @@
     <input type="image" class="posts-image"  src="" alt="이미지" />
 </div>
 <div class="row"></div>
+<div class="page-block"></div>
 <script id="documents" type="application/json">
     [
         
@@ -222,7 +223,7 @@
             "url": "/Others/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%BB%A4%EC%8A%A4%ED%85%80%20%ED%83%9C%EA%B7%B8%20%EC%A0%95%EB%A6%AC/",
             "title": "커스텀 태그 정리",
             "date": "2024-05-24",
-            "content": "btn 태그@@ 복사 붙여넣기 태그@@ 제목내용++ ++ 내용"
+            "content": "btn 태그@@ 복사 붙여넣기 태그@@ 제목내용++ ++ 내용!! !! 내용"
         },
         
         
@@ -385,6 +386,9 @@
 <script>
     function filterAndUpdate(data) {
         const hash = decodeURIComponent(window.location.hash.substring(1)).trim();
+        const token = hash.split('^')[0]
+        const page = hash.split('^')[1]
+        const itemCount = 9
 
         let jsonData = $('#documents').text()
         jsonData = JSON.parse(jsonData)
@@ -394,10 +398,10 @@
         $(`.category-drop-down`).removeClass('d-none')
         $(`.category-drop-up`).addClass('d-none')
 
-        if (hash !== 'total') {
-            jsonData = jsonData.filter(data => data['label'].trim() === hash)
-            $('.directory-name').text(hash)
-            const selected = $(`.sub-directory.${hash}`)
+        if (token !== 'total') {
+            jsonData = jsonData.filter(data => data['label'].trim() === token)
+            $('.directory-name').text(token)
+            const selected = $(`.sub-directory.${token}`)
             selected.addClass('selected')
             const category = selected.get(0).classList[1]
             $(`.sub-directory.${category}`).removeClass('d-none')
@@ -405,6 +409,17 @@
             $(`.category-drop-up.${category}`).removeClass('d-none')
         }else {
             $('.directory-name').text('분류 전체 보기')
+        }
+
+        const totalPage = Math.ceil(jsonData.length / itemCount)
+
+        const pages = Array.from({ length: totalPage }, (_, i) => `<span class="page">${i+1}</span>`);
+        $('.page-block').html(pages)
+
+        if (jsonData.length >= itemCount*page) {
+            jsonData = jsonData.slice((itemCount) * (page - 1), itemCount * page)
+        }else {
+            jsonData = jsonData.slice((itemCount) * (page - 1))
         }
 
         const html = jsonData.map(doc => {
@@ -431,10 +446,14 @@
         $('.post').on('click', function() {
             window.location.href = $(this).get(0).classList[1]
         })
+        $('.page').on('click', function() {
+            const page = $(this).text()
+            window.location.href = `/posts/#${token}^${page}`
+        })
 
     }
 
-    function hashChanged() {
+    function tokenChanged() {
         fetch('/directory_info.json')
             .then(res => res.json())
             .then(data => {
@@ -454,8 +473,8 @@
         $('.posts-image').attr('src', src)
     }
 
-    $(document).ready(hashChanged)
-    $(window).on('hashchange', hashChanged)
+    $(document).ready(tokenChanged)
+    $(window).on('hashchange', tokenChanged)
 </script>
 
 
@@ -478,7 +497,7 @@
     })
     $('.sub-directory').on('click', function() {
         const dir = this.classList[2]
-        window.location.href = `/posts/#${dir}`
+        window.location.href = `/posts/#${dir}^1`
     })
 </script>
 </body>
