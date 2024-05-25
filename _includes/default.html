@@ -36,6 +36,12 @@
             {% for dir_info in collection %}{% for dir in dir_info %}
             {% assign name = dir[0] %}
             {% assign icon = dir[1] %}
+            {% assign sub_size = site["dir"][name] | size %}
+            {% if sub_size == 0 %}
+            <div class="directory {{name}} true">
+                <div class="directory-info">{{icon}} {{name}} <span class="docs-count">{{ docs[name] | size }}</span></div>
+            </div>
+            {% else %}
             <div class="directory {{name}}">
                 <div class="directory-info">{{icon}} {{name}} <span class="docs-count">{{ docs[name] | size }}</span></div>
                 <span class="material-symbols-outlined {{name}} category-drop-down">keyboard_arrow_down</span>
@@ -49,6 +55,7 @@
                 <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span>{{icon}} {{sub_name}} <span class="docs-count">{{ docs[sub_name] | size }}</span></div>
             </div>
             {% endfor %}{% endfor %}
+            {% endif %}
 
             {% endfor %}{% endfor %}
             {% endif %}{% endfor %}
@@ -68,6 +75,8 @@
             <header-button class="menu-btn" title="메뉴" ><span class="material-symbols-outlined">widgets</span></header-button>
             <input class="header-btn" type="button" value="Develop" title="Develop" />
             <input class="header-btn" type="button" value="DevOps" title="DevOps" />
+            <input class="header-btn" type="button" value="DevKit" title="DevKit" />
+            <input class="header-btn" type="button" value="Github" title="Github" />
             <input class="header-btn" type="button" value="Others" title="Others" />
         </div>
         <div class="header-home"><header-button title="Home">{{ site.description }}</header-button></div>
@@ -82,15 +91,19 @@
         {% for dir_info in collection %}{% for dir in dir_info %}
         <div class="col-4 drop-category"><div>
         {% assign name = dir[0] %}
-        <div class="drop-directory">
-            {{name}}
-        </div>
-        {% assign sub_dirs = site["dir"][name] %}
-        {% for sub_dir in sub_dirs %}{% for sub in sub_dir %}
-        {% assign sub_name = sub[0] %}
-        {% assign icon = sub[1] %}
-        <div class="drop-sub-directory {{name}} {{sub_name}}">{{icon}} {{sub_name}}</div>
-        {% endfor %}{% endfor %}
+        {% assign sub_size = site["dir"][name] | size %}
+        {% if sub_size == 0 %}
+            {% assign icon = dir[1] %}
+            <div class="drop-sub-directory tmp {{name}}">{{icon}} {{name}}</div>
+        {% else %}
+            <div class="drop-directory">{{name}}</div>
+            {% assign sub_dirs = site["dir"][name] %}
+            {% for sub_dir in sub_dirs %}{% for sub in sub_dir %}
+            {% assign sub_name = sub[0] %}
+            {% assign icon = sub[1] %}
+            <div class="drop-sub-directory {{name}} {{sub_name}}">{{icon}} {{sub_name}}</div>
+            {% endfor %}{% endfor %}
+        {% endif %}
         </div></div>
         {% endfor %}{% endfor %}
         </div>
@@ -109,9 +122,13 @@
     })
     $('.directory').on('click', function() {
         const category = this.classList[1]
-        $(`.sub-directory.${category}`).toggleClass('d-none')
-        $(`.category-drop-down.${category}`).toggleClass('d-none')
-        $(`.category-drop-up.${category}`).toggleClass('d-none')
+        if (this.classList[2]) {
+            location.href = `/posts/#${category}^1`
+        } else {
+            $(`.sub-directory.${category}`).toggleClass('d-none')
+            $(`.category-drop-down.${category}`).toggleClass('d-none')
+            $(`.category-drop-up.${category}`).toggleClass('d-none')
+        }
     })
     $('.sub-directory, .drop-sub-directory').on('click', function() {
         const dir = this.classList[2]

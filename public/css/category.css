@@ -95,7 +95,7 @@
 .selected {
     background: #eeeeee;
 
-    .sub-directory-info {
+    div {
         color: #ff8844;
     }
 }

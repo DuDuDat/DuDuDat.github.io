@@ -42,11 +42,15 @@
             jsonData = jsonData.filter(data => data['label'].trim() === token)
             $('.directory-name').text(token)
             const selected = $(`.sub-directory.${token}`)
-            selected.addClass('selected')
-            const category = selected.get(0).classList[1]
-            $(`.sub-directory.${category}`).removeClass('d-none')
-            $(`.category-drop-down.${category}`).addClass('d-none')
-            $(`.category-drop-up.${category}`).removeClass('d-none')
+            if (selected.length > 0) {
+                selected.addClass('selected')
+                const category = selected.get(0).classList[1]
+                $(`.sub-directory.${category}`).removeClass('d-none')
+                $(`.category-drop-down.${category}`).addClass('d-none')
+                $(`.category-drop-up.${category}`).removeClass('d-none')
+            }else {
+                $(`.directory.${token}`).addClass('selected')
+            }
         }else {
             $('.directory-name').text('분류 전체 보기')
         }
