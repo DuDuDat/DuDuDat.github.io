@@ -2,6 +2,7 @@ require 'jekyll'
 require 'json'
 require 'open3'
 require 'cgi'
+require 'date'
 
 module Jekyll
   module CollectionExtensions
@@ -16,16 +17,9 @@ module Jekyll
       documents = site.documents
       puts "#{site.source}"
       documents.each do |doc|
-        # file_creation_date = File.birthtime(doc.path)
-        # doc.data['created_date'] = file_creation_date
-        # file_creation_date = File.ctime(doc.path)
-        # doc.data['created_date'] = file_creation_date
-        # file_creation_date = File.mtime(doc.path)
-        # doc.data['created_date'] = file_creation_date
-        # puts "#{file_creation_date}"
         file_creation_date = git_creation_date(doc.path)
         doc.data['created_date'] = file_creation_date
-        puts "#{file_creation_date}"
+        # puts "#{file_creation_date}"
         filename = File.basename(doc.basename, File.extname(doc.basename))
         doc.data['title'] ||= filename # 현재 title이 없는 경우에만 파일명을 title로 설정
         doc.data['layout'] ||= 'post'
@@ -100,27 +94,12 @@ module Jekyll
     end
 
     def git_creation_date(file_path)
-      # begin
-      #   # 디버깅을 위해 명령어 출력과 오류 메시지 확인
-      #   stdout, stderr, status = Open3.capture3("git log --diff-filter=A --follow --format=%aD -1 -- \"#{file_path}\"")
-      #   puts "STDOUT: #{stdout}"
-      #   puts "STDERR: #{stderr}"
-      #   puts "STATUS: #{status.exitstatus}"
-      #
-      #   if status.success?
-      #     creation_date = stdout.strip
-      #     return creation_date unless creation_date.empty?
-      #   end
-      # rescue => e
-      #   puts "Error getting creation date for #{file_path}: #{e.message}"
-      # end
-      # nil
-
       begin
         creation_date = `git log --diff-filter=A --follow --format=%aD -1 -- "#{file_path}"`.strip
-        return creation_date unless creation_date.empty?
+        creation_date = creation_date.gsub(',', '')
+        return Time.parse(creation_date) unless creation_date.empty?
       rescue => e
-        # puts "Error getting creation date for #{file_path}: #{e.message}"
+        puts "Error getting creation date for #{file_path}: #{e.message}"
       end
       nil
     end
