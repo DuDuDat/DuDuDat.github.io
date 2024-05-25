@@ -30,7 +30,24 @@
             
             
             
+            <div class="collection"><i class='fa-brands fa-sketch'></i> DevKit</div>
+            
+            
+            
+            
+            
+            <div class="directory 기타 true">
+                <div class="directory-info"><i class="fa-regular fa-object-group"></i> 기타 <span class="docs-count">1</span></div>
+            </div>
+            
+
+            
+            
+            
+            
             <div class="collection"><i class='fa-solid fa-graduation-cap'></i> DevOps</div>
+            
+            
             
             
             
@@ -47,12 +64,15 @@
                 <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-solid fa-database"></i> SQL <span class="docs-count">1</span></div>
             </div>
             
+            
 
             
             
             
             
             <div class="collection"><i class='fa-brands fa-connectdevelop'></i> Develop</div>
+            
+            
             
             
             
@@ -75,7 +95,10 @@
                 <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-ruby-plain"></i> Ruby <span class="docs-count">1</span></div>
             </div>
             
+            
 
+            
+            
             
             
             
@@ -92,12 +115,30 @@
                 <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-css3-plain"></i> CSS <span class="docs-count">3</span></div>
             </div>
             
+            
+
+            
+            
+            
+            
+            <div class="collection"><i class='devicon-github-original'></i> Github</div>
+            
+            
+            
+            
+            
+            <div class="directory 블로그 true">
+                <div class="directory-info"><i class="devicon-jekyll-plain"></i> 블로그 <span class="docs-count">6</span></div>
+            </div>
+            
 
             
             
             
             
             <div class="collection"><i class='fa-brands fa-sketch'></i> Others</div>
+            
+            
             
             
             
@@ -114,24 +155,10 @@
                 <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-regular fa-circle-play"></i> 스트림덱 <span class="docs-count">2</span></div>
             </div>
             
-
-            
-            
-            
-            <div class="directory Tool">
-                <div class="directory-info"><i class='fa fa-wrench' aria-hidden='true'></i> Tool <span class="docs-count">1</span></div>
-                <span class="material-symbols-outlined Tool category-drop-down">keyboard_arrow_down</span>
-                <span class="material-symbols-outlined  Tool category-drop-up d-none">keyboard_arrow_up</span>
-            </div>
-            
-            
-            
-            
-            <div class="sub-directory Tool 기타 d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-regular fa-object-group"></i> 기타 <span class="docs-count">1</span></div>
-            </div>
             
 
+            
+            
             
             
             
@@ -148,22 +175,6 @@
                 <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-javascript-plain"></i> 자바스크립트 <span class="docs-count">1</span></div>
             </div>
             
-
-            
-            
-            
-            <div class="directory Github">
-                <div class="directory-info"><i class='devicon-github-original'></i> Github <span class="docs-count">6</span></div>
-                <span class="material-symbols-outlined Github category-drop-down">keyboard_arrow_down</span>
-                <span class="material-symbols-outlined  Github category-drop-up d-none">keyboard_arrow_up</span>
-            </div>
-            
-            
-            
-            
-            <div class="sub-directory Github 블로그 d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-jekyll-plain"></i> 블로그 <span class="docs-count">6</span></div>
-            </div>
             
 
             
@@ -184,6 +195,8 @@
             <header-button class="menu-btn" title="메뉴" ><span class="material-symbols-outlined">widgets</span></header-button>
             <input class="header-btn" type="button" value="Develop" title="Develop" />
             <input class="header-btn" type="button" value="DevOps" title="DevOps" />
+            <input class="header-btn" type="button" value="DevKit" title="DevKit" />
+            <input class="header-btn" type="button" value="Github" title="Github" />
             <input class="header-btn" type="button" value="Others" title="Others" />
         </div>
         <div class="header-home"><header-button title="Home"><img class="fox-image" src="/public/img/default/fox_icon.jpeg" alt="fox_icon" /> 두두닷</header-button></div>
@@ -193,19 +206,35 @@
     </header>
     
     
+    <div class="_DevKit drop-menu row d-none">
+        
+        
+        <div class="col-4 drop-category"><div>
+        
+        
+        
+            
+            <div class="drop-sub-directory tmp 기타"><i class="fa-regular fa-object-group"></i> 기타</div>
+        
+        </div></div>
+        
+        </div>
+    
+    
     <div class="_DevOps drop-menu row d-none">
         
         
         <div class="col-4 drop-category"><div>
         
-        <div class="drop-directory">
-            DBMS
-        </div>
         
         
-        
-        
-        <div class="drop-sub-directory DBMS SQL"><i class="fa-solid fa-database"></i> SQL</div>
+            <div class="drop-directory">DBMS</div>
+            
+            
+            
+            
+            <div class="drop-sub-directory DBMS SQL"><i class="fa-solid fa-database"></i> SQL</div>
+            
         
         </div></div>
         
@@ -217,31 +246,48 @@
         
         <div class="col-4 drop-category"><div>
         
-        <div class="drop-directory">
-            Language
-        </div>
         
         
-        
-        
-        <div class="drop-sub-directory Language Javascript"><i class="devicon-javascript-plain"></i> Javascript</div>
-        
-        
-        
-        <div class="drop-sub-directory Language Ruby"><i class="devicon-ruby-plain"></i> Ruby</div>
+            <div class="drop-directory">Language</div>
+            
+            
+            
+            
+            <div class="drop-sub-directory Language Javascript"><i class="devicon-javascript-plain"></i> Javascript</div>
+            
+            
+            
+            <div class="drop-sub-directory Language Ruby"><i class="devicon-ruby-plain"></i> Ruby</div>
+            
         
         </div></div>
         
         <div class="col-4 drop-category"><div>
         
-        <div class="drop-directory">
-            StyleSheet
+        
+        
+            <div class="drop-directory">StyleSheet</div>
+            
+            
+            
+            
+            <div class="drop-sub-directory StyleSheet CSS"><i class="devicon-css3-plain"></i> CSS</div>
+            
+        
+        </div></div>
+        
         </div>
+    
+    
+    <div class="_Github drop-menu row d-none">
+        
+        
+        <div class="col-4 drop-category"><div>
         
         
         
-        
-        <div class="drop-sub-directory StyleSheet CSS"><i class="devicon-css3-plain"></i> CSS</div>
+            
+            <div class="drop-sub-directory tmp 블로그"><i class="devicon-jekyll-plain"></i> 블로그</div>
         
         </div></div>
         
@@ -253,53 +299,29 @@
         
         <div class="col-4 drop-category"><div>
         
-        <div class="drop-directory">
-            실험실
-        </div>
         
         
-        
-        
-        <div class="drop-sub-directory 실험실 스트림덱"><i class="fa-regular fa-circle-play"></i> 스트림덱</div>
-        
-        </div></div>
-        
-        <div class="col-4 drop-category"><div>
-        
-        <div class="drop-directory">
-            Tool
-        </div>
-        
-        
-        
-        
-        <div class="drop-sub-directory Tool 기타"><i class="fa-regular fa-object-group"></i> 기타</div>
+            <div class="drop-directory">실험실</div>
+            
+            
+            
+            
+            <div class="drop-sub-directory 실험실 스트림덱"><i class="fa-regular fa-circle-play"></i> 스트림덱</div>
+            
         
         </div></div>
         
         <div class="col-4 drop-category"><div>
         
-        <div class="drop-directory">
-            에러
-        </div>
         
         
-        
-        
-        <div class="drop-sub-directory 에러 자바스크립트"><i class="devicon-javascript-plain"></i> 자바스크립트</div>
-        
-        </div></div>
-        
-        <div class="col-4 drop-category"><div>
-        
-        <div class="drop-directory">
-            Github
-        </div>
-        
-        
-        
-        
-        <div class="drop-sub-directory Github 블로그"><i class="devicon-jekyll-plain"></i> 블로그</div>
+            <div class="drop-directory">에러</div>
+            
+            
+            
+            
+            <div class="drop-sub-directory 에러 자바스크립트"><i class="devicon-javascript-plain"></i> 자바스크립트</div>
+            
         
         </div></div>
         
@@ -433,9 +455,13 @@
     })
     $('.directory').on('click', function() {
         const category = this.classList[1]
-        $(`.sub-directory.${category}`).toggleClass('d-none')
-        $(`.category-drop-down.${category}`).toggleClass('d-none')
-        $(`.category-drop-up.${category}`).toggleClass('d-none')
+        if (this.classList[2]) {
+            location.href = `/posts/#${category}^1`
+        } else {
+            $(`.sub-directory.${category}`).toggleClass('d-none')
+            $(`.category-drop-down.${category}`).toggleClass('d-none')
+            $(`.category-drop-up.${category}`).toggleClass('d-none')
+        }
     })
     $('.sub-directory, .drop-sub-directory').on('click', function() {
         const dir = this.classList[2]
