@@ -453,15 +453,19 @@
 <link rel="stylesheet" href="/public/css/dynamic-tag.css">
 <div class="fixed-post-list">
     
-    <div title="자바스크립트 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
+    <div title="Javascript 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
     <div class="post-list d-none">
-        <div class="post-list-title">자바스크립트의 다른 글 <i class="fa-solid fa-xmark"></i></div>
+        <div class="post-list-title">Javascript의 다른 글 <i class="fa-solid fa-xmark"></i></div>
         <div class="post-list-content">
             
             
             
             
-            <a href="/Test/%EC%97%90%EB%9F%AC/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/Clipboard%20write%20is%20not%20allowed/" class="page">DOMException: Clipboard write is not allowed.</a>
+            <a href="/Develop/Language/Javascript/%ED%8A%B9%EC%A0%95%20class%20%EC%9C%A0%EB%AC%B4%20%EC%A1%B0%ED%9A%8C/" class="page">특정 class 유무 조회</a>
+            
+            
+            
+            <a href="/Develop/Language/Javascript/%EC%9D%B4%EB%B2%A4%ED%8A%B8%20%EC%9C%84%EC%9E%84(Event%20Delegation)/">이벤트 위임(event delegation)</a>
             
             
         </div>
@@ -469,15 +473,16 @@
 </div>
 <div class="post-head">
 <!--    <div class="post-header-background"></div>-->
-    <div class="post-title">DOMException: Clipboard write is not allowed.</div>
-    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.24</div>
+    <div class="post-title">특정 class 유무 조회</div>
+    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.26</div>
     <img class="post-img" src="/public/img/" onerror="this.onerror=null; this.src='/public/img/default.jpg';" />
     <div class="post-background"></div>
 </div>
 <div class="post-container">
-    <div class="post-content"><blockquote>
-  <p>상위 객체에 클릭 이벤트를 위임했을 경우 개별 클릭 이벤트가 작동하지 않을 수 있다.</p>
-</blockquote>
+    <div class="post-content"><h2 id="코드">코드</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">).</span><span class="nf">hasClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">header-btn</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// 이벤트가 발생한 객체 자신만 조회</span>
+<span class="nf">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">).</span><span class="nf">closest</span><span class="p">(</span><span class="dl">'</span><span class="s1">.menu-btn</span><span class="dl">'</span><span class="p">).</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="c1">// 이벤트가 발생한 객체의 상위 객체에 존재하는지 조회함</span>
+</code></pre></div></div>
 </div>
 </div>
 <indexnav>
