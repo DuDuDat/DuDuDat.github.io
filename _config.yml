@@ -30,19 +30,19 @@ collections:
     output: true
     permalink: /Develop/:path/
     icon: "<i class='fa-brands fa-connectdevelop'></i>"
+    order: 1
   DevOps:
     output: true
     permalink: /DevOps/:path/
     icon: "<i class='fa-solid fa-graduation-cap'></i>"
-  Github:
-    output: true
-    permalink: /Github/:path/
-    icon: "<i class='devicon-github-original'></i>"
+    order: 2
   DevKit:
     output: true
     permalink: /DevKit/:path/
-    icon: "<i class='fa-brands fa-sketch'></i>"
-  Others:
+    icon: "<i class='fa-solid fa-gear'></i>"
+    order: 3
+  Test:
     output: true
-    permalink: /Others/:path/
+    permalink: /Test/:path/
     icon: "<i class='fa-brands fa-sketch'></i>"
+    order: 4

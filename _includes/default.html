@@ -29,7 +29,8 @@
             <div class="documents-total">
                 <span class="all-documents">Total <span class="total-count">({{ docs['total'] | size }})</span></span>
             </div>
-            {% for col in site.collections %}{% if col.label != "posts" %}
+            {% assign sorted_items = site.collections | sort: 'order' %}
+            {% for col in sorted_items %}{% if col.label != "posts" %}
             {% assign label = "_" | append: col.label %}
             {% assign collection = site["dir"][label] %}
             <div class="collection">{{col.icon}} {{ col.label }}</div>
@@ -76,8 +77,6 @@
             <input class="header-btn" type="button" value="Develop" title="Develop" />
             <input class="header-btn" type="button" value="DevOps" title="DevOps" />
             <input class="header-btn" type="button" value="DevKit" title="DevKit" />
-            <input class="header-btn" type="button" value="Github" title="Github" />
-            <input class="header-btn" type="button" value="Others" title="Others" />
         </div>
         <div class="header-home"><header-button title="Home">{{ site.description }}</header-button></div>
         <div class="header-search">
@@ -86,12 +85,12 @@
     </header>
     {% for col in site.collections %}{% if col.label != "posts" %}
     {% assign label = "_" | append: col.label %}
+    {% assign collection = site["dir"][label] %}
     <div class="{{label}} drop-menu row d-none">
-        {% assign collection = site["dir"][label] %}
         {% for dir_info in collection %}{% for dir in dir_info %}
-        <div class="col-4 drop-category"><div>
         {% assign name = dir[0] %}
         {% assign sub_size = site["dir"][name] | size %}
+        <div class="drop-category">
         {% if sub_size == 0 %}
             {% assign icon = dir[1] %}
             <div class="drop-sub-directory tmp {{name}}">{{icon}} {{name}}</div>
@@ -104,7 +103,7 @@
             <div class="drop-sub-directory {{name}} {{sub_name}}">{{icon}} {{sub_name}}</div>
             {% endfor %}{% endfor %}
         {% endif %}
-        </div></div>
+        </div>
         {% endfor %}{% endfor %}
         </div>
     {% endif %}{% endfor %}
@@ -143,6 +142,9 @@
         if (!$(e.target).hasClass('header-btn')) {
             $('.drop-menu').addClass('d-none')
         }
+    })
+    $(window).on('resize', function() {
+        $('.drop-menu').addClass('d-none')
     })
 </script>
 </body>
