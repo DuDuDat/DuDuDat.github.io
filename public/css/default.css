@@ -399,3 +399,35 @@ aside {
         }
     }
 }
+/*------------------ 모바일 최적화일때만 ----------------*/
+menu {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0;
+
+    .menu-directory {
+        font-size: 1rem;
+        padding: 0.8rem 0;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        color: rgba(0,0,0,0.7);
+
+        i {
+            font-size: 1rem;
+            color: rgba(0,0,0,0.6);
+            padding-right: 0.5rem;
+        }
+        &:hover {
+            background: #eeeeee;
+            color: #FF6600;
+        }
+    }
+}
