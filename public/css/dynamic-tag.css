@@ -3,6 +3,7 @@ parentheses { /*-- 소괄호 --*/
     display: inline;
     font-weight: 100 !important;
     font-size: 0.95em !important;
+    color: #75715e;
 }
 copy, tip, warn {
     display: block;
