@@ -401,7 +401,7 @@ aside {
 }
 /*------------------ 모바일 최적화일때만 ----------------*/
 menu {
-    position: absolute;
+    position: fixed;
     top: 3rem;
     left: 0;
     width: 100%;
