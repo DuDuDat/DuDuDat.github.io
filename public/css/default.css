@@ -322,11 +322,11 @@ aside {
     top: 3.2rem;
     left: calc(var(--aside-width) + 3.5rem);
     z-index: 999;
-    width: 30rem;
     border-radius: 0.7rem;
     background: rgb(250,250,250);
     margin: 0;
-    padding: 2rem 1rem !important;
+    padding: 1rem 1.2rem 1.5rem !important;
+    display: flex;
 
     &._DevOps {
         left: calc(var(--aside-width) + 8rem);
@@ -345,11 +345,14 @@ aside {
     padding: 0 !important;
     margin: 0 !important;
     height: auto !important;
+    min-width: 10rem;
+    width: 33%;
 }
 .drop-directory {
     font-size: 0.9rem;
     color: rgba(246,86,96,1);
     margin-bottom: 1rem;
+    margin-top: 0.3rem;
 }
 
 .drop-sub-directory {
@@ -371,7 +374,9 @@ aside {
         background: rgba(211,211,211,0.4);
     }
 }
-
+.padding-0 {
+    padding: 0 !important;
+}
 /*------------------ 모바일 최적화 ----------------*/
 @media (max-width: 1200px) {
     header input {

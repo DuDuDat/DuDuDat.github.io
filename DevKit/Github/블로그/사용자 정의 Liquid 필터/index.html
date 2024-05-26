@@ -30,45 +30,6 @@
             
             
             
-            <div class="collection"><i class='fa-brands fa-sketch'></i> DevKit</div>
-            
-            
-            
-            
-            
-            <div class="directory 기타 true">
-                <div class="directory-info"><i class="fa-regular fa-object-group"></i> 기타 <span class="docs-count">1</span></div>
-            </div>
-            
-
-            
-            
-            
-            
-            <div class="collection"><i class='fa-solid fa-graduation-cap'></i> DevOps</div>
-            
-            
-            
-            
-            
-            <div class="directory DBMS">
-                <div class="directory-info"><i class="devicon-azuresqldatabase-plain"></i> DBMS <span class="docs-count">1</span></div>
-                <span class="material-symbols-outlined DBMS category-drop-down">keyboard_arrow_down</span>
-                <span class="material-symbols-outlined  DBMS category-drop-up d-none">keyboard_arrow_up</span>
-            </div>
-            
-            
-            
-            
-            <div class="sub-directory DBMS SQL d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-solid fa-database"></i> SQL <span class="docs-count">1</span></div>
-            </div>
-            
-            
-
-            
-            
-            
             
             <div class="collection"><i class='fa-brands fa-connectdevelop'></i> Develop</div>
             
@@ -121,22 +82,77 @@
             
             
             
-            <div class="collection"><i class='devicon-github-original'></i> Github</div>
+            <div class="collection"><i class='fa-solid fa-graduation-cap'></i> DevOps</div>
             
             
             
             
             
-            <div class="directory 블로그 true">
-                <div class="directory-info"><i class="devicon-jekyll-plain"></i> 블로그 <span class="docs-count">6</span></div>
+            <div class="directory DBMS">
+                <div class="directory-info"><i class="devicon-azuresqldatabase-plain"></i> DBMS <span class="docs-count">1</span></div>
+                <span class="material-symbols-outlined DBMS category-drop-down">keyboard_arrow_down</span>
+                <span class="material-symbols-outlined  DBMS category-drop-up d-none">keyboard_arrow_up</span>
             </div>
+            
+            
+            
+            
+            <div class="sub-directory DBMS SQL d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-solid fa-database"></i> SQL <span class="docs-count">1</span></div>
+            </div>
+            
             
 
             
             
             
             
-            <div class="collection"><i class='fa-brands fa-sketch'></i> Others</div>
+            <div class="collection"><i class='fa-solid fa-gear'></i> DevKit</div>
+            
+            
+            
+            
+            
+            <div class="directory Tool">
+                <div class="directory-info"><i class='fa fa-wrench' aria-hidden='true'></i> Tool <span class="docs-count">1</span></div>
+                <span class="material-symbols-outlined Tool category-drop-down">keyboard_arrow_down</span>
+                <span class="material-symbols-outlined  Tool category-drop-up d-none">keyboard_arrow_up</span>
+            </div>
+            
+            
+            
+            
+            <div class="sub-directory Tool 기타 d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-regular fa-object-group"></i> 기타 <span class="docs-count">1</span></div>
+            </div>
+            
+            
+
+            
+            
+            
+            
+            
+            <div class="directory Github">
+                <div class="directory-info"><i class='devicon-github-original'></i> Github <span class="docs-count">6</span></div>
+                <span class="material-symbols-outlined Github category-drop-down">keyboard_arrow_down</span>
+                <span class="material-symbols-outlined  Github category-drop-up d-none">keyboard_arrow_up</span>
+            </div>
+            
+            
+            
+            
+            <div class="sub-directory Github 블로그 d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-jekyll-plain"></i> 블로그 <span class="docs-count">6</span></div>
+            </div>
+            
+            
+
+            
+            
+            
+            
+            <div class="collection"><i class='fa-brands fa-sketch'></i> Test</div>
             
             
             
@@ -196,8 +212,6 @@
             <input class="header-btn" type="button" value="Develop" title="Develop" />
             <input class="header-btn" type="button" value="DevOps" title="DevOps" />
             <input class="header-btn" type="button" value="DevKit" title="DevKit" />
-            <input class="header-btn" type="button" value="Github" title="Github" />
-            <input class="header-btn" type="button" value="Others" title="Others" />
         </div>
         <div class="header-home"><header-button title="Home"><img class="fox-image" src="/public/img/default/fox_icon.jpeg" alt="fox_icon" /> 두두닷</header-button></div>
         <div class="header-search">
@@ -206,27 +220,46 @@
     </header>
     
     
+    
     <div class="_DevKit drop-menu row d-none">
         
         
-        <div class="col-4 drop-category"><div>
         
+        <div class="drop-category">
         
-        
+            <div class="drop-directory">Tool</div>
             
-            <div class="drop-sub-directory tmp 기타"><i class="fa-regular fa-object-group"></i> 기타</div>
-        
-        </div></div>
+            
+            
+            
+            <div class="drop-sub-directory Tool 기타"><i class="fa-regular fa-object-group"></i> 기타</div>
+            
         
         </div>
+        
+        
+        
+        <div class="drop-category">
+        
+            <div class="drop-directory">Github</div>
+            
+            
+            
+            
+            <div class="drop-sub-directory Github 블로그"><i class="devicon-jekyll-plain"></i> 블로그</div>
+            
+        
+        </div>
+        
+        </div>
+    
     
     
     <div class="_DevOps drop-menu row d-none">
         
         
-        <div class="col-4 drop-category"><div>
         
-        
+        <div class="drop-category">
         
             <div class="drop-directory">DBMS</div>
             
@@ -236,17 +269,17 @@
             <div class="drop-sub-directory DBMS SQL"><i class="fa-solid fa-database"></i> SQL</div>
             
         
-        </div></div>
+        </div>
         
         </div>
+    
     
     
     <div class="_Develop drop-menu row d-none">
         
         
-        <div class="col-4 drop-category"><div>
         
-        
+        <div class="drop-category">
         
             <div class="drop-directory">Language</div>
             
@@ -260,11 +293,11 @@
             <div class="drop-sub-directory Language Ruby"><i class="devicon-ruby-plain"></i> Ruby</div>
             
         
-        </div></div>
-        
-        <div class="col-4 drop-category"><div>
+        </div>
         
         
+        
+        <div class="drop-category">
         
             <div class="drop-directory">StyleSheet</div>
             
@@ -274,32 +307,17 @@
             <div class="drop-sub-directory StyleSheet CSS"><i class="devicon-css3-plain"></i> CSS</div>
             
         
-        </div></div>
+        </div>
         
         </div>
     
     
-    <div class="_Github drop-menu row d-none">
-        
-        
-        <div class="col-4 drop-category"><div>
-        
-        
-        
-            
-            <div class="drop-sub-directory tmp 블로그"><i class="devicon-jekyll-plain"></i> 블로그</div>
-        
-        </div></div>
-        
-        </div>
     
-    
-    <div class="_Others drop-menu row d-none">
+    <div class="_Test drop-menu row d-none">
         
         
-        <div class="col-4 drop-category"><div>
         
-        
+        <div class="drop-category">
         
             <div class="drop-directory">실험실</div>
             
@@ -309,11 +327,11 @@
             <div class="drop-sub-directory 실험실 스트림덱"><i class="fa-regular fa-circle-play"></i> 스트림덱</div>
             
         
-        </div></div>
-        
-        <div class="col-4 drop-category"><div>
+        </div>
         
         
+        
+        <div class="drop-category">
         
             <div class="drop-directory">에러</div>
             
@@ -323,7 +341,7 @@
             <div class="drop-sub-directory 에러 자바스크립트"><i class="devicon-javascript-plain"></i> 자바스크립트</div>
             
         
-        </div></div>
+        </div>
         
         </div>
     
@@ -332,15 +350,35 @@
 <link rel="stylesheet" href="/public/css/dynamic-tag.css">
 <div class="fixed-post-list">
     
-    <div title="기타 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
+    <div title="블로그 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
     <div class="post-list d-none">
-        <div class="post-list-title">기타의 다른 글 <i class="fa-solid fa-xmark"></i></div>
+        <div class="post-list-title">블로그의 다른 글 <i class="fa-solid fa-xmark"></i></div>
         <div class="post-list-content">
             
             
             
             
-            <a href="/DevKit/%EA%B8%B0%ED%83%80/%EC%9C%A0%EC%9A%A9%ED%95%9C%20%ED%88%B4%20%EC%A0%95%EB%A6%AC/" class="page">유용한 툴 정리</a>
+            <a href="/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%ED%8C%8C%EC%9D%BC%20%EB%82%A0%EC%A7%9C%20%EC%9E%90%EB%8F%99%20%EC%84%A4%EC%A0%95/">파일 날짜 자동 설정</a>
+            
+            
+            
+            <a href="/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%BB%A4%EC%8A%A4%ED%85%80%20%ED%83%9C%EA%B7%B8%20%EC%A0%95%EB%A6%AC/">커스텀 태그 정리</a>
+            
+            
+            
+            <a href="/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%82%AC%EC%9A%A9%EC%9E%90%20%EC%A0%95%EC%9D%98%20Liquid%20%ED%95%84%ED%84%B0/" class="page">사용자 정의 liquid 필터</a>
+            
+            
+            
+            <a href="/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%EC%97%90%EC%84%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%9E%AC%EC%A0%95%EC%9D%98%ED%95%98%EA%B8%B0/">플러그인에서 데이터 재정의하기</a>
+            
+            
+            
+            <a href="/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%BB%A4%EC%8A%A4%ED%85%80%20%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0/">커스텀 플러그인 만들기</a>
+            
+            
+            
+            <a href="/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/Liquid%20%EB%AC%B8%EB%B2%95%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%B4%20JSON%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A1%9C%20%EA%B0%80%EA%B3%B5%ED%95%98%EA%B8%B0/">Liquid 문법을 사용해 json 데이터로 가공하기</a>
             
             
         </div>
@@ -348,42 +386,30 @@
 </div>
 <div class="post-head">
 <!--    <div class="post-header-background"></div>-->
-    <div class="post-title">유용한 툴 정리</div>
-    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.24</div>
+    <div class="post-title">사용자 정의 liquid 필터</div>
+    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.21</div>
     <img class="post-img" src="/public/img/" onerror="this.onerror=null; this.src='/public/img/default.jpg';" />
     <div class="post-background"></div>
 </div>
 <div class="post-container">
-    <div class="post-content"><h2 id="픽픽-캡쳐">픽픽 [캡쳐]</h2>
+    <div class="post-content"><h2 id="사용자-정의-liquid-필터-작성">사용자 정의 Liquid 필터 작성</h2>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># encoding: utf-8</span>
+    <span class="nb">require</span> <span class="s1">'cgi'</span>
+    
+    <span class="k">module</span> <span class="nn">Jekyll</span>
+      <span class="k">module</span> <span class="nn">UrlDecodeFilter</span>
+        <span class="k">def</span> <span class="nf">url_decode</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+          <span class="no">CGI</span><span class="p">.</span><span class="nf">unescape</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+    
+    <span class="no">Liquid</span><span class="o">::</span><span class="no">Template</span><span class="p">.</span><span class="nf">register_filter</span><span class="p">(</span><span class="no">Jekyll</span><span class="o">::</span><span class="no">UrlDecodeFilter</span><span class="p">)</span>
+</code></pre></div></div>
 
-<h3 id="캡쳐-소리-무음">캡쳐 소리 무음</h3>
-<p>Program Files (x86)/PicPick/sound.wav 무음 파일로 교체하기</p>
-
-<h3 id="단축키">단축키</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td>기능</td>
-      <td>단축키</td>
-    </tr>
-    <tr>
-      <td>활성화된 윈도우 캡처</td>
-      <td><btn>Alt</btn> + <btn>PrintScreen</btn></td>
-    </tr>
-    <tr>
-      <td>영역 지정하여 캡처하기</td>
-      <td><btn>Shift</btn> + <btn>PrintScreen</btn></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="edrawmind-다이어그램">EdrawMind [다이어그램]</h2>
-
-<h2 id="stream-deck-엘가토-스트림덱">Stream Deck [엘가토 스트림덱]</h2>
-
-<h2 id="aula-f75-키보드-매핑-프로그램">AULA F75 [키보드 매핑 프로그램]</h2>
-<p>현재 사용 중인 키보드 전용 매핑 프로그램</p>
+<h2 id="liquid-템플릿">Liquid 템플릿</h2>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {% assign dir = page.url | url_decode %}
+</code></pre></div></div>
 </div>
 </div>
 <indexnav>
@@ -498,6 +524,9 @@
         if (!$(e.target).hasClass('header-btn')) {
             $('.drop-menu').addClass('d-none')
         }
+    })
+    $(window).on('resize', function() {
+        $('.drop-menu').addClass('d-none')
     })
 </script>
 </body>

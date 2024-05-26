@@ -17,5 +17,6 @@
   "에러": "<i class=\"fa-solid fa-triangle-exclamation\"></i>",
   "DBMS": "<i class=\"devicon-azuresqldatabase-plain\"></i>",
   "SQL": "<i class=\"fa-solid fa-database\"></i>",
-  "Ruby": "<i class=\"devicon-ruby-plain\"></i>"
+  "Ruby": "<i class=\"devicon-ruby-plain\"></i>",
+  "Github": "<i class='devicon-github-original'></i>"
 }
