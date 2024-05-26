@@ -68,6 +68,28 @@
         </div>
     </div>
 </aside>
+<menu class="d-none">
+    {% for col in sorted_items %}{% if col.label != "posts" %}
+    {% assign label = "_" | append: col.label %}
+    {% assign collection = site["dir"][label] %}
+    {% for dir_info in collection %}{% for dir in dir_info %}
+    {% assign name = dir[0] %}
+    {% assign icon = dir[1] %}
+    {% assign sub_size = site["dir"][name] | size %}
+    {% if sub_size == 0 %}
+    <div class="menu-directory {{name}}">
+        <div class="directory-info">{{icon}} {{name}} <span class="docs-count">{{ docs[name] | size }}</span></div>
+    </div>
+    {% else %}
+    {% assign sub_dirs = site["dir"][name] %}
+    {% for sub_dir in sub_dirs %}{% for sub in sub_dir %}
+    {% assign sub_name = sub[0] %}
+    {% assign icon = sub[1] %}
+    <div class="menu-directory {{sub_name}}">{{icon}} {{sub_name}}</div>
+    {% endfor %}{% endfor %}
+    {% endif %}
+    {% endfor %}{% endfor %}{% endif %}{% endfor %}
+</menu>
 <div class="container">
     <div class="hidden-header"></div>
     <header>
@@ -83,7 +105,7 @@
             <header-button title="Search"><span class="material-symbols-outlined">search</span></header-button>
         </div>
     </header>
-    {% for col in site.collections %}{% if col.label != "posts" %}
+    {% for col in sorted_items %}{% if col.label != "posts" %}
     {% assign label = "_" | append: col.label %}
     {% assign collection = site["dir"][label] %}
     <div class="{{label}} drop-menu row d-none">
@@ -142,9 +164,21 @@
         if (!$(e.target).hasClass('header-btn')) {
             $('.drop-menu').addClass('d-none')
         }
+        if (!$(e.target).closest('.menu-btn').length > 0) {
+            $('menu').addClass('d-none')
+        }
     })
     $(window).on('resize', function() {
         $('.drop-menu').addClass('d-none')
+        $('menu').addClass('d-none')
+    })
+    $('.menu-btn').on('click', function() {
+        $('menu').toggleClass('d-none')
+    })
+    $('.menu-directory').on('click', function() {
+        const dir = this.classList[1]
+        window.location.href = `/posts/#${dir}^1`
+        $('menu').addClass('d-none')
     })
 </script>
 </body>
