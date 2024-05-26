@@ -13,9 +13,8 @@
         const page = hash.split('^')[1]
         const itemCount = 9
 
-        let jsonData = $('#documents').text().trim()
-
-        jsonData = new Function('return' + jsonData)()
+        let jsonData = $('#documents').text().trim().replace(/\\/g, '\\\\')
+        jsonData = JSON.parse(jsonData)
 
         $(`.selected`).removeClass('selected')
         $(`.sub-directory`).addClass('d-none')
