@@ -5,23 +5,6 @@
 </div>
 <div class="row category"></div>
 <div class="page-block"></div>
-<script id="documents" type="application/json">
-    [
-        {% assign sorted_docs = site.documents | sort: "created_date" | reverse %}
-        {% for doc in sorted_docs %}
-        {% assign arr = doc.path | split: '/' %}
-        {% assign index = arr.size | minus: 2 %}
-        {
-            "label": "{{ arr[index] }}",
-            "image": "{{ doc.img }}",
-            "url": "{{ doc.url | relative_url | escape }}",
-            "title": "{{ doc.title | escape }}",
-            "date": "{{ doc.created_date | date: '%Y-%m-%d' | escape }}",
-            "content": "{{ doc.content | strip_html | strip_newlines | escape | truncatewords: 20 }}"
-        }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-    ]
-</script>
 
 <script>
     function filterAndUpdate(data) {
@@ -30,8 +13,9 @@
         const page = hash.split('^')[1]
         const itemCount = 9
 
-        let jsonData = $('#documents').text()
-        jsonData = JSON.parse(jsonData)
+        let jsonData = $('#documents').text().trim()
+
+        jsonData = new Function('return' + jsonData)()
 
         $(`.selected`).removeClass('selected')
         $(`.sub-directory`).addClass('d-none')

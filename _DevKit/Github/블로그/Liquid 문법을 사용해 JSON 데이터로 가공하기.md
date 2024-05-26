@@ -26,10 +26,12 @@ script 태그를 사용하여 데이터를 JSON 형태로 만들 수 있다. scr
     </script>
     
     <script>
-        let jsonData = $('#documents').text()
-        jsonData = JSON.parse(jsonData)
+        let jsonData = $('#documents').text().trim()
+        jsonData = new Function('return' + jsonData)() // JSON.parse 가 안될 때 사용하면 좋은 방식
+        // jsonData = eval(jsonData) 권장 X js 명령문이면 자동으로 실행되기 때문에 보안 문제가 생길 수 있음
+        // jsonData = JSON.parse(jsonData)
     </script>
 ```
-여기서 주의해야 할 것이 있는데 그건 바로 document의 content 항목 처리다 이걸 잘못하면 JSON을 파싱할 수 없다. 주로 따옴표나 엔터로 인해 발생하는 문제 같은데 정확한 건 모르겠지만 일단 strip_html과 strip_newlines 처리를 해줬더니 해결되었다.
+!! 특수문자를 직접 escape 처리해줬음에도 불구하고 JSON.parse 를 할 수 없는 문제가 있어 new Function 으로 대체해서 사용했다. 여기서 주의해야 할 점은 반드시 trim() 을 해줘야만 정상적으로 작동한다는 점이다.
 
-strip_html은 html 문법을 텍스트만 남기고 없애는 것이고 strip_newlines는 엔터를 공백으로 바꿔주는 설정으로 알고 있는데 확실하진 않으니 나중에 찾아보도록 하자.
+++ strip_html 은 html 문법을 텍스트만 남기고 없애는 것이고 strip_newlines 는 엔터를 공백으로 바꿔주는 설정으로 알고 있는데 확실하진 않으니 나중에 찾아보도록 하자.
