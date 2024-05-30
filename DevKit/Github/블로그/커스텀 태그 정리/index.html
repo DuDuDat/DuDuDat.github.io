@@ -14,199 +14,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-svg.min.js" async></script>
 <script src="/public/js/custom/latex.js"></script>
-<script id="documents" type="application/json">
-        [
-            
-            
-            
-            
-            {
-                "label": "Javascript",
-                "image": "",
-                "url": "/Develop/Language/Javascript/%ED%8A%B9%EC%A0%95%20class%20%EC%9C%A0%EB%AC%B4%20%EC%A1%B0%ED%9A%8C/",
-                "title": "특정 class 유무 조회",
-                "date": "2024-05-26",
-                "content": "코드$(e.target).hasClass(&#39;header-btn&#39;) // 이벤트가 발생한 객체 자신만 조회$(e.target).closest(&#39;.menu-btn&#39;).length &amp;gt; 0 // 이벤트가 발생한 객체의 상위 객체에 존재하는지 조회함"
-            },
-            
-            
-            
-            {
-                "label": "블로그",
-                "image": "",
-                "url": "/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%ED%8C%8C%EC%9D%BC%20%EB%82%A0%EC%A7%9C%20%EC%9E%90%EB%8F%99%20%EC%84%A4%EC%A0%95/",
-                "title": "파일 날짜 자동 설정",
-                "date": "2024-05-25",
-                "content": "&gt; 깃에선 파일의 생성, 수정 날짜를 사용할 수 없어 마지막 커밋 날짜를 date 로 설정함## workflows 수정```shell    steps:      - name: Check out the repository        uses: actions/checkout@v4        with:          fetch-depth: 0  # 전체 Git 히스토리를 가져옵니다            - name: Add Git commit dates to Front Matter        run: bundle exec ruby _plugins/jekyll-collection-subdirs.rb```## 커스텀 플러그인 코드 추가```ruby    def git_creation_date(file_path)      begin        creation_date = `git log --diff-filter=A --follow --format=%aD -1 -- &quot;#{file_path}&quot;`.strip        creation_date = creation_date.gsub(&#39;,&#39;, &#39;&#39;)        return Time.parse(creation_date) unless creation_date.empty?      rescue =&gt; e        puts &quot;Error getting creation date for #{file_path}: #{e.message}&quot;      end      nil    end```!! &quot;#{file_path}&quot; 여기서 경로를 쌍따옴표로 감싸지 않으면 제대로 인식하지 못할 수 있다."
-            },
-            
-            
-            
-            {
-                "label": "블로그",
-                "image": "",
-                "url": "/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%BB%A4%EC%8A%A4%ED%85%80%20%ED%83%9C%EA%B7%B8%20%EC%A0%95%EB%A6%AC/",
-                "title": "커스텀 태그 정리",
-                "date": "2024-05-24",
-                "content": "btn 태그@@ 복사 붙여넣기 태그@@ 제목내용++ ++ 내용!! !! 내용"
-            },
-            
-            
-            
-            {
-                "label": "SQL",
-                "image": "",
-                "url": "/DevOps/DBMS/SQL/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC%EB%A1%9C%20INSERT%20%ED%95%98%EB%8A%94%20%EB%B2%95/",
-                "title": "서브쿼리로 insert 하는 법",
-                "date": "2024-05-24",
-                "content": "  일반적으론 사용할 일이 거의 없을 거 같긴 한데 원본을 그대로 두고 테스트를 하거나 대용량 데이터 중 일부만 사용할 때 쓰면 괜찮을 거 같기도 하고?코드 예시    INSERT INTO TABLEA (ID, NAME)    SELECT ID, NAME FROM TABLEB;"
-            },
-            
-            
-            
-            {
-                "label": "Ruby",
-                "image": "",
-                "url": "/Develop/Language/Ruby/%EA%B0%84%EB%8B%A8%ED%95%9C%20%EB%AC%B8%EB%B2%95%20%EC%A0%95%EB%A6%AC/",
-                "title": "간단한 문법 정리",
-                "date": "2024-05-24",
-                "content": "변수 선언    documents = site.documents반복문    documents.each do |doc| # documents: 반복을 돌리기 위한 literal 객체, doc 요소 하나      doc.data[&#39;created_date&#39;] = &quot;0000년 00월 00일&quot;    end"
-            },
-            
-            
-            
-            {
-                "label": "자바스크립트",
-                "image": "",
-                "url": "/Test/%EC%97%90%EB%9F%AC/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/Clipboard%20write%20is%20not%20allowed/",
-                "title": "DOMException: Clipboard write is not allowed.",
-                "date": "2024-05-24",
-                "content": "&gt; 상위 객체에 클릭 이벤트를 위임했을 경우 개별 클릭 이벤트가 작동하지 않을 수 있다."
-            },
-            
-            
-            
-            {
-                "label": "Javascript",
-                "image": "",
-                "url": "/Develop/Language/Javascript/%EC%9D%B4%EB%B2%A4%ED%8A%B8%20%EC%9C%84%EC%9E%84(Event%20Delegation)/",
-                "title": "이벤트 위임(event delegation)",
-                "date": "2024-05-24",
-                "content": "  jquery 와 같은 라이브러리에서 자주 사용되는 기술로 부모 요소에 이벤트 리스너를 설정하여 동적으로 생성되거나 존재하는 자식 요소에 이벤트를 효율적으로 처리할 수 있게 한다.언제 사용하는가  페이지 로드 후에 동적으로 추가된 요소에 이벤트를 적용하고 싶을 때  각 요소에 이벤트 리스너를 추가하는 대신 하나의 이벤트 리스너를 추가하여 성능을 향상시킬 수 있음코드 예시   $(document).on(&#39;click&#39;, &#39;div.highlight .copy-button&#39;, function() { // 이벤트 위임       const div = $(this).closest(&#39;div.highlight&#39;);       const index = div.index(&#39;div.highlight&#39;);       const codeText = div.find(&#39;code&#39;).text();       navigator.clipboard.writeText(codeText).then(function() {           $(&#39;div.highlight .copy-button&#39;).eq(index).html(&#39;&amp;lt;i class=&quot;fa-regular fa-copy&quot;&amp;gt;&amp;lt;/i&amp;gt; Copied&#39;);       }).catch(function(err) {                console.error(&#39;텍스트 복사에 실패했습니다: &#39;, err);        });   });"
-            },
-            
-            
-            
-            {
-                "label": "스트림덱",
-                "image": "",
-                "url": "/Test/%EC%8B%A4%ED%97%98%EC%8B%A4/%EC%8A%A4%ED%8A%B8%EB%A6%BC%EB%8D%B1/%ED%81%AC%EB%A1%AC%20%ED%99%95%EC%9E%A5%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%20%EB%93%B1%EB%A1%9D/",
-                "title": "크롬 확장 프로그램 등록",
-                "date": "2024-05-24",
-                "content": "!! chrome://extensions 은 로컬 브라우저 내에서만 접근할 수 있는 특수 URL 이므로 링크를 걸 수 없다## 확장 프로그램 등록@@ 확장 프로그램 관리 urlchrome://extensions### 개발자 모드 활성화 + 파일 경로 등록![](크롬 확장 프로그램1)++ 파일 내용이 변경되어 새로 업데이트가 필요할 땐 다시 등록할 필요없이 업데이트 버튼만 눌러주면 된다."
-            },
-            
-            
-            
-            {
-                "label": "기타툴",
-                "image": "",
-                "url": "/DevKit/Tool/%EA%B8%B0%ED%83%80%ED%88%B4/%EC%9C%A0%EC%9A%A9%ED%95%9C%20%ED%88%B4%20%EC%A0%95%EB%A6%AC/",
-                "title": "유용한 툴 정리",
-                "date": "2024-05-24",
-                "content": "## 픽픽 [캡쳐]### 캡쳐 소리 무음 Program Files (x86)/PicPick/sound.wav 무음 파일로 교체하기### 단축키|기능| 단축키 || 활성화된 윈도우 캡처 | Alt + PrintScreen || 영역 지정하여 캡처하기 | Shift + PrintScreen |## EdrawMind [다이어그램]## Stream Deck [엘가토 스트림덱]## AULA F75 [키보드 매핑 프로그램]현재 사용 중인 키보드 전용 매핑 프로그램"
-            },
-            
-            
-            
-            {
-                "label": "스트림덱",
-                "image": "",
-                "url": "/Test/%EC%8B%A4%ED%97%98%EC%8B%A4/%EC%8A%A4%ED%8A%B8%EB%A6%BC%EB%8D%B1/%EB%B6%80%ED%8C%85%20%EC%8B%9C%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EC%9E%90%EB%8F%99%20%EC%8B%A4%ED%96%89/",
-                "title": "부팅 시 서비스 자동 실행",
-                "date": "2024-05-23",
-                "content": "&gt; 여기서는 NSSM (Non-Sucking Service Manager) 를 사용한 방법을 다룰 것이다. 참고로 여기 기술된 내용은 윈도우 기준이다.## nssm 설치```shell  # powershell 코드  Invoke-WebRequest -Uri https://nssm.cc/release/nssm-2.24.zip -OutFile nssm.zip # 다운로드  Expand-Archive -Path nssm.zip -DestinationPath C:\nssm # 압축해제  [Environment]::SetEnvironmentVariable(&quot;Path&quot;, $Env:Path + &quot;;C:\nssm\nssm-2.24\win64&quot;, [EnvironmentVariableTarget]::Machine) # 환경변수에 경로 추가  nssm # 설치확인```## nssm 명령어```shell  nssm install FlaskService # 서비스 등록 시작 GUI 뜨면 입력  nssm edit FlaskService # 서비스 수정  nssm start FlaskService # 서비스 시작  nssm restart FlaskService # 서비스 재시작```## 서비스 등록 예시### Flask#### Application 설정![](nssm application)@@ pathC:\Users\kjm17\.conda\envs\study\python.exe@@ Startup directoryC:\Users\kjm17\Documents\stream_deck\localhost@@ Arguments-m flask run --cert=C:\Users\kjm17\Documents\stream_deck\localhost\ssl\localhost+2.pem --key=C:\Users\kjm17\Documents\stream_deck\localhost\ssl\localhost+2-key.pem#### Environment 설정![](nssm environment)@@ EnvironmentFLASK_APP=app.pyFLASK_RUN_PORT=9080"
-            },
-            
-            
-            
-            {
-                "label": "CSS",
-                "image": "",
-                "url": "/Develop/StyleSheet/CSS/%EA%B0%80%EB%A1%9C%20%EC%8A%A4%ED%81%AC%EB%A1%A4%20%EB%90%A0%20%EB%95%8C%20%EC%9A%B0%EC%B8%A1%20%ED%8C%A8%EB%94%A9%20%EC%9E%98%EB%A6%AC%EB%8A%94%20%EA%B2%BD%EC%9A%B0/",
-                "title": "가로 스크롤 될 때 우측 패딩 잘리는 경우",
-                "date": "2024-05-21",
-                "content": "  상위 요소에서 가로 스크롤이 발생했을 때 우측 여백이 적용되지 않음원인블록 레벨일 때 사용되는 계산식으로 인해 전부 0으로 처리되기 때문이라는 모양해결 방법블록 레벨이 아니면 됨    /*display: block;*/    display: inline-block;참고 사이트"
-            },
-            
-            
-            
-            {
-                "label": "블로그",
-                "image": "",
-                "url": "/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%82%AC%EC%9A%A9%EC%9E%90%20%EC%A0%95%EC%9D%98%20Liquid%20%ED%95%84%ED%84%B0/",
-                "title": "사용자 정의 liquid 필터",
-                "date": "2024-05-21",
-                "content": "사용자 정의 Liquid 필터 작성    # encoding: utf-8    require &#39;cgi&#39;        module Jekyll      module UrlDecodeFilter        def url_decode(url)          CGI.unescape(url)        end      end    end        Liquid::Template.register_filter(Jekyll::UrlDecodeFilter)Liquid 템플릿    {% assign dir = page.url | url_decode %}"
-            },
-            
-            
-            
-            {
-                "label": "블로그",
-                "image": "",
-                "url": "/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%EC%97%90%EC%84%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%9E%AC%EC%A0%95%EC%9D%98%ED%95%98%EA%B8%B0/",
-                "title": "플러그인에서 데이터 재정의하기",
-                "date": "2024-05-21",
-                "content": "## 주의!&gt; Jekyll 문서 객체의 속성을 직접 덮어쓰는 것은 문제를 일으킬 수 있으므로 커스텀 속성을 추가할 것# 예시## Jekyll 문서 객체에 파일 생성일 추가```ruby  documents = site.documents  documents.each do |doc|    file_creation_date = File.birthtime(doc.path)    doc.data[&#39;created_date&#39;] = file_creation_date  end  site.instance_variable_set(:@documents, documents)```## Jekyll 객체 정의```ruby  site.config[&quot;docs_size&quot;] = {}  site.config[&quot;docs_size&quot;][&quot;total&quot;] = documents.size```"
-            },
-            
-            
-            
-            {
-                "label": "블로그",
-                "image": "",
-                "url": "/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/%EC%BB%A4%EC%8A%A4%ED%85%80%20%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0/",
-                "title": "커스텀 플러그인 만들기",
-                "date": "2024-05-20",
-                "content": "# Custom plugin- _plugins 폴더 생성 후 rb 파일 정의- 파일 이름 상관없고 자동으로 _plugins 폴더를 탐색하기 때문에 따로 설정도 필요없음## Github 블로그&gt; 깃허브에선 보안을 위해 커스텀 플러그인을 기본적으로 지원하지 않기 때문에 추가 설정이 필요함### Gemfile 설정```shell    # gem &quot;github-pages&quot;, group: :jekyll_plugins 주석 처리    gem &quot;jekyll&quot;, &quot;~&gt; 4.3.3&quot; # 필요한 버전으로 기술```### Github Actions 설정#### GitHub Actions 워크플로우 파일 (.github/workflows/파일명.yml) 작성```yml    name: Jekyll site CI        on:      push:        branches:          - main  # 또는 배포를 원하는 다른 브랜치        jobs:      build:        runs-on: ubuntu-latest            steps:          - name: Check out the repository            uses: actions/checkout@v4              - name: Set up Node.js            uses: actions/setup-node@v4            with:              node-version: &#39;20&#39;              - name: Set up Ruby            uses: ruby/setup-ruby@v1            with:              ruby-version: &#39;2.7&#39; # Jekyll이 지원하는 루비 버전              - name: Install dependencies            run: |              gem install bundler -v 2.4.22              bundle install              - name: Build the site with Jekyll            run: bundle exec jekyll build              - name: Deploy to GitHub Pages            uses: peaceiris/actions-gh-pages@v3            with:              github_token: ${ { secrets.TOKEN_변수 } } # 공백 제거 후 사용할 것              publish_dir: ./_site```#### Github repository Actions 에 토큰 변수 저장![깃허브 액션](customplugin2)#### 블로그 pages branch 설정![깃허브 브랜치 설정](customplugin1)"
-            },
-            
-            
-            
-            {
-                "label": "CSS",
-                "image": "",
-                "url": "/Develop/StyleSheet/CSS/%EB%B8%94%EB%A1%9D%20%EC%B4%88%EA%B3%BC%20%EA%B8%80%EC%9E%90%20%EC%B2%98%EB%A6%AC%ED%95%98%EB%8A%94%20%EC%BD%94%EB%93%9C/",
-                "title": "블럭 초과 글자 ... 처리 코드",
-                "date": "2024-05-20",
-                "content": "한 줄    white-space: nowrap;    overflow: hidden;    text-overflow: ellipsis;여러 줄    overflow: hidden;    display: -webkit-box;    -webkit-box-orient: vertical;    -webkit-line-clamp: 2; /* 원하는 줄 수로 변경 */    white-space: pre-wrap;    word-wrap: break-word;"
-            },
-            
-            
-            
-            {
-                "label": "블로그",
-                "image": "",
-                "url": "/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/Liquid%20%EB%AC%B8%EB%B2%95%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%B4%20JSON%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A1%9C%20%EA%B0%80%EA%B3%B5%ED%95%98%EA%B8%B0/",
-                "title": "Liquid 문법을 사용해 json 데이터로 가공하기",
-                "date": "2024-05-20",
-                "content": "데이터 가공하기  데이터를 동적으로 관리하기 위함  사용하기 쉽도록 데이터를 JSON 형태로 가공함site.documents -&amp;gt; jsonscript 태그를 사용하여 데이터를 JSON 형태로 만들 수 있다. script 태그도 일종의 객체이니 class나 id를 사용해서 객체에 저장된 값을 가져오거나 관리하는 것이 가능한 거 같다.    &amp;lt;script id=&quot;documents&quot; type=&quot;application/json&quot;&amp;gt;    [        {% for doc in site.documents %}        {% assign arr = doc.path | split: &#39;/&#39; %}        {% assign index = arr.size | minus: 2 %}        {            &quot;label&quot;: &quot;{{ arr[index] }}&quot;,            &quot;image&quot;: &quot;{{ doc.img }}&quot;,            &quot;url&quot;: &quot;{{ doc.url | relative_url | escape }}&quot;,            &quot;title&quot;: &quot;{{ doc.title | escape }}&quot;,            &quot;date&quot;: &quot;{{ doc.date | date: &#39;%Y-%m-%d&#39; | escape }}&quot;,            &quot;content&quot;: &quot;{{ doc.content | strip_html | strip_newlines | escape | truncatewords: 20 }}&quot;        }{% unless forloop.last %},{% endunless %}        {% endfor %}    ]    &amp;lt;/script&amp;gt;        &amp;lt;script&amp;gt;        let jsonData = $(&#39;#documents&#39;).text().trim().replace(/\\/g, &#39;\\\\&#39;) // \ 하나 -&amp;gt; \\ 로 변환        // jsonData = new Function(&#39;return&#39; + jsonData)() 권장 X js 명령문이면 전부 실행되기 때문에 보안 문제가 생길 수 있음         // jsonData = eval(jsonData) 권장 X js 명령문이면 전부 실행되기 때문에 보안 문제가 생길 수 있음        // jsonData = JSON.parse(jsonData)    &amp;lt;/script&amp;gt;!! “\” 는 반드시 별도로 escape 처리를 해줘야 한다.++ strip_html 은 html 문법을 텍스트만 남기고 없애는 것이고 strip_newlines 는 엔터를 공백으로 바꿔주는 설정으로 알고 있는데 확실하진 않으니 나중에 찾아보도록 하자."
-            },
-            
-            
-            
-            {
-                "label": "CSS",
-                "image": "",
-                "url": "/Develop/StyleSheet/CSS/%EB%93%9C%EB%9E%98%EA%B7%B8%EB%B0%A9%EC%A7%80/",
-                "title": "드래그 방지 코드",
-                "date": "2024-05-20",
-                "content": "    /* 드래그 방지 */    -webkit-user-select: none; /* Safari */    -moz-user-select: none; /* Firefox */    -ms-user-select: none; /* Internet Explorer/Edge */    user-select: none; /* 비표준 브라우저를 위한 기본값 */"
-            }
-            
-        ]
-</script>
+<script type="module" src="/public/js/custom/component.js"></script>
+<script type="module" src="/public/js/custom/event.js"></script>
+<script src="/public/js/simple-jekyll-search.js"></script>
 </head>
 <body>
 
@@ -218,7 +28,7 @@
         </div>
         <div class="side-menu">
             <div class="documents-total">
-                <span class="all-documents">Total <span class="total-count">(17)</span></span>
+                <span class="all-documents">Total <span class="total-count">(22)</span></span>
             </div>
             
             
@@ -231,7 +41,7 @@
             
             
             <div class="directory Language">
-                <div class="directory-info"><i class="fa-solid fa-spinner"></i> Language <span class="docs-count">3</span></div>
+                <div class="directory-info"><i class="fa-solid fa-spinner"></i> Language <span class="docs-count">4</span></div>
                 <span class="material-symbols-outlined Language category-drop-down">keyboard_arrow_down</span>
                 <span class="material-symbols-outlined  Language category-drop-up d-none">keyboard_arrow_up</span>
             </div>
@@ -240,7 +50,7 @@
             
             
             <div class="sub-directory Language Javascript d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-javascript-plain"></i> Javascript <span class="docs-count">2</span></div>
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-javascript-plain"></i> Javascript <span class="docs-count">3</span></div>
             </div>
             
             
@@ -257,7 +67,7 @@
             
             
             <div class="directory StyleSheet">
-                <div class="directory-info"><i class="devicon-css3-plain"></i> StyleSheet <span class="docs-count">3</span></div>
+                <div class="directory-info"><i class="devicon-css3-plain"></i> StyleSheet <span class="docs-count">4</span></div>
                 <span class="material-symbols-outlined StyleSheet category-drop-down">keyboard_arrow_down</span>
                 <span class="material-symbols-outlined  StyleSheet category-drop-up d-none">keyboard_arrow_up</span>
             </div>
@@ -266,7 +76,7 @@
             
             
             <div class="sub-directory StyleSheet CSS d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-css3-plain"></i> CSS <span class="docs-count">3</span></div>
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-css3-plain"></i> CSS <span class="docs-count">4</span></div>
             </div>
             
             
@@ -300,6 +110,26 @@
             
             
             
+            
+            <div class="directory 데이터">
+                <div class="directory-info"><i class="fa-regular fa-chart-bar"></i> 데이터 <span class="docs-count">1</span></div>
+                <span class="material-symbols-outlined 데이터 category-drop-down">keyboard_arrow_down</span>
+                <span class="material-symbols-outlined  데이터 category-drop-up d-none">keyboard_arrow_up</span>
+            </div>
+            
+            
+            
+            
+            <div class="sub-directory 데이터 딥러닝 d-none">
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-brands fa-leanpub"></i> 딥러닝 <span class="docs-count">1</span></div>
+            </div>
+            
+            
+
+            
+            
+            
+            
             <div class="collection"><i class='fa-solid fa-gear'></i> DevKit</div>
             
             
@@ -307,7 +137,7 @@
             
             
             <div class="directory Tool">
-                <div class="directory-info"><i class='fa fa-wrench' aria-hidden='true'></i> Tool <span class="docs-count">1</span></div>
+                <div class="directory-info"><i class='fa fa-wrench' aria-hidden='true'></i> Tool <span class="docs-count">2</span></div>
                 <span class="material-symbols-outlined Tool category-drop-down">keyboard_arrow_down</span>
                 <span class="material-symbols-outlined  Tool category-drop-up d-none">keyboard_arrow_up</span>
             </div>
@@ -316,7 +146,7 @@
             
             
             <div class="sub-directory Tool 기타툴 d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-regular fa-object-group"></i> 기타툴 <span class="docs-count">1</span></div>
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="fa-regular fa-object-group"></i> 기타툴 <span class="docs-count">2</span></div>
             </div>
             
             
@@ -327,7 +157,7 @@
             
             
             <div class="directory Github">
-                <div class="directory-info"><i class='devicon-github-original'></i> Github <span class="docs-count">6</span></div>
+                <div class="directory-info"><i class='devicon-github-original'></i> Github <span class="docs-count">7</span></div>
                 <span class="material-symbols-outlined Github category-drop-down">keyboard_arrow_down</span>
                 <span class="material-symbols-outlined  Github category-drop-up d-none">keyboard_arrow_up</span>
             </div>
@@ -336,7 +166,7 @@
             
             
             <div class="sub-directory Github 블로그 d-none">
-                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-jekyll-plain"></i> 블로그 <span class="docs-count">6</span></div>
+                <div class="sub-directory-info"><span class="material-symbols-outlined">chevron_right</span><i class="devicon-jekyll-plain"></i> 블로그 <span class="docs-count">7</span></div>
             </div>
             
             
@@ -452,6 +282,18 @@
     
     
     
+    <div class="menu-directory 딥러닝"><i class="fa-brands fa-leanpub"></i> 딥러닝</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -511,7 +353,7 @@
         </div>
         <div class="header-home"><header-button title="Home"><img class="fox-image" src="/public/img/default/fox_icon.jpeg" alt="fox_icon" /> 두두닷</header-button></div>
         <div class="header-search">
-            <header-button title="Search"><span class="material-symbols-outlined">search</span></header-button>
+            <header-button class="search-block-show-btn" title="Search"><span class="material-symbols-outlined">search</span></header-button>
         </div>
     </header>
     
@@ -567,6 +409,20 @@
             
             
             <div class="drop-sub-directory DBMS SQL"><i class="fa-solid fa-database"></i> SQL</div>
+            
+        
+        </div>
+        
+        
+        
+        <div class="drop-category">
+        
+            <div class="drop-directory">데이터</div>
+            
+            
+            
+            
+            <div class="drop-sub-directory 데이터 딥러닝"><i class="fa-brands fa-leanpub"></i> 딥러닝</div>
             
         
         </div>
@@ -651,6 +507,10 @@
         <div class="post-list-title">블로그의 다른 글 <i class="fa-solid fa-xmark"></i></div>
         <div class="post-list-content">
             
+            
+            
+            
+            <a href="/DevKit/Github/%EB%B8%94%EB%A1%9C%EA%B7%B8/doc.data%20%EC%9E%90%EB%8F%99%20%EC%86%8C%EB%AC%B8%EC%9E%90%20%EB%B3%80%ED%99%98%20%EB%AC%B8%EC%A0%9C/">Doc.data 자동 소문자 변환 문제</a>
             
             
             
@@ -779,53 +639,40 @@
 <script src="/public/js/custom/post-side-nav.js"></script>
 
     </div>
+    <div class="search-container d-none">
+        <div class="search-box">
+            <form id="search-form" class="search-box-header">
+                <span class="material-symbols-outlined">search</span>
+                <input type="search" id="search-input" placeholder="Search" required />
+                <span class="search-cancel">Cancel</span>
+            </form>
+        </div>
+    </div>
 </div>
-
 <script>
-    $('.header-home header-button, aside .profile-desc').on('click', function() {
-        location.href = '/'
-    })
-    $('.all-documents').on('click', function() { // Total
-        location.href = '/posts/#total^1'
-    })
-    $('.directory').on('click', function() {
-        const category = this.classList[1]
-        if (this.classList[2]) {
-            location.href = `/posts/#${category}^1`
-        } else {
-            $(`.sub-directory.${category}`).toggleClass('d-none')
-            $(`.category-drop-down.${category}`).toggleClass('d-none')
-            $(`.category-drop-up.${category}`).toggleClass('d-none')
-        }
-    })
-    $('.sub-directory, .drop-sub-directory').on('click', function() {
-        const dir = this.classList[2]
-        window.location.href = `/posts/#${dir}^1`
-        $('.drop-menu').addClass('d-none')
-    })
-    $('input.header-btn').on('click', function() {
-        $(`.drop-menu:not( ._${this.value})`).addClass('d-none')
-        $(`.drop-menu._${this.value}`).toggleClass('d-none')
-    })
-    $(document).on('click', function(e) {
-        if (!$(e.target).hasClass('header-btn')) {
-            $('.drop-menu').addClass('d-none')
-        }
-        if (!$(e.target).closest('.menu-btn').length > 0) {
-            $('menu').addClass('d-none')
-        }
-    })
-    $(window).on('resize', function() {
-        $('.drop-menu').addClass('d-none')
-        $('menu').addClass('d-none')
-    })
-    $('.menu-btn').on('click', function() {
-        $('menu').toggleClass('d-none')
-    })
-    $('.menu-directory').on('click', function() {
-        const dir = this.classList[1]
-        window.location.href = `/posts/#${dir}^1`
-        $('menu').addClass('d-none')
+    $(document).ready(() => {
+        window.MyEvent({}).default()
+        $('.search-block-show-btn').on('click', () => {
+            $('.search-container').removeClass('d-none')
+            $('input[type=search]').focus()
+        })
+        $('.search-container').on('click', (e) => {
+            if ($(e.target).closest('.search-box').length === 0 || $(e.target).hasClass('search-cancel')) {
+                $('.search-container').addClass('d-none')
+            }
+        })
+        $(window).on('hashchange', () => {
+            $('.search-container').addClass('d-none')
+        })
+        $('#search-form').on('submit', (e) => {
+            e.preventDefault()
+            const query = $('input[type=search]').val().trim()
+            if (query === '') {
+                return
+            }
+            $('.search-container').addClass('d-none')
+            window.location.href = `/posts/#search^1?${query}`
+        })
     })
 </script>
 </body>
