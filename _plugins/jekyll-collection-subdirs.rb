@@ -22,8 +22,6 @@ module Jekyll
           file_creation_date = File.mtime(doc.path)
         end
         doc.data['created_date'] = file_creation_date
-        filename = File.basename(doc.basename, File.extname(doc.basename))
-        doc.data['title'] ||= filename # 현재 title이 없는 경우에만 파일명을 title로 설정
         doc.data['layout'] ||= 'post'
       end
       site.instance_variable_set(:@documents, documents)

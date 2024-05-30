@@ -18,5 +18,7 @@
   "DBMS": "<i class=\"devicon-azuresqldatabase-plain\"></i>",
   "SQL": "<i class=\"fa-solid fa-database\"></i>",
   "Ruby": "<i class=\"devicon-ruby-plain\"></i>",
-  "Github": "<i class='devicon-github-original'></i>"
+  "Github": "<i class='devicon-github-original'></i>",
+  "데이터": "<i class=\"fa-regular fa-chart-bar\"></i>",
+  "딥러닝": "<i class=\"fa-brands fa-leanpub\"></i>"
 }

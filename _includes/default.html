@@ -16,23 +16,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-svg.min.js" async></script>
 <script src="{{root_url}}/public/js/custom/latex.js"></script>
-<script id="documents" type="application/json">
-        [
-            {% assign sorted_docs = site.documents | sort: "created_date" | reverse %}
-            {% for doc in sorted_docs %}
-            {% assign arr = doc.path | split: '/' %}
-            {% assign index = arr.size | minus: 2 %}
-            {
-                "label": "{{ arr[index] }}",
-                "image": "{{ doc.img }}",
-                "url": "{{ doc.url | relative_url | escape }}",
-                "title": "{{ doc.title | escape }}",
-                "date": "{{ doc.created_date | date: '%Y-%m-%d' | escape }}",
-                "content": "{{ doc.content | strip_html | strip_newlines | escape }}"
-            }{% unless forloop.last %},{% endunless %}
-            {% endfor %}
-        ]
-</script>
+<script type="module" src="{{root_url}}/public/js/custom/component.js"></script>
+<script type="module" src="{{root_url}}/public/js/custom/event.js"></script>
+<script src="{{root_url}}/public/js/simple-jekyll-search.js"></script>
 </head>
 <body>
 {% assign docs = site["docs"] %}
@@ -119,7 +105,7 @@
         </div>
         <div class="header-home"><header-button title="Home">{{ site.description }}</header-button></div>
         <div class="header-search">
-            <header-button title="Search"><span class="material-symbols-outlined">search</span></header-button>
+            <header-button class="search-block-show-btn" title="Search"><span class="material-symbols-outlined">search</span></header-button>
         </div>
     </header>
     {% for col in sorted_items %}{% if col.label != "posts" %}
@@ -149,53 +135,40 @@
     <div class="content">
         {{content}}
     </div>
+    <div class="search-container d-none">
+        <div class="search-box">
+            <form id="search-form" class="search-box-header">
+                <span class="material-symbols-outlined">search</span>
+                <input type="search" id="search-input" placeholder="Search" required />
+                <span class="search-cancel">Cancel</span>
+            </form>
+        </div>
+    </div>
 </div>
-
 <script>
-    $('.header-home header-button, aside .profile-desc').on('click', function() {
-        location.href = '/'
-    })
-    $('.all-documents').on('click', function() { // Total
-        location.href = '/posts/#total^1'
-    })
-    $('.directory').on('click', function() {
-        const category = this.classList[1]
-        if (this.classList[2]) {
-            location.href = `/posts/#${category}^1`
-        } else {
-            $(`.sub-directory.${category}`).toggleClass('d-none')
-            $(`.category-drop-down.${category}`).toggleClass('d-none')
-            $(`.category-drop-up.${category}`).toggleClass('d-none')
-        }
-    })
-    $('.sub-directory, .drop-sub-directory').on('click', function() {
-        const dir = this.classList[2]
-        window.location.href = `/posts/#${dir}^1`
-        $('.drop-menu').addClass('d-none')
-    })
-    $('input.header-btn').on('click', function() {
-        $(`.drop-menu:not( ._${this.value})`).addClass('d-none')
-        $(`.drop-menu._${this.value}`).toggleClass('d-none')
-    })
-    $(document).on('click', function(e) {
-        if (!$(e.target).hasClass('header-btn')) {
-            $('.drop-menu').addClass('d-none')
-        }
-        if (!$(e.target).closest('.menu-btn').length > 0) {
-            $('menu').addClass('d-none')
-        }
-    })
-    $(window).on('resize', function() {
-        $('.drop-menu').addClass('d-none')
-        $('menu').addClass('d-none')
-    })
-    $('.menu-btn').on('click', function() {
-        $('menu').toggleClass('d-none')
-    })
-    $('.menu-directory').on('click', function() {
-        const dir = this.classList[1]
-        window.location.href = `/posts/#${dir}^1`
-        $('menu').addClass('d-none')
+    $(document).ready(() => {
+        window.MyEvent({}).default()
+        $('.search-block-show-btn').on('click', () => {
+            $('.search-container').removeClass('d-none')
+            $('input[type=search]').focus()
+        })
+        $('.search-container').on('click', (e) => {
+            if ($(e.target).closest('.search-box').length === 0 || $(e.target).hasClass('search-cancel')) {
+                $('.search-container').addClass('d-none')
+            }
+        })
+        $(window).on('hashchange', () => {
+            $('.search-container').addClass('d-none')
+        })
+        $('#search-form').on('submit', (e) => {
+            e.preventDefault()
+            const query = $('input[type=search]').val().trim()
+            if (query === '') {
+                return
+            }
+            $('.search-container').addClass('d-none')
+            window.location.href = `/posts/#search^1?${query}`
+        })
     })
 </script>
 </body>

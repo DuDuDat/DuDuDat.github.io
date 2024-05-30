@@ -1,4 +1,22 @@
 <link rel="stylesheet" href="{{root_url}}/public/css/category.css">
+<script id="documents" type="application/json">
+    [
+        {% assign sorted_docs = site.documents | sort: "created_date" | reverse %}
+        {% for doc in sorted_docs %}
+        {% assign arr = doc.path | split: '/' %}
+        {% assign index = arr.size | minus: 2 %}
+        {
+            "label": "{{ arr[index] }}",
+            "image": "{{ doc.img }}",
+            "url": "{{ doc.url | relative_url | escape }}",
+            "title": "{{ doc.title | escape }}",
+            "date": "{{ doc.created_date | date: '%Y-%m-%d' | escape }}",
+            "content": "{{ doc.content | strip_html | strip_newlines | escape }}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ]
+</script>
+<!--<script src="{{root_url}}/public/js/custom/category.js"></script>-->
 <div class="category-head-block">
     <span class="directory-name"></span>
     <input type="image" class="posts-image"  src="" alt="이미지" />
@@ -7,100 +25,61 @@
 <div class="page-block"></div>
 
 <script>
-    function filterAndUpdate(data) {
-        const hash = decodeURIComponent(window.location.hash.substring(1)).trim();
-        const token = hash.split('^')[0]
-        const page = hash.split('^')[1]
-        const itemCount = 9
+    const root_url = window.location.origin
+    let jsonData = $('#documents').text().trim().replace(/\\/g, '\\\\')
+    jsonData = JSON.parse(jsonData)
 
-        let jsonData = $('#documents').text().trim().replace(/\\/g, '\\\\')
-        jsonData = JSON.parse(jsonData)
+    const limit = 9
 
-        $(`.selected`).removeClass('selected')
-        $(`.sub-directory`).addClass('d-none')
-        $(`.category-drop-down`).removeClass('d-none')
-        $(`.category-drop-up`).addClass('d-none')
-
-        if (token !== 'total') {
-            jsonData = jsonData.filter(data => data['label'].trim() === token)
-            $('.directory-name').text(token)
-            const selected = $(`.sub-directory.${token}`)
-            if (selected.length > 0) {
-                selected.addClass('selected')
-                const category = selected.get(0).classList[1]
-                $(`.sub-directory.${category}`).removeClass('d-none')
-                $(`.category-drop-down.${category}`).addClass('d-none')
-                $(`.category-drop-up.${category}`).removeClass('d-none')
-            }else {
-                $(`.directory.${token}`).addClass('selected')
-            }
-        }else {
-            $('.directory-name').text('분류 전체 보기')
-        }
-
-        const totalPage = Math.ceil(jsonData.length / itemCount)
-
-        const pages = Array.from({ length: totalPage }, (_, i) => `<span class="page">${i+1}</span>`);
-        $('.page-block').html(pages)
-
-        if (jsonData.length >= itemCount*page) {
-            jsonData = jsonData.slice((itemCount) * (page - 1), itemCount * page)
-        }else {
-            jsonData = jsonData.slice((itemCount) * (page - 1))
-        }
-
-        const html = jsonData.map(doc => {
-            let icon = data[`${doc['label']}`]
-            let image = `<div class="${doc['label']} post-image">${icon}</div>`
-            if (doc['image']) {
-                image = `<img class="post-image" src="${doc['image']}" />`
-            }
-            return `<div class="col-sm-12 col-md-6 col-lg-4">
-                    <div class="post ${doc['url']}">
-                        ${image}
-                        <div class="post-label">${doc['label']}</div>
-                        <div class="post-info">
-                            <div class="post-title">${doc['title']}</div>
-                            <div class="post-content">${doc['content']}</div>
-                            <div class="post-date">${doc['date']}</div>
-                        </div>
-                    </div>
-                </div>`
-        }).join('');
-
-        $('.row.category').html(html)
-
-        $('.post').on('click', function() {
-            window.location.href = $(this).get(0).classList[1]
-        })
-        $('.page').on('click', function() {
-            const page = $(this).text()
-            window.location.href = `/posts/#${token}^${page}`
-        })
-
-    }
-
-    function tokenChanged() {
-        fetch('{{root_url}}/directory_info.json')
-            .then(res => res.json())
-            .then(data => {
-                filterAndUpdate(data)
-
-                fetch('{{root_url}}/directory_css.json').then(res => res.json()).then(jsonData => {
-                    jsonData.forEach(css => {
-                        $(`.post-image.${css['label']}`).css('background', css['background'])
-                        $(`.post-image.${css['label']} i`).css('color', css['color'])
-                    })
-                })
+    fetch(`${root_url}/directory_info.json`)
+        .then(res => res.json())
+        .then(data => {
+            jsonData.forEach(row => {
+                row.icon = data[row.label]
             })
-            .catch(err => console.log(err))
+        }).then(() => init())
+
+    function init() {
+        const hash = decodeURIComponent(window.location.hash.substring(1)).trim();
+        const arr = hash.split('^')
+        const category = arr[0]
+        const page = arr[1].split('?')[0]
+        const query = arr[1].split('?')[1]
+
+        const event = window.MyEvent({
+            category: category
+        })
+        const component = window.Component({
+            jsonData: jsonData,
+            limit: limit,
+            category: category,
+            currentPage: page,
+            query: query
+        })
+
+        event.category()
+
+        const $categoryRow = $('.row.category')
+        const categoryArr = component.category()
+        $categoryRow.empty()
+        $categoryRow.append(categoryArr)
+        if (categoryArr.length === 0) {
+            $categoryRow.append('<div class="col-12">Empty</div>')
+        }
+        $('.page-block').html(component.page())
+
+
+        fetch(`${root_url}/directory_css.json`).then(res => res.json()).then(jsonData => {
+            jsonData.forEach(css => {
+                $(`.post-image.${css.label}`).css('background', css.background)
+                $(`.post-image.${css.label} i`).css('color', css.color)
+            })
+        })
 
         const randomNo = Math.floor(Math.random() * 10) + 1
-        const src = "{{site.url}}/public/img/directory/random" + randomNo + ".jpg"
+        const src = `${root_url}/public/img/directory/random` + randomNo + ".jpg"
         $('.posts-image').attr('src', src)
     }
 
-    $(document).ready(tokenChanged)
-    $(window).on('hashchange', tokenChanged)
+    $(window).on('hashchange', init)
 </script>
-

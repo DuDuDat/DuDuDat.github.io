@@ -35,5 +35,10 @@
     "label": "Ruby",
     "color": "red",
     "background": "rgba(255, 240, 245, 1)"
+  },
+  {
+    "label": "딥러닝",
+    "color": "#C19EE0",
+    "background": "#FFEBEF"
   }
 ]
