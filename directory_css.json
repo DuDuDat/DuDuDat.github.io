@@ -40,5 +40,15 @@
     "label": "딥러닝",
     "color": "#C19EE0",
     "background": "#FFEBEF"
+  },
+  {
+    "label": "통계학",
+    "color": "#2D2D2D",
+    "background": "#B2DFDB"
+  },
+  {
+    "label": "임시",
+    "color": "#5D4037",
+    "background": "#FFDAB9"
   }
 ]

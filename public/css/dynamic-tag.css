@@ -1,20 +1,19 @@
 /*---------------- 필기용 태그 ----------------*/
 parentheses { /*-- 소괄호 --*/
-    display: inline-flex;
-    height: fit-content;
-    align-items: center;
+    display: inline !important;
     font-weight: 100 !important;
     font-size: 0.95em !important;
     color: #75715e;
     padding: 0 !important;
     margin: 0 !important;
     line-height: 1;
+    white-space: pre-wrap;
 }
-copy, tip, warn {
+copy, tip, warn, list {
     display: block;
     white-space: pre-wrap;
     position: relative;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
 }
 
 /* ++ */
@@ -40,6 +39,15 @@ tip {
         background: rgba(255, 221, 187, 0.1);
         display: block;
         color: rgba(0, 0, 0, 0.7);
+    }
+    example {
+        display: inline-block;
+        padding: 0.2rem 0 1rem 0;
+        color: rgba(50,50,50,0.6);
+
+        &:last-of-type {
+            padding-bottom: 0;
+        }
     }
 }
 
@@ -107,4 +115,42 @@ warn {
         display: block;
         color: rgba(0, 0, 0, 0.7);
     }
+}
+
+/* \- */
+list {
+    margin: 1rem 0;
+
+    &:before {
+        display: inline-block;
+        content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="orange" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 5.25-9 13-9 13S3 15.25 3 10a9 9 0 1 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>');
+        height: 100%;
+        color: #FF6600;
+        margin: 0 0.5rem 0 1rem;
+    }
+}
+
+/* 예시 */
+pexample {
+    display: flex;
+    padding: 0 0.1rem;
+    margin: 1.5rem 0;
+    span {
+        line-height: 1.6;
+        color: rgba(0,0,0,0.6);
+    }
+    .example-title {
+    }
+    .example-content {
+        flex: 1;
+    }
+}
+
+/* 숫자형 list : 이전 소제목 비슷한거 */
+.ol-li-title {
+    color: #333333;
+    font-weight: bold;
+}
+.ol-li-content {
+    color: rgba(100,100,100,1);
 }

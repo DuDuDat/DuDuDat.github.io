@@ -525,7 +525,7 @@
             
             
             
-            <a href="/Develop/StyleSheet/CSS/content%20%EC%97%90%20svg%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%ED%83%9C%EA%B7%B8%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%EB%B2%95/">Content 에 svg 이미지 태그 사용하는법</a>
+            <a href="/Develop/StyleSheet/CSS/content%20%EC%97%90%20svg%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%ED%83%9C%EA%B7%B8%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%EB%B2%95/" class="page">Content 에 svg 이미지 태그 사용하는법</a>
             
             
             
@@ -533,7 +533,7 @@
             
             
             
-            <a href="/Develop/StyleSheet/CSS/inline%20%EC%9A%94%EC%86%8C%20%EC%95%88%20inline%20%ED%83%9C%EA%B7%B8%20%EB%86%92%EC%9D%B4%20%EC%BB%A4%EC%A7%80%EB%8A%94%20%EB%AC%B8%EC%A0%9C/" class="page">Inline 요소 안 inline 태그 높이 커지는 문제</a>
+            <a href="/Develop/StyleSheet/CSS/inline%20%EC%9A%94%EC%86%8C%20%EC%95%88%20inline%20%ED%83%9C%EA%B7%B8%20%EB%86%92%EC%9D%B4%20%EC%BB%A4%EC%A7%80%EB%8A%94%20%EB%AC%B8%EC%A0%9C/">Inline 요소 안 inline 태그 높이 커지는 문제</a>
             
             
             
@@ -553,22 +553,25 @@
 </div>
 <div class="post-head">
 <!--    <div class="post-header-background"></div>-->
-    <div class="post-title">inline 요소 안 inline 태그 높이 커지는 문제</div>
-    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.30</div>
+    <div class="post-title">content 에 svg 이미지 태그 사용하는법</div>
+    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.06.11</div>
     <img class="post-img" src="/public/img/" onerror="this.onerror=null; this.src='/public/img/default.jpg';" />
     <div class="post-background"></div>
 </div>
 <div class="post-container">
-    <div class="post-content"><blockquote>
-  <p>line-height 또는 font-size 로 인한 높이 변화가 발생할 수 있음</p>
-</blockquote>
+    <div class="post-content"><p>@@ svg 태그 앞에 붙여하는 하는 내용
+data:image/svg+xml;utf8,</p>
 
-<h2 id="코드">코드</h2>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">span</span> <span class="p">{</span>
-    <span class="nl">line-height</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span> <span class="err">//</span> <span class="err">대체로</span> <span class="err">line-height가</span> <span class="err">문제이므로</span> <span class="err">1로</span> <span class="err">맞춰주면</span> <span class="err">해결됨</span>
+<h2 id="코드-예시">코드 예시</h2>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">li</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="sx">url('data:image/svg+xml;utf8,&lt;svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="orange" viewBox="0 0 512 512"&gt;&lt;!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--&gt;&lt;path d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z"/&gt;&lt;/svg&gt;')</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
+
+<p>++ svg 태그의 높이와 너비는 height 와 width 속성으로 정의하고 색상은 fill 속성으로 정의할 수 있다.
+예시 : &lt;svg width=”15” height=”15” fill=”orange” …/&gt;
+svg 이미지와 글을 함께 사용하고 싶다면 url(‘svg’) 뒤에 “원하는 글”를 추가하면 된다
+예시 : { content: url(‘’) “원하는 글” }</p>
 </div>
 <!--    <div class="post-comment-image">-->
 <!--        <input type="image" src="/public/img/default/댓글 (1).jpeg" />-->

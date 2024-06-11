@@ -40,12 +40,15 @@ const _result = {
 
 function _resultCategory() {
     let jsonData = _options.jsonData
+    if (!_options.limit) {
+        return jsonData.map(doc =>  _component.category(doc))
+    }
     if (jsonData.length >= _options.limit*_options.currentPage) {
         jsonData = jsonData.slice((_options.limit) * (_options.currentPage - 1), _options.limit * _options.currentPage)
     }else {
         jsonData = jsonData.slice((_options.limit) * (_options.currentPage - 1))
     }
-    return jsonData.map(doc =>  _component.category(doc));
+    return jsonData.map(doc =>  _component.category(doc))
 }
 function _resultPage() {
     const totalPage = Math.ceil(_options.jsonData.length / _options.limit)
@@ -61,19 +64,7 @@ const _options = {
 }
 
 window.Component = function(options) {
-    let jsonData = options.jsonData
-    if (options.category !== 'total' && options.category !== 'search') {
-        jsonData = jsonData.filter(data => data.label.trim() === options.category)
-    }
-    if (options.query) {
-        jsonData = jsonData.filter(data =>
-            (data.title && data.title.toLowerCase().includes(options.query.toLowerCase())) ||
-            (data.content && data.content.toLowerCase().includes(options.query.toLowerCase()))
-        )
-    }
-
-    // 카테고리
-    _options.jsonData = jsonData
+    _options.jsonData = options.jsonData
     _options.category = options.category
     _options.limit = options.limit
     _options.currentPage = parseInt(options.currentPage, 10)

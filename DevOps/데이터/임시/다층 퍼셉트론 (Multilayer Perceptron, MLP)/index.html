@@ -517,35 +517,27 @@
 <link rel="stylesheet" href="/public/css/dynamic-tag.css">
 <div class="fixed-post-list">
     
-    <div title="CSS 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
+    <div title="임시 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
     <div class="post-list d-none">
-        <div class="post-list-title">CSS의 다른 글 <i class="fa-solid fa-xmark"></i></div>
+        <div class="post-list-title">임시의 다른 글 <i class="fa-solid fa-xmark"></i></div>
         <div class="post-list-content">
             
             
             
             
-            <a href="/Develop/StyleSheet/CSS/content%20%EC%97%90%20svg%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%ED%83%9C%EA%B7%B8%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%EB%B2%95/">Content 에 svg 이미지 태그 사용하는법</a>
+            <a href="/DevOps/%EB%8D%B0%EC%9D%B4%ED%84%B0/%EC%9E%84%EC%8B%9C/%EC%BB%A8%EB%B3%BC%EB%A3%A8%EC%85%98%20%EC%8B%A0%EA%B2%BD%EB%A7%9D(Convolution%20Neural%20%20Network,%20CNN)/">컨볼루션 신경망(convolution neural  network, cnn)</a>
             
             
             
-            <a href="/Develop/StyleSheet/CSS/class%20%EC%A0%91%EB%91%90%EC%82%AC%20%EC%84%A0%ED%83%9D%EC%9E%90/">Class 접두사 선택자</a>
+            <a href="/DevOps/%EB%8D%B0%EC%9D%B4%ED%84%B0/%EC%9E%84%EC%8B%9C/%EB%8B%A4%EC%B8%B5%20%ED%8D%BC%EC%85%89%ED%8A%B8%EB%A1%A0%20(Multilayer%20Perceptron,%20MLP)/" class="page">다층 퍼셉트론 (multilayer perceptron, mlp)</a>
             
             
             
-            <a href="/Develop/StyleSheet/CSS/inline%20%EC%9A%94%EC%86%8C%20%EC%95%88%20inline%20%ED%83%9C%EA%B7%B8%20%EB%86%92%EC%9D%B4%20%EC%BB%A4%EC%A7%80%EB%8A%94%20%EB%AC%B8%EC%A0%9C/" class="page">Inline 요소 안 inline 태그 높이 커지는 문제</a>
+            <a href="/DevOps/%EB%8D%B0%EC%9D%B4%ED%84%B0/%EC%9E%84%EC%8B%9C/%EB%89%B4%EB%9F%B0%20(neuron)/">뉴런 (neuron)</a>
             
             
             
-            <a href="/Develop/StyleSheet/CSS/%EA%B0%80%EB%A1%9C%20%EC%8A%A4%ED%81%AC%EB%A1%A4%20%EB%90%A0%20%EB%95%8C%20%EC%9A%B0%EC%B8%A1%20%ED%8C%A8%EB%94%A9%20%EC%9E%98%EB%A6%AC%EB%8A%94%20%EA%B2%BD%EC%9A%B0/">가로 스크롤 될 때 우측 패딩 잘리는 경우</a>
-            
-            
-            
-            <a href="/Develop/StyleSheet/CSS/%EB%B8%94%EB%A1%9D%20%EC%B4%88%EA%B3%BC%20%EA%B8%80%EC%9E%90%20%EC%B2%98%EB%A6%AC%ED%95%98%EB%8A%94%20%EC%BD%94%EB%93%9C/">블럭 초과 글자 ... 처리 코드</a>
-            
-            
-            
-            <a href="/Develop/StyleSheet/CSS/%EB%93%9C%EB%9E%98%EA%B7%B8%EB%B0%A9%EC%A7%80/">드래그 방지 코드</a>
+            <a href="/DevOps/%EB%8D%B0%EC%9D%B4%ED%84%B0/%EC%9E%84%EC%8B%9C/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EA%B0%9C%EB%85%90%EC%A0%95%EB%A6%AC/">네트워크 개념정리</a>
             
             
         </div>
@@ -553,22 +545,40 @@
 </div>
 <div class="post-head">
 <!--    <div class="post-header-background"></div>-->
-    <div class="post-title">inline 요소 안 inline 태그 높이 커지는 문제</div>
-    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.05.30</div>
+    <div class="post-title">다층 퍼셉트론 (Multilayer Perceptron, MLP)</div>
+    <div class="post-date"><span class="material-symbols-outlined">edit_calendar</span>2024.06.11</div>
     <img class="post-img" src="/public/img/" onerror="this.onerror=null; this.src='/public/img/default.jpg';" />
     <div class="post-background"></div>
 </div>
 <div class="post-container">
     <div class="post-content"><blockquote>
-  <p>line-height 또는 font-size 로 인한 높이 변화가 발생할 수 있음</p>
+  <p>MLP는 주로 역전파 알고리즘 (backpropagation)을 통해 학습합니다. 이 알고리즘은 출력과 실제 값 사이의 오차를 최소화하기 위해 가중치를 조정합니다.</p>
 </blockquote>
 
-<h2 id="코드">코드</h2>
+<h1 id="mlp-구조">MLP 구조</h1>
 
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">span</span> <span class="p">{</span>
-    <span class="nl">line-height</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span> <span class="err">//</span> <span class="err">대체로</span> <span class="err">line-height가</span> <span class="err">문제이므로</span> <span class="err">1로</span> <span class="err">맞춰주면</span> <span class="err">해결됨</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<h2 id="입력층-input-layer">입력층 (Input Layer)</h2>
+<ul>
+  <li>외부 데이터가 처음으로 입력되는 층</li>
+  <li>각 뉴런은 입력 데이터의 특징(feature)을 받아들이며, 입력 데이터의 수와 동일한 뉴런 개수를 가짐</li>
+  <li>예를 들어, 이미지 인식의 경우 입력층의 뉴런은 이미지의 픽셀 값을 입력으로 받음</li>
+</ul>
+
+<h2 id="은닉층-hidden-layer">은닉층 (Hidden Layer)</h2>
+<ul>
+  <li>입력층과 출력층 사이에 위치하는 층</li>
+  <li>입력 데이터를 처리하고 변환하는 역할을 함</li>
+  <li>여러 층으로 구성될 수 있으며, 이 층들이 복잡한 패턴을 학습함</li>
+  <li>각 은닉층의 뉴런은 특정 가중치(weight)와 활성화 함수(activation function)를 사용하여 입력 데이터를 변환함</li>
+  <li>딥러닝에서 ‘딥(Deep)’은 이 은닉층이 여러 층으로 깊게 쌓여 있는 구조를 의미함</li>
+</ul>
+
+<h2 id="출력층-output-layer">출력층 (Output Layer)</h2>
+<ul>
+  <li>신경망의 마지막 층으로, 최종 결과를 출력함</li>
+  <li>출력 뉴런의 개수는 해결하려는 문제의 종류에 다라 다름 예를 들어, 이진 분류 문제에서는 하나의 뉴런이 있고, 다중 클래스 분류 문제에서는 각 클래스에 대응하는 뉴런이 있음</li>
+  <li>출력 뉴런들은 은닉층으로부터 전달받은 정보를 바탕으로 최종 예측을 수행함</li>
+</ul>
 </div>
 <!--    <div class="post-comment-image">-->
 <!--        <input type="image" src="/public/img/default/댓글 (1).jpeg" />-->
