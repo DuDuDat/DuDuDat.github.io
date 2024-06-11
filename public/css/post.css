@@ -160,7 +160,7 @@ table {
 }
 .post-comment {
     border-top: 2px solid #eeeeee;
-    padding-top: 1rem;
+    padding-top: 2rem;
     width: var(--post-width);
     margin: 10rem auto 0;
     font-family: "Binggrae", sans-serif;
