@@ -595,7 +595,7 @@
 <p><img src="복붙 코드" alt="" />
 <img src="utterances 코드 복사" alt="" /></p>
 
-<h3 id="원하는-위치에-붙여넣기">원하는 위치에 붙여넣기</h3>
+<h3 id="코드-예시">코드 예시</h3>
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"comment"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://utteranc.es/client.js"</span>
             <span class="na">repo=</span><span class="s">"dududat/dududat.github.io"</span>
@@ -613,8 +613,13 @@
 <h2 id="장점-1">장점</h2>
 <ul>
   <li>간단함</li>
-  <li>커스텀 css 가능함?</li>
+  <li>커스텀 css 가능함</li>
   <li>대댓글이 가능함</li>
+</ul>
+
+<h2 id="단점-1">단점</h2>
+<ul>
+  <li>커스텀 css 는 보안 문제로 인해 cdn 형태로만 적용가능함 즉, repo 에 push 해야만 사용 가능함 불-편</li>
 </ul>
 
 <h2 id="댓글-기능-적용-1">댓글 기능 적용</h2>
@@ -631,9 +636,9 @@
 <p><img src="giscus 안될 때" alt="" />
 <img src="discussions 체크" alt="" /></p>
 
-<h3 id="원하는-위치에-붙여넣기-1">원하는 위치에 붙여넣기</h3>
+<h3 id="코드-예시-1">코드 예시</h3>
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://giscus.app/client.js"</span>
-        <span class="na">data-repo=</span><span class="s">"OWNER/REPO"</span>
+        <span class="na">data-repo=</span><span class="s">"dududat/dududat.github.io"</span>
         <span class="na">data-repo-id=</span><span class="s">"REPO_ID"</span>
         <span class="na">data-category=</span><span class="s">"General"</span>
         <span class="na">data-category-id=</span><span class="s">"CATEGORY_ID"</span>
@@ -642,7 +647,7 @@
         <span class="na">data-reactions-enabled=</span><span class="s">"1"</span>
         <span class="na">data-emit-metadata=</span><span class="s">"0"</span>
         <span class="na">data-input-position=</span><span class="s">"top"</span>
-        <span class="na">data-theme=</span><span class="s">"light"</span>
+        <span class="na">data-theme=</span><span class="s">"https://cdn.jsdelivr.net/gh/dududat/dududat.github.io@main/public/css/comment.css"</span>
         <span class="na">crossorigin=</span><span class="s">"anonymous"</span>
         <span class="na">async</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/script&gt;</span>
@@ -655,26 +660,19 @@
     <div class="post-comment">
         <script src="https://giscus.app/client.js"
                 data-repo="dududat/dududat.github.io"
-                data-repo-id="REPO_ID"
+                data-repo-id="R_kgDOLZScFA"
                 data-category="General"
-                data-category-id="CATEGORY_ID"
-                data-mapping="pathname"
+                data-category-id="DIC_kwDOLZScFM4CgATz"
+                data-mapping="url"
                 data-strict="0"
                 data-reactions-enabled="1"
                 data-emit-metadata="0"
                 data-input-position="top"
-                data-theme="/public/css/comment.css"
+                data-theme="light"
+                data-lang="ko"
                 crossorigin="anonymous"
                 async>
         </script>
-        <!--        <script src="https://utteranc.es/client.js"-->
-<!--                repo="dududat/dududat.github.io"-->
-<!--                issue-term="pathname"-->
-<!--                theme="github-light"-->
-<!--                data-custom-css="http://localhost:4000/public/css/comment.css"-->
-<!--                crossorigin="anonymous"-->
-<!--                async>-->
-<!--        </script>-->
     </div>
 </div>
 <indexnav>
