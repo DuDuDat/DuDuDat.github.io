@@ -29,7 +29,7 @@ window.MathJax = {
         ready: () => {
             MathJax.startup.defaultReady();
             // 사용자 정의 태그 소괄호
-            $('.post-content').each(function() {
+            $('.post-content >*:not([class^="language"])').each(function() {
                 const htmlContent = $(this).html();
                 const updatedText = htmlContent.replace(/(\(([^)]+)\))/g, function(match, p1, p2, offset, string) {
                     const leftHtml = string.slice(0, offset);
@@ -45,7 +45,8 @@ window.MathJax = {
                     }
 
                     if (!leftHtml.match(/<mo|<mi|<msub|<msup|<mrow|<mfrac|<math/)) {
-                        return `(<parentheses>${p2}</parentheses>)`;
+                        const zeroWidthSpace = '\u200B';
+                        return `${zeroWidthSpace}<parentheses>${match}</parentheses>${zeroWidthSpace}`;
                     }
                     return match
                 });

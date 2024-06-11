@@ -1,88 +1,62 @@
 <link rel="stylesheet" href="{{root_url}}/public/css/home.css" />
-<div class="home-image">이미지임돠</div>
-
+<link rel="stylesheet" href="{{root_url}}/public/css/posts.css" />
+<div class="category-head-block">
+    <span class="directory-name">Home</span>
+    <input type="image" class="posts-image"  src="{{root_url}}/public/img/default/home.jpeg" alt="이미지" />
+</div>
 <div class="home-container">
     <div class="category-title">팀 프로젝트 <span class="material-symbols-outlined">group</span></div>
     <div class="category-desc">팀으로 진행한 프로젝트</div>
-    <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="home-post">
-                <div class="home-post-image"></div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="home-post"></div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="home-post"></div>
-        </div>
-    </div>
+    <script id="team" type="application/json">
+        [
+            {% assign team = site.project | where: "dir", "team" | sort: "created_date" | reverse %}
+            {% for doc in team %}
+            {% assign arr = doc.path | split: '/' %}
+            {
+                "label": "{{ doc.label }}",
+                "image": "{{root_url}}/team/img/{{ doc.img }}",
+                "url": "{{ doc.url | relative_url | escape }}",
+                "title": "{{ doc.title | escape }}",
+                "date": "{{ doc.created_date | date: '%Y-%m-%d' | escape }}",
+                "content": "{{ doc.content | strip_html | strip_newlines | escape }}"
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+        ]
+    </script>
+    <div class="row team"></div>
     <div class="category-title">개인 자작 <span class="emoji">🎮</span></div>
     <div class="category-desc">편의성을 위해 만든 간단한 프로그램</div>
-    <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4"></div>
-    </div>
+    <script id="personal" type="application/json">
+        [
+            {% assign personal = site.project | where: "dir", "personal" | sort: "created_date" | reverse %}
+            {% for doc in personal %}
+            {% assign arr = doc.path | split: '/' %}
+            {
+                "label": "{{ doc.label }}",
+                "image": "{{root_url}}/personal/img/{{ doc.img }}",
+                "url": "{{ doc.url | relative_url | escape }}",
+                "title": "{{ doc.title | escape }}",
+                "date": "{{ doc.created_date | date: '%Y-%m-%d' | escape }}",
+                "content": "{{ doc.content | strip_html | strip_newlines | escape }}"
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+        ]
+    </script>
+    <div class="row personal"></div>
 </div>
-<!--<header>-->
-<!--    <header-button title="사이드바" ><img src="{{root_url}}/public/img/default/logo.jpeg" alt="{{ site.title }}" /></header-button>-->
-<!--    <input type="button" value="Home" />-->
-<!--    <input type="button" value="Project" />-->
-<!--    <input type="button" value="Language" />-->
-<!--    <input type="button" value="Tip" />-->
-<!--    <input type="button" value="Tool" />-->
-<!--    <span>{{ site.title }}</span>-->
-<!--    <input type="button" value="검색버튼" />-->
-<!--</header>-->
 
-<!--<img src="{{root_url}}/public/img/home.jpg" alt="{{ site.title }}" />-->
-<!--<div class="home-container">-->
+<script>
+    const team = JSON.parse($('#team').text())
+    const personal = JSON.parse($('#personal').text())
 
-<!--    <div class="home-nick">DuDuDat</div>-->
-<!--    <div class="home-motto">좋아보이는 거 다 해보기</div>-->
-
-<!--    <div class="home-profile">🎥 Profile</div>-->
-<!--    <a href="/about" class="home-about">🔥 About me</a>-->
-<!--    <a href="/portfolio" class="home-portfolio">📹 Portfolio</a>-->
-
-<!--    <div class="home-projects">💻 Projects</div>-->
-<!--    <div class="home-project row">-->
-<!--        {% assign project = site.collections | where: "label", "project" | first %}-->
-<!--        {% assign docs = project.docs %}-->
-<!--        {% for doc in docs %}-->
-<!--        <div class="col-12 col-sm-6 col-md-4 col-lg-4 home-project-outer-item">-->
-<!--            <div class="home-project-inner-item" onclick="window.location.href='{{doc.url}}'">-->
-<!--                <div class="home-project-img">-->
-<!--                    <img src="{{root_url}}/public/img/{{doc.img}}" alt="{{doc.title}}" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />-->
-<!--                </div>-->
-<!--                <div class="home-project-title">-->
-<!--                    {{doc.title}}-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        {% endfor %}-->
-<!--    </div>-->
-
-<!--    <div class="home-posts">👩‍💻 Posts</div>-->
-<!--    <div class="home-post row">-->
-<!--        {% assign sorted_collections = site.collections | sort: 'order' %}-->
-<!--        {% for collection in sorted_collections %}-->
-<!--        {% if collection.label != 'posts' and collection.label != 'project' %}-->
-<!--        <div class="col-12 col-sm-6 col-md-4 col-lg-4 home-post-outer-item">-->
-<!--            <div class="home-post-inner-item" onclick="window.location.href='/posts/#{{collection.label}}'">-->
-<!--                <div class="home-post-img">-->
-<!--                    <img src="{{root_url}}/public/img/{{collection.img}}" onerror="this.onerror=null; this.src='{{root_url}}/public/img/default.jpg';" />-->
-<!--                </div>-->
-<!--                <div class="home-post-name">-->
-<!--                {% if collection.name %}-->
-<!--                {{collection.name}}-->
-<!--                {% else %}-->
-<!--                {{collection.label}}-->
-<!--                {% endif %}-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        {% endif %}-->
-<!--        {% endfor %}-->
-<!--    </div>-->
-
-<!--</div>-->
+    $(document).ready(function() {
+        const teamComponent = window.Component({
+            jsonData: team
+        })
+        $('.row.team').html(teamComponent.category())
+        const personalComponent = window.Component({
+            jsonData: personal
+        })
+        $('.row.personal').html(personalComponent.category())
+    })
+</script>

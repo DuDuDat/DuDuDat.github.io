@@ -1,5 +1,6 @@
-<link rel="stylesheet" href="{{root_url}}/public/css/post.css">
-<link rel="stylesheet" href="{{root_url}}/public/css/dynamic-tag.css">
+<link rel="stylesheet" href="{{site.url}}/public/css/post.css">
+<link rel="stylesheet" href="{{site.url}}/public/css/comment.css">
+<link rel="stylesheet" href="{{site.url}}/public/css/dynamic-tag.css">
 <div class="fixed-post-list">
     {% assign dir = page.url | url_decode | split: '/' | slice: -2, 1 | first %}
     <div title="{{dir}} 다른 글" class="post-list-btn"><span class="material-symbols-outlined">category</span></div>
@@ -27,6 +28,33 @@
 </div>
 <div class="post-container">
     <div class="post-content">{{content}}</div>
+<!--    <div class="post-comment-image">-->
+<!--        <input type="image" src="{{root_url}}/public/img/default/댓글 (1).jpeg" />-->
+<!--    </div>-->
+    <div class="post-comment">
+        <script src="https://giscus.app/client.js"
+                data-repo="dududat/dududat.github.io"
+                data-repo-id="REPO_ID"
+                data-category="General"
+                data-category-id="CATEGORY_ID"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="{{ site.url }}/public/css/comment.css"
+                crossorigin="anonymous"
+                async>
+        </script>
+        <!--        <script src="https://utteranc.es/client.js"-->
+<!--                repo="dududat/dududat.github.io"-->
+<!--                issue-term="pathname"-->
+<!--                theme="github-light"-->
+<!--                data-custom-css="http://localhost:4000/public/css/comment.css"-->
+<!--                crossorigin="anonymous"-->
+<!--                async>-->
+<!--        </script>-->
+    </div>
 </div>
 <indexnav>
     <navicon title="목차 네비"><i class="fa-solid fa-list"></i></navicon>
@@ -100,6 +128,24 @@
         })
     })
 </script>
+
+<!--&lt;!&ndash; 커스텀 댓글 블럭 &ndash;&gt;-->
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        $('iframe[title="Comments"]').on('load', function() {-->
+<!--            const iframeDoc = this.contentDocument || this.contentWindow.document-->
+
+<!--            const head = $(iframeDoc).find('head')-->
+
+<!--            let css = '<style>'/-->
+<!--                '.timeline-comment {' /-->
+<!--                '    background: orange !important;'-->
+<!--                '}'/-->
+<!--                '</style>'-->
+<!--            $(head).append(css)-->
+<!--        })-->
+<!--    });-->
+<!--</script>-->
 
 <!-- 사용자 정의 태그 -->
 <script src="{{root_url}}/public/js/custom/dynamic-tag.js"></script>

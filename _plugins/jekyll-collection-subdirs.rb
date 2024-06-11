@@ -13,26 +13,9 @@ module Jekyll
     priority :high
 
     def generate(site)
-      # site.documents 객체 데이터 재정의
-      documents = site.documents
-      puts "#{site.source}"
-      documents.each do |doc|
-        file_creation_date = git_creation_date(doc.path)
-        if file_creation_date.nil?
-          file_creation_date = File.mtime(doc.path)
-        end
-        doc.data['created_date'] = file_creation_date
-        doc.data['layout'] ||= 'post'
-      end
-      site.instance_variable_set(:@documents, documents)
-
-      # dir 에 속한 docs_size 정의
-      site.config["docs"] = {}
-      total = []
-      documents.each do |doc|
-        total << {"url" => doc.url, "created_date" => doc.data['created_date'], "title" => doc.data['title']}
-      end
-      site.config["docs"]["total"] = total
+      non_collection(site)
+      custom_documents(site) # site.documents 객체 데이터 재정의
+      document_size(site) # dir 에 속한 docs_size 정의
 
       site.config["dir"] = {}
       site.collections.each do |label, collection|
@@ -53,6 +36,29 @@ module Jekyll
           set_docs(site, collection.docs, dir_path) # docs 정보
         end
       end
+    end
+
+    # site.documents 객체 데이터 재정의
+    def custom_documents(site, documents = site.documents)
+      documents.each do |doc|
+        file_creation_date = git_creation_date(doc.path)
+        # if file_creation_date.nil?
+        #   file_creation_date = File.mtime(doc.path)
+        # end
+        doc.data['created_date'] = file_creation_date
+        doc.data['layout'] ||= 'post'
+      end
+      site.instance_variable_set(:@documents, documents)
+    end
+
+    # dir 에 속한 docs_size 정의
+    def document_size(site, documents = site.documents)
+      site.config["docs"] = {}
+      total = []
+      documents.each do |doc|
+        total << {"url" => doc.url, "created_date" => doc.data['created_date'], "title" => doc.data['title']}
+      end
+      site.config["docs"]["total"] = total
     end
 
     # path: 디렉토리 경로, 디렉토리 정보 sub 디렉토리, 아이콘
@@ -101,10 +107,32 @@ module Jekyll
       rescue => e
         puts "Error getting creation date for #{file_path}: #{e.message}"
       end
-      nil
+      File.mtime(file_path)
     end
 
+    def non_collection(site)
+      root_dir = ["personal", "team"]
+      custom_collection = []
 
+      site.pages.each do |post|
+        dir = post.path.split("/").first
+        if root_dir.include?(dir)
+          post.data ||= {}
+          post.data['layout'] ||= 'project'
+          custom_collection << {
+            'dir' => dir,
+            'title' => post.name.split('.md').first,
+            'content' => post.content,
+            'url' => post.url.split('.html').first,
+            'created_date' => git_creation_date(post.path),
+            'label' => post.data['label'],
+            'img' => post.data['img']
+          }
+        end
+      end
+      # site.instance_variable_set(:@pages, site.pages)
+      site.config['project'] = custom_collection
+    end
 
   end
 end
