@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="{{site.url}}/public/css/post.css">
-<link rel="stylesheet" href="{{site.url}}/public/css/comment.css">
 <link rel="stylesheet" href="{{site.url}}/public/css/dynamic-tag.css">
 <div class="fixed-post-list">
     {% assign dir = page.url | url_decode | split: '/' | slice: -2, 1 | first %}
@@ -28,21 +27,19 @@
 </div>
 <div class="post-container">
     <div class="post-content">{{content}}</div>
-<!--    <div class="post-comment-image">-->
-<!--        <input type="image" src="{{root_url}}/public/img/default/댓글 (1).jpeg" />-->
-<!--    </div>-->
     <div class="post-comment">
         <script src="https://giscus.app/client.js"
                 data-repo="dududat/dududat.github.io"
                 data-repo-id="R_kgDOLZScFA"
                 data-category="General"
                 data-category-id="DIC_kwDOLZScFM4CgATz"
-                data-mapping="url"
+                data-mapping="specific"
+                data-term="{{ page.url | url_decode }}"
                 data-strict="0"
                 data-reactions-enabled="1"
                 data-emit-metadata="0"
                 data-input-position="top"
-                data-theme="light"
+                data-theme="https://cdn.jsdelivr.net/gh/dududat/dududat.github.io@main/public/css/comment.css"
                 data-lang="ko"
                 crossorigin="anonymous"
                 async>
@@ -122,26 +119,26 @@
     })
 </script>
 
-<!--&lt;!&ndash; 커스텀 댓글 블럭 &ndash;&gt;-->
-<!--<script>-->
-<!--    $(document).ready(function() {-->
-<!--        $('iframe[title="Comments"]').on('load', function() {-->
-<!--            const iframeDoc = this.contentDocument || this.contentWindow.document-->
-
-<!--            const head = $(iframeDoc).find('head')-->
-
-<!--            let css = '<style>'/-->
-<!--                '.timeline-comment {' /-->
-<!--                '    background: orange !important;'-->
-<!--                '}'/-->
-<!--                '</style>'-->
-<!--            $(head).append(css)-->
-<!--        })-->
-<!--    });-->
-<!--</script>-->
-
 <!-- 사용자 정의 태그 -->
 <script src="{{root_url}}/public/js/custom/dynamic-tag.js"></script>
 
 <!-- 우측 게시글 nav -->
 <script src="{{root_url}}/public/js/custom/post-side-nav.js"></script>
+
+
+
+
+<!--<script>-->
+<!--    document.addEventListener('DOMContentLoaded', function() {-->
+<!--        const giscusFrame = document.querySelector('iframe.giscus-frame');-->
+<!--        if (giscusFrame) {-->
+<!--            giscusFrame.onload = function() {-->
+<!--                const doc = giscusFrame.contentDocument || giscusFrame.contentWindow.document;-->
+<!--                const style = doc.createElement('link');-->
+<!--                style.rel = 'stylesheet';-->
+<!--                style.href = '/public/css/comment.css'; // 로컬 경로 사용-->
+<!--                doc.head.appendChild(style);-->
+<!--            };-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
