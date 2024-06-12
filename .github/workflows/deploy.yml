@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Purge jsDelivr Cache # css cdn cache 무효화
         run: |
-          curl -X GET "https://purge.jsdelivr.net/gh/dududat/dududat.github.io@main/public/css/comment.css"
+          curl -X GET "https://purge.jsdelivr.net/gh/dududat/dududat.github.io@latest/public/css/comment.css"
       
       
       - name: Check out the repository
