@@ -15,19 +15,22 @@
 .gsc-reactions-menu {
     text-align: center;
 }
-.link-secondary {
-    list-style: none;
-    cursor: pointer;
-    width: fit-content;
-    border: 0.2rem solid lightgray;
-    border-radius: 4.8rem;
-    display: inline-block;
+/*.link-secondary {*/
+/*    list-style: none;*/
+/*    cursor: pointer;*/
+/*    width: fit-content;*/
+/*    border: 0.2rem solid lightgray;*/
+/*    border-radius: 4.8rem;*/
+/*    display: inline-block;*/
 
-    svg {
-        width: 4rem;
-        height: 4rem;
-        color: gray;
-        padding: 0.8rem;
-        border-radius: 4.8rem;
-    }
+/*    svg {*/
+/*        width: 4rem;*/
+/*        height: 4rem;*/
+/*        color: gray;*/
+/*        padding: 0.8rem;*/
+/*        border-radius: 4.8rem;*/
+/*    }*/
+/*}*/
+.flex-auto > details:nth-child(1) > summary:nth-child(1) {
+
 }
