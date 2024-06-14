@@ -696,7 +696,7 @@
             "url": "/Develop/Language/Javascript/%EC%A0%95%EA%B7%9C%EC%8B%9D%20replace%20%ED%83%9C%EA%B7%B8%EB%A1%9C%20%EA%B5%90%EC%B2%B4%EC%8B%9C%20%EC%A2%8C%EC%9A%B0%20%EA%B3%B5%EB%B0%B1%20%EC%82%AC%EB%9D%BC%EC%A7%90/",
             "title": "정규식 replace 태그로 교체시 좌우 공백 사라짐",
             "date": "2024-06-11",
-            "content": "문제원인은 모르겠지만 replace 할 때 태그로 교체할 경우 좌우 공백이 사라지는 문제가 발생함htmlContent.replace(/(\(([^)]+)\))/g, function(match, p1, p2, offset, string) {    return `&amp;lt;span&amp;gt;(${p2})&amp;lt;/span&amp;gt;`; // 괄호 좌우 공백 사라짐});해결좌우에 문자열을 추가하면 해결됨const zeroWidthSpace = &#39;\u200B&#39;; // &amp;amp;nbsp와는 달리 실제로 공간을 차지하지 않음htmlContent.replace(/(\(([^)]+)\))/g, function(match, p1, p2, offset, string) {    return `${zeroWidthSpace}&amp;lt;span&amp;gt;(${p2})&amp;lt;/span&amp;gt;${zeroWidthSpace}`;});"
+            "content": "문제태그와 태그 사이의 공백 무시됨htmlContent.replace(/(\(([^)]+)\))/g, function(match, p1, p2, offset, string) {    return `&amp;lt;span&amp;gt;(${p2})&amp;lt;/span&amp;gt;`; // 괄호 좌우 공백 사라짐});해결좌우에 문자열을 추가하면 해결됨const zeroWidthSpace = &#39;\u200B&#39;; // &amp;amp;nbsp와는 달리 실제로 공간을 차지하지 않음htmlContent.replace(/(\(([^)]+)\))/g, function(match, p1, p2, offset, string) {    return `${zeroWidthSpace}&amp;lt;span&amp;gt;(${p2})&amp;lt;/span&amp;gt;${zeroWidthSpace}`;});"
         },
         
         

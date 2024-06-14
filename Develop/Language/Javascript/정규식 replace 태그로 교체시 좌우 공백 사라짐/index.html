@@ -612,7 +612,7 @@
 </div>
 <div class="post-container">
     <div class="post-content"><h2 id="문제">문제</h2>
-<p>원인은 모르겠지만 replace 할 때 태그로 교체할 경우 좌우 공백이 사라지는 문제가 발생함</p>
+<p>태그와 태그 사이의 공백 무시됨</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">htmlContent</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">(\(([^</span><span class="sr">)</span><span class="se">]</span><span class="sr">+</span><span class="se">)\))</span><span class="sr">/g</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">,</span> <span class="nx">offset</span><span class="p">,</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s2">`&lt;span&gt;(</span><span class="p">${</span><span class="nx">p2</span><span class="p">}</span><span class="s2">)&lt;/span&gt;`</span><span class="p">;</span> <span class="c1">// 괄호 좌우 공백 사라짐</span>
 <span class="p">});</span>
