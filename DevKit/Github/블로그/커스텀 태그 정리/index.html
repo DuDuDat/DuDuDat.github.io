@@ -652,12 +652,25 @@
                 data-reactions-enabled="1"
                 data-emit-metadata="0"
                 data-input-position="top"
-                data-theme="https://cdn.jsdelivr.net/gh/dududat/dududat.github.io@main/public/css/comment.css?time=2024-06-14 11:51:37 +0000"
+                data-theme="https://cdn.jsdelivr.net/gh/dududat/dududat.github.io@main/public/css/comment.css?time=2024-06-14 12:34:06 +0000"
                 data-lang="ko"
                 crossorigin="anonymous"
                 async>
         </script>
     </div>
+    <script>
+        /*.flex-auto > details:nth-child(1) > summary:nth-child(1) svg {*/
+        /*    width: 4rem;*/
+        /*    height: 4rem;*/
+        /*}*/
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     console.log(document.querySelector('.flex-auto'))
+        // })
+        // console.log($('.flex-auto'))
+        // $(document).ready(() => {
+        //     console.log($('.flex-auto'))
+        // })
+    </script>
 </div>
 <indexnav>
     <navicon title="목차 네비"><i class="fa-solid fa-list"></i></navicon>
@@ -741,20 +754,20 @@
 
 
 
-<!--<script>-->
-<!--    document.addEventListener('DOMContentLoaded', function() {-->
-<!--        const giscusFrame = document.querySelector('iframe.giscus-frame');-->
-<!--        if (giscusFrame) {-->
-<!--            giscusFrame.onload = function() {-->
-<!--                const doc = giscusFrame.contentDocument || giscusFrame.contentWindow.document;-->
-<!--                const style = doc.createElement('link');-->
-<!--                style.rel = 'stylesheet';-->
-<!--                style.href = '/public/css/comment.css'; // 로컬 경로 사용-->
-<!--                doc.head.appendChild(style);-->
-<!--            };-->
-<!--        }-->
-<!--    });-->
-<!--</script>-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const giscusFrame = document.querySelector('iframe.giscus-frame');
+        if (giscusFrame) {
+            giscusFrame.onload = function() {
+                const doc = giscusFrame.contentDocument || giscusFrame.contentWindow.document;
+                const style = doc.createElement('link');
+                style.rel = 'stylesheet';
+                style.href = '/public/css/comment.css'; // 로컬 경로 사용
+                doc.head.appendChild(style);
+            };
+        }
+    });
+</script>
     </div>
     <div class="search-container d-none">
         <div class="search-box">
