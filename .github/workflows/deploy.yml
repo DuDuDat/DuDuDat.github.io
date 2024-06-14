@@ -36,12 +36,6 @@ jobs:
       - name: Build the site with Jekyll
         run: bundle exec jekyll build
 
-      - name: Add _headers file
-        run: |
-          echo '/*' > ./_site/_headers
-          echo '  Access-Control-Allow-Origin: *' >> ./_site/_headers
-
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
