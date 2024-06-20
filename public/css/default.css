@@ -487,3 +487,7 @@ menu {
         }
     }
 }
+
+mjx-dtable > * {
+    font-size: 1.1rem !important;
+}

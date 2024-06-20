@@ -57,10 +57,32 @@ window.MathJax = {
     tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
         displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        packages: {'[+]': ['noerrors']},
         tags: 'ams',
         tagSide: 'left'
     },
     svg: {
         fontCache: 'global'
+    },
+    chtml: {
+        fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/tex',
+        displayAlign: 'left',
+        displayIndent: '2em',
+        scale: 1,
+        minScaleAdjust: 50,
+        mtextInheritFont: true,
+        merrorInheritFont: true,
+        mtextFont: 'Nanum Gothic, sans-serif'
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+    },
+    chtmlStyles: {
+        'mjx-dtable > *': {
+            'font-size': '1.1rem !important'
+        }
     }
 };

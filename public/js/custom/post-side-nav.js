@@ -56,10 +56,13 @@ function debounce(elements) {
             }
             interval = setInterval(() => {
                 if (!click) {
-                    const index = $('check').index(target)
+                    let index = $('check').index(target)
+                    index = isDown? index+1:index
                     $('index').removeClass('active')
-                    $('index').get(isDown? index+1:index).classList.add('active')
-                    toggleSubIndices()
+                    if (index < $('index').length) {
+                        $('index').get(index).classList.add('active')
+                        toggleSubIndices()
+                    }
                     clearInterval(interval)
                 }
             }, 50);
